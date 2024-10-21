@@ -27,23 +27,30 @@
   font-style: normal;
 }
 body {
-  background-color: var(--less-black);
+  /* background-color: var(--less-black);
+  background-color: #191919; */
   /* display: flex; */
+  /* background-color: var(--less-black); */
   display: grid;
   flex-direction: column;
   align-items: start;
+  justify-items: center;
 }
 main {
   display: flex;
   flex-direction: column;
   grid-column: 1;
   grid-row: 1;
+  /* max-width: 43.0625rem; */
+  background-color: #191919;
+  align-items: center;
 }
 header {
   z-index: 0;
   grid-column: 1;
   grid-row: 1;
-  background-color: var(--less-black);
+  /* background-color: var(--less-black); */
+  background-color: #191919;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +82,7 @@ header {
   display: grid;
   text-align: center;
   color: var(--white);
+  /* max-width: 43.0625rem; */
   /* overflow: hidden; */
   /* background-image: linear-gradient(
       rgba(255, 255, 255, 0.5),
@@ -106,6 +114,8 @@ header {
     align-items: center;
     grid-column: 1;
     grid-row: 1;
+
+    /* background-color: white; */
     /* padding-block: 6.75rem 7rem; */
   }
   & .new-product-sub-heading {
@@ -135,6 +145,51 @@ header {
     padding-inline: 1.96875rem 1.84375rem;
   }
 }
+.options {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-inline: 1.5rem;
+  padding-block: 5.75rem 7.5rem;
+  gap: 4.25rem;
+  width: 100%;
+
+  & .option-card {
+    background-color: var(--white-smoke);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0.5rem;
+    height: 10.3125rem;
+
+    gap: 1rem;
+    text-transform: uppercase;
+
+    & h2 {
+      font-size: 0.9375rem;
+      letter-spacing: 0.066875rem;
+    }
+
+    & button {
+      display: flex;
+      align-items: center;
+      /* opacity: 50%; */
+      color: hsl(from var(--black) h s l / 0.5);
+      gap: 0.8325rem;
+      margin-block-end: 1.375rem;
+      letter-spacing: 0.0625rem;
+    }
+    & > img {
+      position: absolute;
+      height: 8.5rem;
+      top: -3.25rem;
+    }
+  }
+}
 
 @media (min-width: 48rem) {
   .logo {
@@ -142,9 +197,17 @@ header {
     margin-inline-end: auto;
   }
   .new-product-cont {
-    background: url(../assets/home/tablet/image-header.jpg);
+    /* background: url(../assets/home/tablet/image-header.jpg); */
     background-size: contain;
     background-repeat: no-repeat;
+  }
+
+  .options {
+    flex-direction: row;
+    gap: 0.625rem;
+    & .option-card {
+      padding-inline: 3.625rem 3.375rem;
+    }
   }
 }
 
