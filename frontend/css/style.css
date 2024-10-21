@@ -266,6 +266,29 @@ header {
 .zx7-cont {
   background-image: url(../assets/home/mobile/image-speaker-zx7.jpg);
   background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 0.5rem;
+  padding-block: 6.3125rem;
+  padding-inline: 1.59375rem;
+
+  & p {
+    font-size: 1.75rem;
+    letter-spacing: 0.125rem;
+  }
+
+  & button {
+    font-size: 0.8125rem;
+    letter-spacing: 0.0625rem;
+    padding-block: 0.9375rem;
+    padding-inline: 1.96875rem 1.8475rem;
+    border: 1px solid var(--black);
+    width: max-content;
+  }
 }
 
 @media (min-width: 48rem) {
@@ -286,6 +309,17 @@ header {
       padding-inline: 3.625rem 3.375rem;
     }
   }
+
+  .zx9-speaker-cont {
+    flex-direction: row;
+  }
+
+  .zx7-cont {
+    background-image: url(../assets/home/tablet/image-speaker-zx7.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+  }
 }
 
 @media (min-width: 90rem) {
@@ -303,5 +337,12 @@ header {
 
   .logo {
     margin-inline: 0;
+  }
+
+  .zx7-cont {
+    background-image: url(../assets/home/desktop/image-speaker-zx7.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
   }
 }
