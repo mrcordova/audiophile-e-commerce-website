@@ -20,7 +20,7 @@
       rel="stylesheet" />
     <script type="module" src="js/script.js"></script>
   </head>
-  <body>
+  <body class="manrope-regular">
     <header>
       <img src="./assets/shared/tablet/icon-hamburger.svg" alt="menu icon" />
       <img
@@ -38,13 +38,31 @@
       <img src="./assets/shared/desktop/icon-cart.svg" alt="shopping cart" />
     </header>
     <main>
-      New product XX99 Mark II Headphones Experience natural, lifelike audio and
-      exceptional build quality made for the passionate music enthusiast. See
-      product Headphones Shop Speakers Shop Earphones Shop ZX9 speaker Upgrade
-      to premium speakers that are phenomenally built to deliver truly
-      remarkable sound. See product ZX7 speaker See product YX1 earphones See
-      product Bringing you the best audio gear Located at the heart of New York
-      City, Audiophile is the premier store for high end headphones, earphones,
+      <div class="new-product-cont">
+        <picture>
+          <source
+            media="(min-width: 90rem)"
+            srcset="./assets/home/desktop/image-hero.jpg" />
+          <source
+            media="(min-width: 48rem)"
+            srcset="./assets/home/tablet/image-header.jpg" />
+          <img src="./assets/home/mobile/image-header.jpg" alt="" />
+        </picture>
+        <div>
+          <p class="new-product-sub-heading">New product</p>
+          <h1 class="manrope-bold">XX99 Mark II Headphones</h1>
+          <p class="new-product-para manrope-medium">
+            Experience natural, lifelike audio and exceptional build quality
+            made for the passionate music enthusiast.
+          </p>
+          <button class="product-btn manrope-bold">See product</button>
+        </div>
+      </div>
+      Headphones Shop Speakers Shop Earphones Shop ZX9 speaker Upgrade to
+      premium speakers that are phenomenally built to deliver truly remarkable
+      sound. See product ZX7 speaker See product YX1 earphones See product
+      Bringing you the best audio gear Located at the heart of New York City,
+      Audiophile is the premier store for high end headphones, earphones,
       speakers, and audio accessories. We have a large showroom and luxury
       demonstration rooms available for you to browse and experience a wide
       range of our products. Stop by our store to meet some of the fantastic

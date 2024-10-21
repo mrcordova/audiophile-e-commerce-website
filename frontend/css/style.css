@@ -28,11 +28,21 @@
 }
 body {
   background-color: var(--less-black);
+  /* display: flex; */
+  display: grid;
+  flex-direction: column;
+  align-items: start;
+}
+main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  grid-column: 1;
+  grid-row: 1;
 }
 header {
+  z-index: 0;
+  grid-column: 1;
+  grid-row: 1;
   background-color: var(--less-black);
   display: flex;
   align-items: center;
@@ -56,10 +66,85 @@ header {
   }
 }
 
+.new-product-cont {
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: var(--less-black);
+  display: grid;
+  text-align: center;
+  color: var(--white);
+  /* overflow: hidden; */
+  /* background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgb(255, 255, 255, 0.5)
+    ),
+    url(../assets/home/mobile/image-header.jpg); */
+  /* opacity: 50%; */
+  /* background-position: center bottom;
+  background-repeat: no-repeat;
+
+  background-size: cover; */
+
+  & picture {
+    grid-column: 1;
+    grid-row: 1;
+
+    & img {
+      /* object-position: 50%; */
+      /* height: 32rem; */
+      /* width: 100%; */
+      /* height: 31rem;
+      width: 23rem; */
+    }
+  }
+  & div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+    /* padding-block: 6.75rem 7rem; */
+  }
+  & .new-product-sub-heading {
+    opacity: 50%;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.625rem;
+  }
+  & h1 {
+    /* opacity: 100%; */
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    line-height: 1.11;
+    letter-spacing: 0.080625rem;
+  }
+  & .new-product-para {
+    opacity: 75%;
+    font-size: 0.9375rem;
+    line-height: 1.66;
+  }
+
+  & .product-btn {
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    background-color: var(--peru);
+    padding-block: 0.9375rem;
+    padding-inline: 1.96875rem 1.84375rem;
+  }
+}
+
 @media (min-width: 48rem) {
   .logo {
     margin-inline-start: 2.625rem;
     margin-inline-end: auto;
+  }
+  .new-product-cont {
+    background: url(../assets/home/tablet/image-header.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 
@@ -67,6 +152,12 @@ header {
   header {
     & nav {
       display: block;
+    }
+  }
+
+  .new-product-cont {
+    & div {
+      align-items: flex-start;
     }
   }
 
