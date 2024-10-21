@@ -1,0 +1,28 @@
+:root {
+  --peru: hsl(22, 65%, 57%);
+  --less-black: hsl(0, 0%, 6%);
+  --white-smoke: hsl(0, 0%, 95%);
+  --less-white: hsl(250, 250%, 250%);
+  --light-salmon: hsl(21, 94%, 75%);
+  --white: hsl(255, 255%, 255%);
+  --black: hsl(0, 0%, 0%);
+}
+
+.manrope-regular {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.manrope-medium {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.manrope-bold {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
