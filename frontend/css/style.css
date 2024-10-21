@@ -193,6 +193,9 @@ header {
 .items-section {
   /* background-color: var(--white); */
   padding-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .zx9-speaker-cont {
@@ -207,6 +210,8 @@ header {
   background-position: center top -7.5rem;
   background-size: 34.875rem;
   background-repeat: no-repeat;
+  padding-block: 3.4375rem;
+  gap: 2rem;
 
   & .speaker-img-cont {
     /* padding-inline: 4.8rem; */
@@ -229,6 +234,31 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 1.5rem;
+
+    color: var(--white);
+    & h3 {
+      font-size: 2.25rem;
+      line-height: 1.11;
+      letter-spacing: 0.08rem;
+      text-transform: uppercase;
+      width: 8ch;
+    }
+
+    & p {
+      font-size: 0.9375rem;
+      line-height: 1.663;
+      opacity: 75%;
+    }
+
+    & button {
+      text-transform: uppercase;
+      font-size: 0.8125rem;
+      letter-spacing: 0.0625rem;
+      background-color: var(--black);
+      padding-block: 0.9375rem;
+      padding-inline: 1.96875rem 1.8475rem;
+    }
     /* justify-content: center; */
   }
 }
