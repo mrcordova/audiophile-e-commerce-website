@@ -26,3 +26,41 @@
   font-weight: 700;
   font-style: normal;
 }
+body {
+  background-color: var(--less-black);
+}
+header {
+  background-color: var(--less-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-block: 2rem;
+  padding-inline: 1.5rem;
+  border-bottom: 1px solid #979797;
+
+  max-width: 43.0625rem;
+
+  & nav {
+    display: none;
+  }
+  & menu {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    /* display: none; */
+  }
+}
+
+@media (min-width: 48rem) {
+  header {
+  }
+}
+
+@media (min-width: 90rem) {
+  header {
+    & nav {
+      display: block;
+    }
+  }
+}
