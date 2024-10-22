@@ -41,6 +41,7 @@ main {
   flex-direction: column;
   grid-column: 1;
   grid-row: 1;
+  width: 100%;
   /* max-width: 43.0625rem; */
   /* background-color: #191919; */
   align-items: center;
@@ -60,8 +61,8 @@ header {
   border-bottom: 1px solid hsl(from var(--white-smoke) h s l / 0.1);
 
   width: 100%;
-  max-width: 43.0625rem;
-
+  /* max-width: 43.0625rem; */
+  max-width: 69.375rem;
   & nav {
     display: none;
   }
@@ -72,7 +73,55 @@ header {
     /* display: none; */
   }
 }
+footer {
+  background-color: #191919;
+  width: 100%;
 
+  & div {
+    max-width: 69.375rem;
+    margin-inline: auto;
+  }
+}
+.gear-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-inline: 1.5rem;
+  padding-block: 7.5rem;
+  /* align-items: center; */
+  /* justify-content: center; */
+  text-align: center;
+  & img {
+    border-radius: 0.5rem;
+  }
+  & h3 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    & span {
+      color: var(--peru);
+    }
+  }
+
+  & p {
+    font-size: 0.9375rem;
+    opacity: 50%;
+    line-height: 1.66;
+  }
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.hero-section {
+  width: 100%;
+  background-color: #191919;
+  /* margin-inline: auto; */
+  display: flex;
+  justify-content: center;
+}
 .new-product-cont {
   /* display: flex;
   flex-direction: column; */
@@ -94,6 +143,7 @@ header {
   background-repeat: no-repeat;
 
   background-size: cover; */
+  max-width: 69.375rem;
 
   & picture {
     grid-column: 1;
@@ -196,6 +246,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 69.375rem;
 }
 .yx1-earphones-section {
   display: flex;
@@ -377,6 +429,7 @@ header {
   }
 
   .new-product-cont {
+    background-image: url(../assets/home/desktop/image-hero.jpg);
     & div {
       align-items: flex-start;
     }
@@ -384,6 +437,19 @@ header {
 
   .logo {
     margin-inline: 0;
+  }
+  .gear-section {
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: left;
+    max-width: 69.375rem;
+    & picture {
+      flex: 1;
+      /* width: max-content; */
+    }
+    & div {
+      flex: 1;
+    }
   }
 
   .zx7-cont {
