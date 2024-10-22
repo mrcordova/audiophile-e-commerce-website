@@ -76,10 +76,48 @@ header {
 footer {
   background-color: #191919;
   width: 100%;
-
+  color: var(--white);
+  display: grid;
+  gap: 3rem;
+  text-align: center;
+  padding-inline: 1.5rem;
+  padding-block-end: 2.375rem;
   & div {
     max-width: 69.375rem;
     margin-inline: auto;
+  }
+  & menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    align-items: center;
+    & li {
+      list-style: none;
+      font-size: 0.8125rem;
+      line-height: 1.92;
+      letter-spacing: 0.125rem;
+      & a {
+        text-decoration: none;
+        color: var(--white);
+      }
+    }
+  }
+  & p {
+    font-size: 0.9375rem;
+    line-height: 1.66;
+    opacity: 50%;
+  }
+
+  & .footer-highlight {
+    width: 6.3125rem;
+    height: 0.25rem;
+    background-color: var(--peru);
+  }
+
+  & .links-cont {
+    display: flex;
+    gap: 1rem;
   }
 }
 .gear-section {
