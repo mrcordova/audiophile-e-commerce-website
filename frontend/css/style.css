@@ -81,7 +81,7 @@ footer {
   background-color: #191919;
   & .footer-cont {
     max-width: 69.375rem;
-    background-color: #191919;
+    /* background-color: #191919; */
     width: 100%;
     color: var(--white);
 
@@ -226,6 +226,7 @@ footer {
     }
   }
   & div {
+    gap: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -239,20 +240,34 @@ footer {
   & .new-product-sub-heading {
     opacity: 50%;
     text-transform: uppercase;
+    /* mobile */
+    font-size: 0.875rem;
+    letter-spacing: 0.625rem;
+    /* Tablet */
     font-size: 0.875rem;
     letter-spacing: 0.625rem;
   }
   & h1 {
-    /* opacity: 100%; */
     text-transform: uppercase;
+    /* Mobile */
     font-size: 2.25rem;
     line-height: 1.11;
     letter-spacing: 0.080625rem;
+    /* Tablet */
+    font-size: 3.5rem;
+    line-height: 1.03;
+    letter-spacing: 0.125rem;
   }
   & .new-product-para {
     opacity: 75%;
+    /* Mobile */
     font-size: 0.9375rem;
     line-height: 1.66;
+    padding-inline: 1.5rem;
+    /* Tablet */
+    font-size: 0.9375rem;
+    line-height: 1.66;
+    padding-inline: 12rem;
   }
 
   & .product-btn {
@@ -268,11 +283,16 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 
+  /* Mobile */
   padding-inline: 1.5rem;
   padding-block: 5.75rem 7.5rem;
   gap: 4.25rem;
-  width: 100%;
+  /* Tablet */
+  padding-inline: 2.4375rem 2.5rem;
+  padding-block: 9.25rem 6rem;
+  gap: 4.25rem;
 
   & .option-card {
     background-color: var(--white-smoke);
@@ -310,12 +330,16 @@ footer {
 }
 .items-section {
   /* background-color: var(--white); */
-  padding-inline: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   width: 100%;
   max-width: 69.375rem;
+  /* Mobile */
+  gap: 1.5rem;
+  padding-inline: 1.5rem;
+  /* Tablet */
+  gap: 2rem;
+  padding-inline: 2.4375rem 2.5rem;
 }
 .yx1-earphones-section {
   display: flex;
@@ -364,7 +388,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 37rem; */
+  /* Mobile */
   background-image: url(../assets/home/desktop/pattern-circles.svg);
   background-position: center top -7.5rem;
   background-size: 34.875rem;
@@ -372,19 +396,17 @@ footer {
   padding-block: 3.4375rem;
   gap: 2rem;
 
-  & .speaker-img-cont {
-    /* padding-inline: 4.8rem; */
-    /* padding-block: 3.4375rem; */
+  /* Tablet */
+  background-image: url(../assets/home/desktop/pattern-circles.svg);
+  background-position: center top -20.5rem;
+  background-size: 59rem;
+  background-repeat: no-repeat;
+  padding-block: 3.4375rem;
+  gap: 2rem;
 
-    & picture {
-      /* width: 100%; */
-      /* height: 20rem; */
-      /* width: 20rem; */
-      /* height: 12.9re; */
-    }
+  & .speaker-img-cont {
     & img {
       height: 12.9rem;
-      /* height: 20rem; */
     }
   }
 
@@ -397,10 +419,16 @@ footer {
 
     color: var(--white);
     & h3 {
+      text-transform: uppercase;
+      /* mobile */
       font-size: 2.25rem;
       line-height: 1.11;
       letter-spacing: 0.08rem;
-      text-transform: uppercase;
+      width: 8ch;
+      /* Tablet */
+      font-size: 3.5rem;
+      line-height: 1.03;
+      letter-spacing: 0.125rem;
       width: 8ch;
     }
 
@@ -408,6 +436,8 @@ footer {
       font-size: 0.9375rem;
       line-height: 1.663;
       opacity: 75%;
+      /* Tablet */
+      width: 35ch;
     }
 
     & button {
@@ -492,10 +522,6 @@ footer {
     }
   }
 
-  .zx9-speaker-cont {
-    flex-direction: row;
-  }
-
   .zx7-cont {
     background-image: url(../assets/home/tablet/image-speaker-zx7.jpg);
     background-repeat: no-repeat;
@@ -551,6 +577,9 @@ footer {
     & div {
       flex: 1;
     }
+  }
+  .zx9-speaker-cont {
+    flex-direction: row;
   }
 
   .zx7-cont {
