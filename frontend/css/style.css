@@ -56,21 +56,36 @@ header {
   align-items: center;
   justify-content: space-between;
 
+  /* Mobile */
   padding-block: 2rem;
   padding-inline: 1.5rem;
   border-bottom: 1px solid hsl(from var(--white-smoke) h s l / 0.1);
 
   width: 100%;
-  /* max-width: 43.0625rem; */
   max-width: 69.375rem;
+  /* Desktop */
+  padding-block: 2rem;
+  padding-inline: 0rem;
   & nav {
     display: none;
   }
   & menu {
     display: flex;
+    gap: 2.125rem;
     padding: 0;
     list-style: none;
     /* display: none; */
+
+    & a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      line-height: 1.92;
+      letter-spacing: 0.125rem;
+    }
+  }
+  & .mobile-menu {
+    display: block;
   }
 }
 footer {
@@ -204,26 +219,11 @@ footer {
   justify-content: center;
 }
 .new-product-cont {
-  /* display: flex;
-  flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
   background-color: var(--less-black);
   display: grid;
   text-align: center;
   color: var(--white);
-  /* max-width: 43.0625rem; */
-  /* overflow: hidden; */
-  /* background-image: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgb(255, 255, 255, 0.5)
-    ),
-    url(../assets/home/mobile/image-header.jpg); */
-  /* opacity: 50%; */
-  /* background-position: center bottom;
-  background-repeat: no-repeat;
 
-  background-size: cover; */
   max-width: 69.375rem;
 
   & picture {
@@ -231,11 +231,6 @@ footer {
     grid-row: 1;
 
     & img {
-      /* object-position: 50%; */
-      /* height: 32rem; */
-      /* width: 100%; */
-      /* height: 31rem;
-      width: 23rem; */
     }
   }
   & div {
@@ -246,9 +241,6 @@ footer {
     align-items: center;
     grid-column: 1;
     grid-row: 1;
-
-    /* background-color: white; */
-    /* padding-block: 6.75rem 7rem; */
   }
   & .new-product-sub-heading {
     opacity: 50%;
@@ -281,6 +273,10 @@ footer {
     font-size: 0.9375rem;
     line-height: 1.66;
     padding-inline: 12rem;
+    /* Desktop */
+    font-size: 0.9375rem;
+    line-height: 1.66;
+    padding-inline: 0rem;
   }
 
   & .product-btn {
@@ -569,12 +565,17 @@ footer {
     & nav {
       display: block;
     }
+    & .mobile-menu {
+      display: none;
+    }
   }
 
   .new-product-cont {
     background-image: url(../assets/home/desktop/image-hero.jpg);
+    text-align: left;
     & div {
       align-items: flex-start;
+      width: 37ch;
     }
   }
 
