@@ -197,7 +197,46 @@ header {
   flex-direction: column;
   gap: 1.5rem;
 }
+.yx1-earphones-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-transform: uppercase;
+  & img {
+    border-radius: 0.5rem;
+    /* flex: 1; */
+  }
 
+  & picture {
+    flex: 1;
+  }
+
+  & .yx1-earphones-info {
+    flex: 1;
+    background-color: var(--white-smoke);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    padding-block: 2.5625rem;
+    padding-inline: 1.5rem 0rem;
+
+    & p {
+      font-size: 1.75rem;
+      letter-spacing: 0.125rem;
+    }
+
+    & button {
+      font-size: 0.8125rem;
+      letter-spacing: 0.0625rem;
+      padding-block: 0.9375rem;
+      padding-inline: 1.96875rem 1.8475rem;
+      border: 1px solid var(--black);
+      width: max-content;
+    }
+  }
+}
 .zx9-speaker-cont {
   background-color: var(--peru);
   border-radius: 0.5rem;
@@ -319,6 +358,14 @@ header {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
+  }
+
+  .yx1-earphones-section {
+    flex-direction: row;
+
+    & .yx1-earphones-info {
+      padding-block: 0;
+    }
   }
 }
 
