@@ -153,19 +153,29 @@ footer {
 .gear-section {
   display: flex;
   flex-direction: column;
+  /* Mobile */
   gap: 2.5rem;
   padding-inline: 1.5rem;
   padding-block: 7.5rem;
-  /* align-items: center; */
-  /* justify-content: center; */
+  /* TAblet */
+  gap: 2.5rem;
+  padding-inline: 1.5rem;
+  padding-block: 6rem;
+
   text-align: center;
   & img {
     border-radius: 0.5rem;
   }
   & h3 {
-    font-size: 1.75rem;
     text-transform: uppercase;
+    /* MObile */
+    font-size: 1.75rem;
     letter-spacing: 0.0625rem;
+    line-height: 2.375;
+    /* Tablet */
+    font-size: 2.25rem;
+    letter-spacing: 0.0625rem;
+    line-height: 1.1;
     & span {
       color: var(--peru);
     }
@@ -181,6 +191,9 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    /* Tablet */
+    /* padding-inline: 5.0625rem 5.125rem; */
   }
 }
 .hero-section {
@@ -344,8 +357,11 @@ footer {
 .yx1-earphones-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   text-transform: uppercase;
+  /* Mobile */
+  gap: 1.5rem;
+  /* Tablet */
+  gap: 0.6875rem;
   & img {
     border-radius: 0.5rem;
     /* flex: 1; */
@@ -524,9 +540,9 @@ footer {
 
   .zx7-cont {
     background-image: url(../assets/home/tablet/image-speaker-zx7.jpg);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-position: right center;
-    background-size: cover;
+    background-size: cover; */
   }
 
   .yx1-earphones-section {
