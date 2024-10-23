@@ -111,6 +111,8 @@ footer {
     gap: 3rem;
     text-align: center;
     padding-inline: 1.5rem;
+    /* Desktop */
+    padding-inline: 0rem;
     padding-block-end: 2.375rem;
     & .copyright {
       grid-area: copyright;
@@ -127,6 +129,7 @@ footer {
     }
     & .nav-cont {
       grid-area: nav;
+      margin-inline-start: auto;
     }
     & menu {
       display: flex;
@@ -610,11 +613,12 @@ footer {
 @media (min-width: 90rem) {
   footer {
     & .footer-cont {
+      grid-template-columns: 1fr 1fr;
       grid-template-areas:
         "border border"
         "logo nav"
         "company ."
-        ". links"
+        "company links"
         "copyright .";
     }
   }
@@ -625,6 +629,9 @@ footer {
     & .mobile-menu {
       display: none;
     }
+  }
+
+  footer {
   }
 
   .new-product-cont {
