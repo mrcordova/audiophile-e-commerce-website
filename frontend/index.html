@@ -23,7 +23,10 @@
   <body class="manrope-regular">
     <header>
       <div class="header-cont">
-        <button popovertarget="mobile-menu" class="mobile-menu-btn">
+        <button
+          aria-haspopup="menu"
+          popovertarget="mobile-menu"
+          class="mobile-menu-btn">
           <img
             src="./assets/shared/tablet/icon-hamburger.svg"
             alt="menu icon" />
@@ -42,7 +45,7 @@
         </nav>
         <img src="./assets/shared/desktop/icon-cart.svg" alt="shopping cart" />
       </div>
-      <div popover id="mobile-menu">
+      <div role="menu" popover id="mobile-menu">
         <nav>
           <menu class="options">
             <li class="option-card">
