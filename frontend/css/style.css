@@ -31,6 +31,7 @@ body {
   flex-direction: column;
   align-items: start;
   justify-items: center;
+  transition: all 1s ease;
 }
 main {
   display: flex;
@@ -377,26 +378,30 @@ footer {
   }
 }
 .items-section {
-  /* background-color: var(--white); */
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 69.375rem;
+
+  gap: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
   /* Mobile */
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
   /* padding-inline: 1.5rem; */
   /* Tablet */
-  gap: 2rem;
+  /* gap: 2rem; */
   /* padding-inline: 2.4375rem 2.5rem; */
 }
 .yx1-earphones-section {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  gap: clamp(0.6875rem, 2.2753rem + -3.3079vw, 1.5rem);
   /* Mobile */
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
   /* Tablet */
-  gap: 0.6875rem;
+  /* gap: 0.6875rem; */
   & img {
     border-radius: 0.5rem;
     /* flex: 1; */
@@ -422,7 +427,7 @@ footer {
       /* Mobile */
       padding-inline: 1.5rem 0rem;
       /* Desktop */
-      padding-inline: 6.03125rem 0rem;
+      /* padding-inline: 6.03125rem 0rem; */
     }
 
     & button {
@@ -435,10 +440,11 @@ footer {
       /* Mobile */
       margin-inline: 1.5rem 0rem;
       /* Desktop */
-      margin-inline: 6.03125rem 0rem;
+      /* margin-inline: 6.03125rem 0rem; */
     }
   }
 }
+
 .zx9-speaker-cont {
   background-color: var(--peru);
   border-radius: 0.5rem;
@@ -447,37 +453,28 @@ footer {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-size: clamp(34.875rem, 11.855rem + 98.2188vw, 59rem);
+  /* background-size: 35rem; */
+  background-repeat: no-repeat;
+  padding-block: 3.4375rem;
+  gap: clamp(2rem, 0.0916rem + 8.1425vw, 4rem);
   /* Mobile */
   background-image: url(../assets/home/desktop/pattern-circles.svg);
-  background-position: center top -7.5rem;
-  background-size: 34.875rem;
+  background-position: center top
+    clamp(-20.5rem, 4.9046rem + -52.9262vw, -7.5rem);
+  /* background-size: 34.875rem; */
   background-repeat: no-repeat;
-  padding-block: 3.4375rem;
-  gap: 2rem;
+  /* padding-block: 3.4375rem; */
+  /* gap: 2rem; */
 
-  /* Tablet */
-  background-image: url(../assets/home/desktop/pattern-circles.svg);
-  background-position: center top -20.5rem;
-  background-size: 59rem;
-  background-repeat: no-repeat;
-  padding-block: 3.4375rem;
-  gap: 2rem;
-  /* Desktop */
-  background-image: url(../assets/home/desktop/pattern-circles.svg);
-  background-position: left -9rem top -2rem;
-  background-size: 53rem;
-  background-repeat: no-repeat;
-  padding-block: 3.4375rem;
-  gap: 8.6425rem;
-
-  max-height: 35rem;
+  /* max-height: 35rem; */
 
   & img {
     height: 12.9rem;
-    /* Deskto */
-    height: 25.8125rem;
+    /* Desktop */
+    /* height: 25.8125rem; */
     /* flex: 1; */
-    margin-block-end: -4rem;
+    /* margin-block-end: -4rem; */
   }
 
   & .zx9-speaker-info {
@@ -491,24 +488,26 @@ footer {
     color: var(--white);
     & h3 {
       text-transform: uppercase;
+      font-size: clamp(2.25rem, 1.0573rem + 5.0891vw, 3.5rem);
+      letter-spacing: clamp(0.08rem, 0.0371rem + 0.1832vw, 0.125rem);
+      width: 8ch;
       /* mobile */
-      font-size: 2.25rem;
+      /* font-size: 2.25rem; */
       line-height: 1.11;
-      letter-spacing: 0.08rem;
-      width: 8ch;
+      /* letter-spacing: 0.08rem; */
+      /* width: 8ch; */
       /* Tablet */
-      font-size: 3.5rem;
-      line-height: 1.03;
-      letter-spacing: 0.125rem;
-      width: 8ch;
+      /* font-size: 3.5rem; */
+      /* line-height: 1.03; */
+      /* line-height: 1.03; */
+      /* letter-spacing: 0.125rem; */
+      /* width: 8ch; */
     }
 
     & p {
       font-size: 0.9375rem;
       line-height: 1.663;
       opacity: 75%;
-      /* Tablet */
-      width: 35ch;
     }
 
     & button {
@@ -593,6 +592,15 @@ footer {
     /* padding-block: 2rem; */
     /* padding-inline: 0rem; */
     padding-inline: clamp(0rem, 3.2143rem + -3.5714vw, 1.5rem);
+  }
+
+  .items-section {
+    /* Tablet */
+    /* gap: 2rem; */
+    /* padding-inline: 2.4375rem 2.5rem; */
+    gap: clamp(2rem, 0.8571rem + 2.381vw, 3rem);
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
   }
 
   footer {
@@ -690,15 +698,60 @@ footer {
     }
   }
 
+  .zx9-speaker-cont {
+    gap: clamp(2rem, -5.5893rem + 15.811vw, 8.6406rem);
+    background-size: clamp(53rem, 65.8571rem + -14.2857vw, 59rem);
+
+    /* background-size: 34rem; */
+    background-position-y: clamp(-20.5rem, -41.6429rem + 44.0476vw, -2rem);
+    /* background-position-x: clamp(-9rem, 10.2857rem + -21.4286vw, 0rem); */
+    /* Tablet */
+    /* background-image: url(../assets/home/desktop/pattern-circles.svg); */
+    /* background-position: center top -10rem; */
+    /* background-size: 59rem; */
+    /* background-repeat: no-repeat; */
+    /* padding-block: 3.4375rem; */
+    /* gap: 2rem; */
+    /* Desktop */
+    /* background-image: url(../assets/home/desktop/pattern-circles.svg); */
+
+    /* background-size: 53rem; */
+    /* background-repeat: no-repeat; */
+    /* padding-block: 3.4375rem; */
+    /* gap: 8.6425rem; */
+
+    & .zx9-speaker-info {
+      /* Tablet */
+      width: 35ch;
+
+      & h3 {
+        line-height: 1.03;
+      }
+    }
+
+    & img {
+      height: clamp(12.9rem, -1.8571rem + 30.744vw, 25.8125rem);
+      margin-block-end: clamp(-4rem, 4.5714rem + -9.5238vw, 0rem);
+    }
+  }
+
   .zx7-cont {
     background-image: url(../assets/home/tablet/image-speaker-zx7.jpg);
   }
 
   .yx1-earphones-section {
     flex-direction: row;
+    gap: clamp(1.5rem, 1.0714rem + 0.8929vw, 1.875rem);
 
     & .yx1-earphones-info {
       padding-block: 0;
+
+      & p {
+        padding-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem;
+      }
+      & button {
+        margin-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem;
+      }
     }
   }
 }
@@ -760,6 +813,7 @@ footer {
   }
   .zx9-speaker-cont {
     flex-direction: row;
+    background-position: left -9rem top -2rem;
 
     & .zx9-speaker-info {
       text-align: left;
