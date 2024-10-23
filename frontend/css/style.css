@@ -99,11 +99,13 @@ footer {
       "company"
       "copyright"
       "links";
-    gap: 3rem;
     text-align: center;
-    padding-inline: 1.5rem;
-    /* Desktop */
-    /* padding-inline: 0rem; */
+    /* gap: 3rem; */
+    gap: clamp(2rem, 3.9542rem + -4.0712vw, 3rem);
+
+    /* padding-inline: 1.5rem; */
+    padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+      clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
     padding-block-end: 2.375rem;
     & .copyright {
       grid-area: copyright;
@@ -160,11 +162,16 @@ footer {
   }
 }
 .gear-section {
+  width: 100%;
+  max-width: 69.375rem;
   display: flex;
   flex-direction: column;
   padding-block: clamp(6rem, 8.9313rem + -6.1069vw, 7.5rem);
-  gap: 2.5rem;
-  padding-inline: 1.5rem;
+  /* gap: 2.5rem; */
+  gap: clamp(2.5rem, 1.1283rem + 5.8524vw, 3.9375rem);
+  /* padding-inline: 1.5rem; */
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
   /* Mobile */
   /* gap: 2.5rem; */
   /* padding-inline: 1.5rem; */
@@ -421,11 +428,14 @@ footer {
     justify-content: center;
     padding-block: 2.5625rem;
 
+    /* padding-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem; */
+
     & p {
       font-size: 1.75rem;
       letter-spacing: 0.125rem;
+      padding-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem;
       /* Mobile */
-      padding-inline: 1.5rem 0rem;
+      /* padding-inline: 1.5rem 0rem; */
       /* Desktop */
       /* padding-inline: 6.03125rem 0rem; */
     }
@@ -437,8 +447,9 @@ footer {
       padding-inline: 1.96875rem 1.8475rem;
       border: 1px solid var(--black);
       width: max-content;
+      margin-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem;
       /* Mobile */
-      margin-inline: 1.5rem 0rem;
+      /* margin-inline: 1.5rem 0rem; */
       /* Desktop */
       /* margin-inline: 6.03125rem 0rem; */
     }
@@ -530,16 +541,24 @@ footer {
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  padding-block: 6.3125rem;
+  gap: 2rem;
+  border-radius: 0.5rem;
+
+  padding-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem;
   /* Mobile */
-  gap: 2rem;
-  border-radius: 0.5rem;
-  padding-block: 6.3125rem;
-  padding-inline: 1.59375rem;
+  /* gap: 2rem; */
+  /* border-radius: 0.5rem; */
+  /* padding-block: 6.3125rem; */
+  /* padding-inline: 1.59375rem 0rem; */
+
+  /* Tablet */
+  /* padding-inline: 3.875rem 0rem; */
   /* Desktop */
-  gap: 2rem;
-  border-radius: 0.5rem;
-  padding-block: 6.3125rem;
-  padding-inline: 5.9375rem;
+  /* gap: 2rem; */
+  /* border-radius: 0.5rem; */
+  /* padding-block: 6.3125rem; */
+  /* padding-inline: 5.9375rem 0rem; */
 
   & p {
     font-size: 1.75rem;
@@ -562,8 +581,11 @@ footer {
     margin-inline-end: auto;
   }
   .gear-section {
-    gap: clamp(2.5rem, -3.5714rem + 12.6488vw, 7.8125rem);
+    /* gap: clamp(2.5rem, -3.5714rem + 12.6488vw, 7.8125rem); */
+    gap: clamp(3.9375rem, -0.4911rem + 9.2262vw, 7.8125rem);
     padding-block: clamp(1.5rem, -11.0714rem + 26.1905vw, 12.5rem);
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
 
     & h3 {
       font-size: clamp(2.25rem, 1.9643rem + 0.5952vw, 2.5rem);
@@ -610,9 +632,12 @@ footer {
         "logo logo"
         "nav nav"
         "company company"
+        ". ."
         "copyright links";
 
       text-align: left;
+      padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+        clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
 
       & menu {
         flex-direction: row;
@@ -623,6 +648,9 @@ footer {
       }
       .links-cont {
         margin-inline: auto 0;
+      }
+      & .company {
+        margin-block-end: auto;
       }
     }
   }
@@ -737,20 +765,33 @@ footer {
 
   .zx7-cont {
     background-image: url(../assets/home/tablet/image-speaker-zx7.jpg);
+    padding-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem;
+
+    /* Tablet */
+    /* padding-inline: 3.875rem 0rem; */
+    /* Desktop */
+    /* gap: 2rem; */
+    /* border-radius: 0.5rem; */
+    /* padding-block: 6.3125rem; */
+    /* padding-inline: 5.9375rem 0rem; */
   }
 
   .yx1-earphones-section {
     flex-direction: row;
-    gap: clamp(1.5rem, 1.0714rem + 0.8929vw, 1.875rem);
+    /* gap: clamp(1.5rem, 1.0714rem + 0.8929vw, 1.875rem); */
+    gap: clamp(0.6875rem, -0.6696rem + 2.8274vw, 1.875rem);
 
     & .yx1-earphones-info {
       padding-block: 0;
+      /* padding-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem; */
 
       & p {
-        padding-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem;
+        /* padding-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem; */
+        padding-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem;
       }
       & button {
-        margin-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem;
+        /* margin-inline: clamp(1.5rem, -3.6786rem + 10.7887vw, 6.0313rem) 0rem; */
+        margin-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem;
       }
     }
   }
@@ -803,7 +844,8 @@ footer {
     align-items: center;
     text-align: left;
     max-width: 69.375rem;
-    padding-inline: clamp(0rem, 3.2143rem + -3.5714vw, 1.5rem);
+    /* padding-inline: clamp(0rem, 3.2143rem + -3.5714vw, 1.5rem); */
+
     & picture {
       flex: 1;
     }
