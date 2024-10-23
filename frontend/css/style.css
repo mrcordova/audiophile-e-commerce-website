@@ -170,15 +170,15 @@ footer {
   flex-direction: column;
   /* Mobile */
   gap: 2.5rem;
-  padding-inline: 1.5rem;
+  /* padding-inline: 1.5rem; */
   padding-block: 7.5rem;
   /* TAblet */
   gap: 2.5rem;
-  padding-inline: 1.5rem;
+  /* padding-inline: 1.5rem; */
   padding-block: 6rem;
   /* Desktop */
-  gap: 2.5rem;
-  padding-inline: 1.5rem;
+  gap: 7.8125rem;
+  /* padding-inline: 1.5rem; */
   padding-block: 12.5rem;
 
   text-align: center;
@@ -195,6 +195,10 @@ footer {
     font-size: 2.25rem;
     letter-spacing: 0.0625rem;
     line-height: 1.1;
+    /* Desktop */
+    font-size: 2.5rem;
+    letter-spacing: 0.0893rem;
+    line-height: 1.1;
     & span {
       color: var(--peru);
     }
@@ -210,6 +214,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    /* Desktop */
 
     /* Tablet */
     /* padding-inline: 5.0625rem 5.125rem; */
@@ -299,15 +304,15 @@ footer {
   width: 100%;
 
   /* Mobile */
-  padding-inline: 1.5rem;
+  /* padding-inline: 1.5rem; */
   padding-block: 5.75rem 7.5rem;
   gap: 4.25rem;
   /* Tablet */
-  padding-inline: 2.4375rem 2.5rem;
+  /* padding-inline: 2.4375rem 2.5rem; */
   padding-block: 9.25rem 6rem;
   gap: 4.25rem;
   /* Desktop */
-  padding-inline: 2.4375rem 2.5rem;
+  /* padding-inline: 2.4375rem 2.5rem; */
   padding-block: 12.5rem 10.5rem;
   gap: 1.875rem;
 
@@ -371,10 +376,10 @@ footer {
   max-width: 69.375rem;
   /* Mobile */
   gap: 1.5rem;
-  padding-inline: 1.5rem;
+  /* padding-inline: 1.5rem; */
   /* Tablet */
   gap: 2rem;
-  padding-inline: 2.4375rem 2.5rem;
+  /* padding-inline: 2.4375rem 2.5rem; */
 }
 .yx1-earphones-section {
   display: flex;
