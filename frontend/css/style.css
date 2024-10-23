@@ -52,14 +52,32 @@ header {
   justify-content: space-between;
   width: 100%;
   max-width: 69.375rem;
-  border-bottom: 1px solid hsl(from var(--white-smoke) h s l / 0.1);
+  /* border-bottom: 1px solid hsl(from var(--white-smoke) h s l / 0.1); */
   /* Mobile */
-  padding-block: 2rem;
-  padding-inline: 1.5rem;
+  /* padding-block: 2rem; */
+  /* padding-inline: 1.5rem; */
+  /* padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem); */
+  padding-inline: clamp(0rem, -2.3259rem + 9.9237vw, 2.4375rem)
+    clamp(0rem, -2.3855rem + 10.1781vw, 2.5rem);
 
+  /* padding-inline: 0rem; */
   /* Desktop */
   /* padding-block: 2rem; */
   /* padding-inline: 0rem; */
+  & .header-cont {
+    padding-block: 2rem;
+    /* padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+      clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem); */
+    padding-inline: clamp(0rem, 2.9313rem + -6.1069vw, 1.5rem);
+    /* flex: 1; */
+    max-width: 69.375rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid hsl(from var(--white-smoke) h s l / 0.1);
+  }
   & nav {
     display: none;
   }
@@ -613,7 +631,23 @@ footer {
     /* Desktop */
     /* padding-block: 2rem; */
     /* padding-inline: 0rem; */
-    padding-inline: clamp(0rem, 3.2143rem + -3.5714vw, 1.5rem);
+    /* padding-inline: clamp(0rem, 3.2143rem + -3.5714vw, 1.5rem); */
+    /* padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    padding-block: clamp(2rem, 1.7857rem + 0.4464vw, 2.1875rem)
+      clamp(2rem, 1.7143rem + 0.5952vw, 2.25rem); */
+    /* Tablet  */
+    /* padding-block: 2rem; */
+    /* padding-inline: 2.4375rem 2.5rem; */
+
+    /* padding-block: 2.1875rem 2.25rem; */
+
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    & .header-cont {
+      padding-block: clamp(2rem, 1.7857rem + 0.4464vw, 2.1875rem)
+        clamp(2rem, 1.7143rem + 0.5952vw, 2.25rem);
+    }
   }
 
   .items-section {
