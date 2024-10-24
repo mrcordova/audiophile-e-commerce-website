@@ -413,13 +413,14 @@ footer {
       letter-spacing: 0.066875rem;
     }
 
-    & button {
+    & a {
       display: flex;
       align-items: center;
       color: hsl(from var(--black) h s l / 0.5);
       gap: 0.8325rem;
       margin-block-end: 1.375rem;
       letter-spacing: 0.0625rem;
+      text-decoration: none;
     }
     & > img {
       position: absolute;
