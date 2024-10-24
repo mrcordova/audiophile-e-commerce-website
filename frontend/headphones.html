@@ -1,17 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <title>Frontend Mentor | Audiophile e-commerce website</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" type="module"></script>
+  </head>
 
-  <title>Frontend Mentor | Audiophile e-commerce website</title>
-</head>
-
-<body>
-  Home
+  <body>
+    <header>
+      <div class="header-cont">
+        <button
+          aria-haspopup="menu"
+          popovertarget="mobile-menu"
+          class="mobile-menu-btn">
+          <img
+            src="./assets/shared/tablet/icon-hamburger.svg"
+            alt="menu icon" />
+        </button>
+        <img
+          src="./assets/shared/desktop/logo.svg"
+          alt="Audiophile"
+          class="logo" />
+        <nav class="desktop-nav">
+          <menu class="manrope-bold">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./headphones.html">HEADPHONES</a></li>
+            <li><a href="./speakers.html">SPEAKERS</a></li>
+            <li><a href="./earphones.html">EARPHONES</a></li>
+          </menu>
+        </nav>
+        <img src="./assets/shared/desktop/icon-cart.svg" alt="shopping cart" />
+      </div>
+      <div role="menu" popover id="mobile-menu">
+        <nav>
+          <menu class="options">
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-headphones.png"
+                alt="" />
+              <h2 class="manrope-bold">headphones</h2>
+              <a
+                data-menu-item="shop"
+                href="./headphones.html"
+                class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-speakers.png"
+                alt="" />
+              <h2 class="manrope-bold">speakers</h2>
+              <a href="./speakers.html" class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-earphones.png"
+                alt="" />
+              <h2 class="manrope-bold">earphones</h2>
+              <a href="./earphones.html" class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+          </menu>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="hero-section title">
+        <h1 class="manrope-bold">headphones</h1>
+        <!-- <div class="new-product-cont">
+          <picture>
+            <source
+              media="(min-width: 90rem)"
+              srcset="./assets/home/desktop/image-hero.jpg" />
+            <source
+              media="(min-width: 48rem)"
+              srcset="./assets/home/tablet/image-header.jpg" />
+            <img
+              src="./assets/home/mobile/image-header.jpg"
+              alt="xx99 Mark 2 headphones photo" />
+          </picture>
+          <div>
+            <p class="new-product-sub-heading">New product</p>
+            <h1 class="manrope-bold">XX99 Mark II Headphones</h1>
+            <p class="new-product-para manrope-medium">
+              Experience natural, lifelike audio and exceptional build quality
+              made for the passionate music enthusiast.
+            </p>
+            <button class="product-btn manrope-bold">See product</button>
+          </div>
+        </div> -->
+      </div>
+    </main>
+    <footer></footer>
+    <!-- Home
   Headphones
   Speakers
   Earphones
@@ -63,6 +167,6 @@
   and sound specialists who are devoted to helping you get the most out of personal audio. Come and
   visit our demo facility - we’re open 7 days a week.
 
-  Copyright 2021. All Rights Reserved
-</body>
+  Copyright 2021. All Rights Reserved -->
+  </body>
 </html>
