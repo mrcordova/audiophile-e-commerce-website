@@ -319,7 +319,8 @@ footer {
   padding-inline: clamp(1.5rem, calc(0.605rem + 3.817vw), 2.438rem)
     clamp(1.5rem, calc(0.546rem + 4.071vw), 2.5rem);
 
-  padding-block: clamp(4rem, calc(0.66rem + 14.249vw), 7.5rem) 10.75rem;
+  padding-block: clamp(4rem, calc(0.66rem + 14.249vw), 7.5rem)
+    clamp(4.75rem, calc(5.239rem + -1.018vw), 5rem);
 }
 .new-product-cont {
   background-color: var(--less-black);
@@ -618,7 +619,8 @@ footer {
 
   .items-cont {
     padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem);
-    padding-block: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem);
+    padding-block: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem)
+      clamp(2.5rem, calc(7.321rem + -5.357vw), 4.75rem);
   }
 
   footer {
