@@ -260,6 +260,11 @@ footer {
     gap: 2rem;
   }
 }
+
+.item-gear-section {
+  padding-block-start: clamp(0rem, calc(-1.431rem + 6.107vw), 1.5rem);
+  padding-block-end: 7.5rem;
+}
 .hero-section {
   width: 100%;
   background-color: #191919;
@@ -580,6 +585,10 @@ footer {
       padding-inline: clamp(0rem, 10.8482rem + -12.0536vw, 5.0625rem)
         clamp(0rem, 10.9821rem + -12.2024vw, 5.125rem);
     }
+  }
+  .item-gear-section {
+    padding-block-start: clamp(0rem, calc(3.214rem + -3.571vw), 1.5rem);
+    padding-block-end: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem);
   }
   header {
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
