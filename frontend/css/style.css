@@ -266,6 +266,61 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.item-cont {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, calc(0.807rem + 5.089vw), 3.25rem);
+
+  & .item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(1rem, calc(1.977rem + -2.036vw), 1.5rem);
+
+    & .new-product-sub-heading {
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 0.625rem;
+      line-height: 1.35;
+      color: var(--peru);
+    }
+    & h2 {
+      text-transform: uppercase;
+      font-size: clamp(1.75rem, calc(1.034rem + 3.053vw), 2.5rem);
+      letter-spacing: clamp(0.063rem, calc(0.037rem + 0.109vw), 0.089rem);
+      line-height: 1.35;
+      /* Tablet */
+      /* line-height: 1.1; */
+    }
+
+    & .item-info-para {
+      font-size: 0.9375rem;
+      line-height: 1.66;
+      color: hsl(from var(--black) h s l / 0.5);
+    }
+
+    & .product-btn {
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.38;
+      font-size: 0.8125rem;
+      background-color: var(--peru);
+      padding-block: 0.9375rem;
+      padding-inline: 1.96875rem 1.84375rem;
+    }
+  }
+}
+.items-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 7.5rem;
+  padding-inline: clamp(1.5rem, calc(0.605rem + 3.817vw), 2.438rem)
+    clamp(1.5rem, calc(0.546rem + 4.071vw), 2.5rem);
+
+  padding-block: clamp(4rem, calc(0.66rem + 14.249vw), 7.5rem) 10.75rem;
+}
 .new-product-cont {
   background-color: var(--less-black);
   display: grid;
@@ -536,6 +591,29 @@ footer {
     gap: clamp(2rem, 0.8571rem + 2.381vw, 3rem);
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+  }
+
+  .item-cont {
+    /* display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, calc(0.807rem + 5.089vw), 3.25rem); */
+    /* justify-content: center; */
+    align-items: center;
+
+    & .item-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* justify-content: center; */
+      text-align: center;
+      /* gap: clamp(1rem, calc(1.977rem + -2.036vw), 1.5rem); */
+      width: 60ch;
+
+      & .item-info-para {
+        padding-block-start: 1rem;
+        padding-block-end: clamp(0.5rem, calc(-0.643rem + 2.381vw), 1.5rem);
+      }
+    }
   }
 
   footer {
