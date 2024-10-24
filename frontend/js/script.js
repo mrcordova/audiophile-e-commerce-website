@@ -1,5 +1,10 @@
 const link = document.querySelector("[data-menu-item]");
+const productBtns = document.querySelectorAll("[data-product]");
 // console.log(link)
+
+function goToPage(e) {
+  window.location.href = `./product-${e.target.dataset.product}.html`;
+}
 link.addEventListener("click", (e) => {
   //   e.preventDefault();
 
@@ -16,3 +21,6 @@ link.addEventListener("click", (e) => {
 
   return false;
 });
+for (const productBtn of productBtns) {
+  productBtn.addEventListener("click", goToPage);
+}
