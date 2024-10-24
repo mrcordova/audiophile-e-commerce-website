@@ -599,7 +599,7 @@ footer {
     gap: clamp(2rem, calc(0.807rem + 5.089vw), 3.25rem); */
     /* justify-content: center; */
     align-items: center;
-
+    gap: clamp(3.25rem, calc(-1.964rem + 10.863vw), 7.813rem);
     & .item-info {
       display: flex;
       flex-direction: column;
@@ -614,6 +614,11 @@ footer {
         padding-block-end: clamp(0.5rem, calc(-0.643rem + 2.381vw), 1.5rem);
       }
     }
+  }
+
+  .items-cont {
+    padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem);
+    padding-block: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem);
   }
 
   footer {
@@ -759,7 +764,6 @@ footer {
   }
 
   .item-cont {
-    gap: clamp(3.25rem, calc(-1.964rem + 10.863vw), 7.813rem);
     &:nth-child(odd) {
       flex-direction: row;
     }
@@ -775,11 +779,6 @@ footer {
       text-align: left;
       align-items: flex-start;
     }
-  }
-
-  .items-cont {
-    padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem);
-    padding-block: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem);
   }
 
   .new-product-cont {
