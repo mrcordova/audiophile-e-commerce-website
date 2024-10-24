@@ -271,13 +271,20 @@ footer {
   display: flex;
   justify-content: center;
 }
+.go-btn-cont {
+  margin-block-start: clamp(6.625rem, calc(5.611rem + 4.326vw), 7.688rem);
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  /* display: flex; */
+  width: 100%;
+  max-width: 69.375rem;
+}
 
 .go-back-btn {
   font-size: 0.9375rem;
   text-transform: capitalize;
-  margin-block-start: clamp(6.625rem, calc(5.611rem + 4.326vw), 7.688rem);
-  padding-inline: clamp(1.5rem, calc(0.605rem + 3.817vw), 2.438rem)
-    clamp(1.5rem, calc(0.546rem + 4.071vw), 2.5rem);
+  margin-inline-end: auto;
+
   align-self: flex-start;
   line-height: 1.66;
   color: hsl(from var(--black) h s l / 0.5);
@@ -339,17 +346,20 @@ footer {
 }
 
 .items-cont {
+  max-width: 69.375rem;
   display: flex;
   flex-direction: column;
   gap: 7.5rem;
-  padding-inline: clamp(1.5rem, calc(0.605rem + 3.817vw), 2.438rem)
-    clamp(1.5rem, calc(0.546rem + 4.071vw), 2.5rem);
 
-  /* padding-block: clamp(4rem, calc(0.66rem + 14.249vw), 7.5rem)
-    clamp(4.75rem, calc(5.239rem + -1.018vw), 5rem); */
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
 
   padding-block: clamp(4rem, calc(0.66rem + 14.249vw), 7.5rem)
     clamp(3.25rem, calc(1.819rem + 6.107vw), 4.75rem);
+
+  &:has(.product-cont) {
+    padding-block: 1.5rem 7.5rem;
+  }
 }
 .new-product-cont {
   background-color: var(--less-black);
@@ -627,9 +637,12 @@ footer {
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
   }
-  .go-back-btn {
-    padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem);
+  .go-btn-cont {
     margin-block-start: clamp(7.688rem, calc(3.902rem + 7.887vw), 11rem);
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+  }
+  .go-back-btn {
   }
 
   .item-cont {
@@ -663,9 +676,16 @@ footer {
   }
 
   .items-cont {
-    padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem);
+    /* padding-inline: clamp(2.438rem, calc(-6.562rem + 18.75vw), 10.313rem); */
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
     padding-block: clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem)
       clamp(4.5rem, calc(5.036rem + -0.595vw), 4.75rem);
+
+    &:has(.product-cont) {
+      padding-block: clamp(1.5rem, calc(-0.786rem + 4.762vw), 3.5rem)
+        clamp(7.5rem, calc(4.643rem + 5.952vw), 10rem);
+    }
   }
 
   footer {
