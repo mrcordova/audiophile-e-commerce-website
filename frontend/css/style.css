@@ -638,6 +638,7 @@ footer {
 .you-may-like-cont {
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
     clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  padding-block-end: clamp(5rem, calc(2.615rem + 10.178vw), 7.5rem);
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
@@ -969,6 +970,7 @@ footer {
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
     gap: clamp(3.5rem, calc(2.929rem + 1.19vw), 4rem);
 
+    padding-block-end: clamp(1.5rem, calc(9rem + -8.333vw), 5rem);
     & > h4 {
       line-height: 1.125;
     }
