@@ -569,7 +569,9 @@ footer {
         align-items: center;
 
         & h5 {
+          font-size: 0.938rem;
           color: hsl(from var(--black) h s l / 0.5);
+          line-height: 1.66;
         }
         & span {
           color: var(--peru);
