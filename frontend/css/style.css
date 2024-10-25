@@ -67,9 +67,9 @@ header {
   background-color: #191919;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  max-width: 69.375rem;
+  /* max-width: 69.375rem; */
 
   padding-inline: clamp(0rem, -2.3259rem + 9.9237vw, 2.4375rem)
     clamp(0rem, -2.3855rem + 10.1781vw, 2.5rem);
