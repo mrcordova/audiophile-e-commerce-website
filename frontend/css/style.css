@@ -270,8 +270,8 @@ footer {
   justify-content: center;
 }
 .gallery-grid {
-  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
-    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  /* padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem); */
   display: grid;
   row-gap: 1.25rem;
   max-width: 69.375rem;
@@ -635,6 +635,62 @@ footer {
   }
 }
 
+.you-may-like-cont {
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  align-items: center;
+  text-align: center;
+
+  gap: clamp(2.5rem, calc(1.546rem + 4.071vw), 3.5rem);
+
+  & > h4 {
+    font-size: clamp(1.5rem, calc(1.023rem + 2.036vw), 2rem);
+    letter-spacing: clamp(0.054rem, calc(0.037rem + 0.071vw), 0.071rem);
+    line-height: 1.5;
+  }
+
+  & .product-btn {
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.38;
+    font-size: 0.8125rem;
+    background-color: var(--peru);
+    padding-block: 0.9375rem;
+    padding-inline: 1.96875rem 1.84375rem;
+    text-decoration: none;
+  }
+
+  & .you-may-like-items-cont {
+    display: flex;
+    flex-direction: column;
+    max-width: 69.375rem;
+
+    gap: clamp(0.688rem, calc(6.184rem + -11.45vw), 3.5rem);
+
+    & .you-may-like-item {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2rem, calc(1.523rem + 2.036vw), 2.5rem);
+      & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        & > p {
+          font-size: 1.5rem;
+          letter-spacing: 0.107rem;
+          line-height: 1.375;
+        }
+      }
+    }
+  }
+}
+
 .zx9-speaker-cont {
   background-color: var(--peru);
   border-radius: 0.5rem;
@@ -761,8 +817,8 @@ footer {
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
   }
   .gallery-grid {
-    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
-      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    /* padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem); */
     row-gap: clamp(1.25rem, calc(0.393rem + 1.786vw), 2rem);
     column-gap: clamp(1.125rem, calc(0.268rem + 1.786vw), 1.875rem);
 
@@ -773,8 +829,6 @@ footer {
     margin-block-start: clamp(7.688rem, calc(3.902rem + 7.887vw), 11rem);
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
-  }
-  .go-back-btn {
   }
 
   .item-cont {
@@ -907,6 +961,22 @@ footer {
       gap: clamp(2rem, calc(19.679rem + -19.643vw), 10.25rem);
       /* justify-content: space-between; */
       line-height: 1.125;
+    }
+  }
+
+  .you-may-like-cont {
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    gap: clamp(3.5rem, calc(2.929rem + 1.19vw), 4rem);
+
+    & > h4 {
+      line-height: 1.125;
+    }
+
+    & .you-may-like-items-cont {
+      flex-direction: row;
+
+      gap: clamp(0.688rem, calc(-0.67rem + 2.827vw), 1.875rem);
     }
   }
 
