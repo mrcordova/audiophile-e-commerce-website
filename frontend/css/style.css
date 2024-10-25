@@ -269,6 +269,35 @@ footer {
   display: flex;
   justify-content: center;
 }
+.gallery-grid {
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+  display: grid;
+  row-gap: 1.25rem;
+  max-width: 69.375rem;
+  /* grid-template-columns: 1fr; */
+  grid-template-areas:
+    "img-1"
+    "img-2"
+    "img-3";
+
+  & img {
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  & #img-1 {
+    grid-area: img-1;
+  }
+  & #img-2 {
+    grid-area: img-2;
+  }
+  & #img-3 {
+    grid-area: img-3;
+  }
+}
 .go-btn-cont {
   margin-block-start: clamp(6.625rem, calc(5.611rem + 4.326vw), 7.688rem);
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
@@ -731,6 +760,15 @@ footer {
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
   }
+  .gallery-grid {
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    row-gap: clamp(1.25rem, calc(0.393rem + 1.786vw), 2rem);
+    column-gap: clamp(1.125rem, calc(0.268rem + 1.786vw), 1.875rem);
+
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-areas: "img-1  img-3" "img-2  img-3";
+  }
   .go-btn-cont {
     margin-block-start: clamp(7.688rem, calc(3.902rem + 7.887vw), 11rem);
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
@@ -746,6 +784,7 @@ footer {
     /* justify-content: center; */
     align-items: center;
     gap: clamp(3.25rem, calc(-1.964rem + 10.863vw), 7.813rem);
+
     & .item-info {
       display: flex;
       flex-direction: column;
