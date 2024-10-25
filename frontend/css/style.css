@@ -69,7 +69,6 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  /* max-width: 69.375rem; */
 
   padding-inline: clamp(0rem, -2.3259rem + 9.9237vw, 2.4375rem)
     clamp(0rem, -2.3855rem + 10.1781vw, 2.5rem);
@@ -77,7 +76,6 @@ header {
   & .header-cont {
     padding-block: 2rem;
 
-    /* background-color: #191919; */
     padding-inline: clamp(0rem, 2.9313rem + -6.1069vw, 1.5rem);
     max-width: 69.375rem;
     width: 100%;
@@ -512,6 +510,44 @@ footer {
       color: hsl(from var(--black) h s l / 0.5);
     }
   }
+  & .in-box-desc {
+    display: flex;
+    flex-direction: column;
+    /* gap: clamp(1.5rem, calc(1.023rem + 2.036vw), 2rem); */
+    gap: clamp(1.5rem, calc(-6.849rem + 35.623vw), 10.25rem);
+    & h4 {
+      text-transform: uppercase;
+      font-size: clamp(1.5rem, calc(1.023rem + 2.036vw), 2rem);
+      letter-spacing: clamp(0.054rem, calc(0.037rem + 0.071vw), 0.071rem);
+      line-height: 1.5;
+
+      /* tablet */
+      /* line-height: 1.125; */
+    }
+
+    & > ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      & li {
+        display: flex;
+        gap: clamp(1.313rem, calc(1.134rem + 0.763vw), 1.5rem);
+        font-size: 0.938rem;
+        line-height: 1.66;
+        align-items: center;
+
+        & h5 {
+          color: hsl(from var(--black) h s l / 0.5);
+        }
+        & span {
+          color: var(--peru);
+        }
+      }
+    }
+  }
 }
 .product-price {
   line-height: 1.38;
@@ -821,6 +857,18 @@ footer {
 
   .product-desc-cont {
     gap: clamp(7.5rem, calc(7.143rem + 0.744vw), 7.813rem);
+
+    & .feature-cont {
+      line-height: 1.125;
+    }
+
+    & .in-box-desc {
+      display: flex;
+      flex-direction: row;
+      gap: clamp(2rem, calc(19.679rem + -19.643vw), 10.25rem);
+      /* justify-content: space-between; */
+      line-height: 1.125;
+    }
   }
 
   .zx9-speaker-cont {
@@ -949,6 +997,14 @@ footer {
 
   .product-desc-cont {
     flex-direction: row;
+    & .in-box-desc {
+      flex-direction: column;
+      flex: 1;
+    }
+
+    & .feature-cont {
+      flex: 1.5;
+    }
   }
   .zx9-speaker-cont {
     flex-direction: row;
