@@ -460,6 +460,31 @@ footer {
     }
   }
 }
+.product-counter {
+  display: flex;
+  gap: 1rem;
+
+  & .counter {
+    display: flex;
+    align-items: center;
+    background-color: var(--white-smoke);
+    color: var(--black);
+    font-size: 0.8125rem;
+    line-height: 1.38;
+    letter-spacing: 0.0625rem;
+    & .product-btn {
+      background-color: var(--white-smoke);
+      color: hsl(from var(--black) h s l / 0.25);
+      padding-block: 0.9375rem;
+      padding-inline: 0.96875rem 1.25rem;
+    }
+  }
+}
+.product-price {
+  line-height: 1.38;
+  font-size: 1.125rem;
+  letter-spacing: 0.081rem;
+}
 .items-section {
   display: flex;
   flex-direction: column;
