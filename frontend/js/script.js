@@ -1,9 +1,13 @@
 const link = document.querySelector("[data-menu-item]");
 const productBtns = document.querySelectorAll("[data-product]");
+const returnBtns = document.querySelectorAll("[data-return]");
 // console.log(link)
 
 function goToPage(e) {
   window.location.href = `./product-${e.target.dataset.product}.html`;
+}
+function returnToPage(e) {
+  history.back();
 }
 link.addEventListener("click", (e) => {
   //   e.preventDefault();
@@ -23,4 +27,8 @@ link.addEventListener("click", (e) => {
 });
 for (const productBtn of productBtns) {
   productBtn.addEventListener("click", goToPage);
+}
+
+for (const returnBtn of returnBtns) {
+  returnBtn.addEventListener("click", returnToPage);
 }
