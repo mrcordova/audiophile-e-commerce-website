@@ -66,8 +66,9 @@ main {
   width: clamp(20.438rem, calc(17.456rem + 12.723vw), 23.563rem);
   height: 30.5rem;
   top: 7.125rem;
-
   margin-inline: auto;
+  padding-inline: clamp(1.75rem, calc(1.452rem + 1.272vw), 2.063rem);
+  padding-block: 1.938rem;
 
   &::backdrop {
     background-color: hsl(from var(--black) h s l / 0.4);
