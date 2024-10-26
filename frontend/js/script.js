@@ -1,7 +1,7 @@
 const link = document.querySelector("[data-menu-item]");
 const productBtns = document.querySelectorAll("[data-product]");
 const returnBtns = document.querySelectorAll("[data-return]");
-const showBtns = document.querySelectorAll("[data-show-dialog]");
+// const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
 
 function goToPage(e) {
@@ -10,10 +10,10 @@ function goToPage(e) {
 function returnToPage(e) {
   history.back();
 }
-function showDialog(e) {
-  const cartDialog = document.getElementById("cartDialog");
-  cartDialog.showModal();
-}
+// function showDialog(e) {
+//   const cartDialog = document.getElementById("cartDialog");
+//   cartDialog.showModal();
+// }
 link.addEventListener("click", (e) => {
   //   e.preventDefault();
 
@@ -38,6 +38,6 @@ for (const returnBtn of returnBtns) {
   returnBtn.addEventListener("click", returnToPage);
 }
 
-for (const showBtn of showBtns) {
-  showBtn.addEventListener("click", showDialog);
-}
+// for (const showBtn of showBtns) {
+//   showBtn.addEventListener("click", showDialog);
+// }
