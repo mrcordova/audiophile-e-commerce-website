@@ -88,9 +88,9 @@ main {
     flex-direction: column;
     gap: 2rem;
     max-height: 17rem;
-    /* width: 18.5rem; */
-    /* scrollbar-gutter: stable; */
+    scrollbar-gutter: stable;
     overflow-y: auto;
+    margin-inline-end: -0.9375rem;
   }
 
   & .cart-title-cont {
