@@ -132,7 +132,8 @@ main {
       }
     }
 
-    & button {
+    & button,
+    a {
       background-color: var(--peru);
       color: var(--white);
       text-align: center;
@@ -140,6 +141,7 @@ main {
       letter-spacing: 0.063rem;
       line-height: 1.38;
       padding-block: 0.938rem;
+      text-decoration: none;
     }
   }
   & .counter {
@@ -180,6 +182,38 @@ main {
     text-transform: uppercase;
     font-size: 0.938rem;
     line-height: 1.66;
+  }
+}
+
+#checkout-form {
+  display: grid;
+
+  & label {
+    display: grid;
+    text-transform: capitalize;
+    gap: 0.5625rem;
+    font-size: 0.75rem;
+    letter-spacing: -0.013rem;
+    & > span {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & input {
+      border-radius: 0.5rem;
+      text-indent: 1.5rem;
+      padding-block: 1.125rem;
+      font-size: 0.875rem;
+      line-height: 1.35;
+      letter-spacing: -0.015625rem;
+      color: var(--black);
+      border: 1px solid #cfcfcf;
+      caret-color: var(--peru);
+
+      &:focus {
+        outline: 1px solid var(--peru);
+      }
+    }
   }
 }
 

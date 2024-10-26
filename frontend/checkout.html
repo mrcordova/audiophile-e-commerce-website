@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/script.js"></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <title>Frontend Mentor | Audiophile e-commerce website</title>
+  </head>
 
-  <title>Frontend Mentor | Audiophile e-commerce website</title>
-</head>
-
-<body>
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  
-  <!-- Cart Modal -->
-  Cart(3)
+  <body>
+    <!-- Cart Modal -->
+    <!-- Cart(3)
   Remove All
 
   XX99 MK II x1
@@ -32,79 +32,503 @@
   
   Total $5,396
 
-  Checkout
-  <!-- Cart modal end -->
+  Checkout -->
+    <!-- Cart modal end -->
+    <header>
+      <div class="header-cont">
+        <button
+          aria-haspopup="menu"
+          popovertarget="mobile-menu"
+          class="mobile-menu-btn">
+          <img
+            src="./assets/shared/tablet/icon-hamburger.svg"
+            alt="menu icon" />
+        </button>
+        <img
+          src="./assets/shared/desktop/logo.svg"
+          alt="Audiophile"
+          class="logo" />
+        <nav class="desktop-nav">
+          <menu class="manrope-bold">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./headphones.html">HEADPHONES</a></li>
+            <li><a href="./speakers.html">SPEAKERS</a></li>
+            <li><a href="./earphones.html">EARPHONES</a></li>
+          </menu>
+        </nav>
+        <button data-show-dialog popovertarget="cartDialog">
+          <img
+            src="./assets/shared/desktop/icon-cart.svg"
+            alt="shopping cart" />
+        </button>
+      </div>
+      <div role="menu" popover id="mobile-menu">
+        <nav>
+          <menu class="options">
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-headphones.png"
+                alt="" />
+              <h2 class="manrope-bold">headphones</h2>
+              <a
+                data-menu-item="shop"
+                href="./headphones.html"
+                class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-speakers.png"
+                alt="" />
+              <h2 class="manrope-bold">speakers</h2>
+              <a href="./speakers.html" class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+            <li class="option-card">
+              <img
+                src="./assets/shared/desktop/image-category-thumbnail-earphones.png"
+                alt="" />
+              <h2 class="manrope-bold">earphones</h2>
+              <a href="./earphones.html" class="manrope-bold">
+                shop
+                <img
+                  src="./assets/shared/desktop/icon-arrow-right.svg"
+                  alt="caret right" />
+              </a>
+            </li>
+          </menu>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="go-btn-cont">
+        <button data-return class="go-back-btn manrope-medium">Go back</button>
+      </div>
+      <div>
+        <div class="manrope-bold">
+          <h1>checkout</h1>
+          <form id="checkout-form">
+            <h2 id="billing header">billing details</h2>
+            <label>
+              <span>
+                Name
+                <span>Wrong format</span>
+              </span>
+              <input
+                type="text"
+                id="name"
+                autocomplete="name"
+                placeholder="Alexei Ward" />
+            </label>
+            <label>
+              <span>
+                email address
+                <span>Wrong format</span>
+              </span>
+              <input type="email" id="email" autocomplete="email" />
+            </label>
+            <label>
+              <span>
+                phone number
+                <span>Wrong format</span>
+              </span>
+              <input type="tel" id="phone-number" autocomplete="tel" />
+            </label>
 
-  
-  Go back
+            <h2>shipping info</h2>
+            <label>
+              <span>
+                Your Address
+                <span>Wrong format</span>
+              </span>
+              <input
+                type="text"
+                id="street-address"
+                autocomplete="street-address" />
+            </label>
+            <label>
+              <span>
+                ZIP Code
+                <span>Wrong format</span>
+              </span>
+              <input type="text" id="postal-code" autocomplete="postal-code" />
+            </label>
+            <label>
+              <span>
+                * city
+                <span>Wrong format</span>
+              </span>
+              <input
+                type="text"
+                id="city"
+                autocomplete="address-level2"
+                required />
+            </label>
+            <label>
+              <span>
+                country
+                <span>Wrong format</span>
+              </span>
+              <select type="text" id="country" autocomplete="country">
+                <option></option>
+                <option value="AF">Afghanistan</option>
+                <option value="AX">Åland Islands</option>
+                <option value="AL">Albania</option>
+                <option value="DZ">Algeria</option>
+                <option value="AS">American Samoa</option>
+                <option value="AD">Andorra</option>
+                <option value="AO">Angola</option>
+                <option value="AI">Anguilla</option>
+                <option value="AQ">Antarctica</option>
+                <option value="AG">Antigua &amp; Barbuda</option>
+                <option value="AR">Argentina</option>
+                <option value="AM">Armenia</option>
+                <option value="AW">Aruba</option>
+                <option value="AC">Ascension Island</option>
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="AZ">Azerbaijan</option>
+                <option value="BS">Bahamas</option>
+                <option value="BH">Bahrain</option>
+                <option value="BD">Bangladesh</option>
+                <option value="BB">Barbados</option>
+                <option value="BY">Belarus</option>
+                <option value="BE">Belgium</option>
+                <option value="BZ">Belize</option>
+                <option value="BJ">Benin</option>
+                <option value="BM">Bermuda</option>
+                <option value="BT">Bhutan</option>
+                <option value="BO">Bolivia</option>
+                <option value="BA">Bosnia &amp; Herzegovina</option>
+                <option value="BW">Botswana</option>
+                <option value="BV">Bouvet Island</option>
+                <option value="BR">Brazil</option>
+                <option value="IO">British Indian Ocean Territory</option>
+                <option value="VG">British Virgin Islands</option>
+                <option value="BN">Brunei</option>
+                <option value="BG">Bulgaria</option>
+                <option value="BF">Burkina Faso</option>
+                <option value="BI">Burundi</option>
+                <option value="KH">Cambodia</option>
+                <option value="CM">Cameroon</option>
+                <option value="CA">Canada</option>
+                <option value="CV">Cape Verde</option>
+                <option value="BQ">Caribbean Netherlands</option>
+                <option value="KY">Cayman Islands</option>
+                <option value="CF">Central African Republic</option>
+                <option value="TD">Chad</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="CX">Christmas Island</option>
+                <option value="CC">Cocos (Keeling) Islands</option>
+                <option value="CO">Colombia</option>
+                <option value="KM">Comoros</option>
+                <option value="CG">Congo - Brazzaville</option>
+                <option value="CD">Congo - Kinshasa</option>
+                <option value="CK">Cook Islands</option>
+                <option value="CR">Costa Rica</option>
+                <option value="CI">Côte d’Ivoire</option>
+                <option value="HR">Croatia</option>
+                <option value="CW">Curaçao</option>
+                <option value="CY">Cyprus</option>
+                <option value="CZ">Czechia</option>
+                <option value="DK">Denmark</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DM">Dominica</option>
+                <option value="DO">Dominican Republic</option>
+                <option value="EC">Ecuador</option>
+                <option value="EG">Egypt</option>
+                <option value="SV">El Salvador</option>
+                <option value="GQ">Equatorial Guinea</option>
+                <option value="ER">Eritrea</option>
+                <option value="EE">Estonia</option>
+                <option value="SZ">Eswatini</option>
+                <option value="ET">Ethiopia</option>
+                <option value="FK">Falkland Islands (Islas Malvinas)</option>
+                <option value="FO">Faroe Islands</option>
+                <option value="FJ">Fiji</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="GF">French Guiana</option>
+                <option value="PF">French Polynesia</option>
+                <option value="TF">French Southern Territories</option>
+                <option value="GA">Gabon</option>
+                <option value="GM">Gambia</option>
+                <option value="GE">Georgia</option>
+                <option value="DE">Germany</option>
+                <option value="GH">Ghana</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Greece</option>
+                <option value="GL">Greenland</option>
+                <option value="GD">Grenada</option>
+                <option value="GP">Guadeloupe</option>
+                <option value="GU">Guam</option>
+                <option value="GT">Guatemala</option>
+                <option value="GG">Guernsey</option>
+                <option value="GN">Guinea</option>
+                <option value="GW">Guinea-Bissau</option>
+                <option value="GY">Guyana</option>
+                <option value="HT">Haiti</option>
+                <option value="HM">Heard &amp; McDonald Islands</option>
+                <option value="HN">Honduras</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HU">Hungary</option>
+                <option value="IS">Iceland</option>
+                <option value="IN">India</option>
+                <option value="ID">Indonesia</option>
+                <option value="IR">Iran</option>
+                <option value="IQ">Iraq</option>
+                <option value="IE">Ireland</option>
+                <option value="IM">Isle of Man</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italy</option>
+                <option value="JM">Jamaica</option>
+                <option value="JP">Japan</option>
+                <option value="JE">Jersey</option>
+                <option value="JO">Jordan</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="KE">Kenya</option>
+                <option value="KI">Kiribati</option>
+                <option value="XK">Kosovo</option>
+                <option value="KW">Kuwait</option>
+                <option value="KG">Kyrgyzstan</option>
+                <option value="LA">Laos</option>
+                <option value="LV">Latvia</option>
+                <option value="LB">Lebanon</option>
+                <option value="LS">Lesotho</option>
+                <option value="LR">Liberia</option>
+                <option value="LY">Libya</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LT">Lithuania</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MO">Macao</option>
+                <option value="MG">Madagascar</option>
+                <option value="MW">Malawi</option>
+                <option value="MY">Malaysia</option>
+                <option value="MV">Maldives</option>
+                <option value="ML">Mali</option>
+                <option value="MT">Malta</option>
+                <option value="MH">Marshall Islands</option>
+                <option value="MQ">Martinique</option>
+                <option value="MR">Mauritania</option>
+                <option value="MU">Mauritius</option>
+                <option value="YT">Mayotte</option>
+                <option value="MX">Mexico</option>
+                <option value="FM">Micronesia</option>
+                <option value="MD">Moldova</option>
+                <option value="MC">Monaco</option>
+                <option value="MN">Mongolia</option>
+                <option value="ME">Montenegro</option>
+                <option value="MS">Montserrat</option>
+                <option value="MA">Morocco</option>
+                <option value="MZ">Mozambique</option>
+                <option value="MM">Myanmar (Burma)</option>
+                <option value="NA">Namibia</option>
+                <option value="NR">Nauru</option>
+                <option value="NP">Nepal</option>
+                <option value="NL">Netherlands</option>
+                <option value="NC">New Caledonia</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NI">Nicaragua</option>
+                <option value="NE">Niger</option>
+                <option value="NG">Nigeria</option>
+                <option value="NU">Niue</option>
+                <option value="NF">Norfolk Island</option>
+                <option value="KP">North Korea</option>
+                <option value="MK">North Macedonia</option>
+                <option value="MP">Northern Mariana Islands</option>
+                <option value="NO">Norway</option>
+                <option value="OM">Oman</option>
+                <option value="PK">Pakistan</option>
+                <option value="PW">Palau</option>
+                <option value="PS">Palestine</option>
+                <option value="PA">Panama</option>
+                <option value="PG">Papua New Guinea</option>
+                <option value="PY">Paraguay</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippines</option>
+                <option value="PN">Pitcairn Islands</option>
+                <option value="PL">Poland</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="QA">Qatar</option>
+                <option value="RE">Réunion</option>
+                <option value="RO">Romania</option>
+                <option value="RU">Russia</option>
+                <option value="RW">Rwanda</option>
+                <option value="WS">Samoa</option>
+                <option value="SM">San Marino</option>
+                <option value="ST">São Tomé &amp; Príncipe</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="SN">Senegal</option>
+                <option value="RS">Serbia</option>
+                <option value="SC">Seychelles</option>
+                <option value="SL">Sierra Leone</option>
+                <option value="SG">Singapore</option>
+                <option value="SX">Sint Maarten</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="SB">Solomon Islands</option>
+                <option value="SO">Somalia</option>
+                <option value="ZA">South Africa</option>
+                <option value="GS">
+                  South Georgia &amp; South Sandwich Islands
+                </option>
+                <option value="KR">South Korea</option>
+                <option value="SS">South Sudan</option>
+                <option value="ES">Spain</option>
+                <option value="LK">Sri Lanka</option>
+                <option value="BL">St Barthélemy</option>
+                <option value="SH">St Helena</option>
+                <option value="KN">St Kitts &amp; Nevis</option>
+                <option value="LC">St Lucia</option>
+                <option value="MF">St Martin</option>
+                <option value="PM">St Pierre &amp; Miquelon</option>
+                <option value="VC">St Vincent &amp; Grenadines</option>
+                <option value="SR">Suriname</option>
+                <option value="SJ">Svalbard &amp; Jan Mayen</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="TW">Taiwan</option>
+                <option value="TJ">Tajikistan</option>
+                <option value="TZ">Tanzania</option>
+                <option value="TH">Thailand</option>
+                <option value="TL">Timor-Leste</option>
+                <option value="TG">Togo</option>
+                <option value="TK">Tokelau</option>
+                <option value="TO">Tonga</option>
+                <option value="TT">Trinidad &amp; Tobago</option>
+                <option value="TA">Tristan da Cunha</option>
+                <option value="TN">Tunisia</option>
+                <option value="TR">Turkey</option>
+                <option value="TM">Turkmenistan</option>
+                <option value="TC">Turks &amp; Caicos Islands</option>
+                <option value="TV">Tuvalu</option>
+                <option value="UG">Uganda</option>
+                <option value="UA">Ukraine</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="UY">Uruguay</option>
+                <option value="UM">US Outlying Islands</option>
+                <option value="VI">US Virgin Islands</option>
+                <option value="UZ">Uzbekistan</option>
+                <option value="VU">Vanuatu</option>
+                <option value="VA">Vatican City</option>
+                <option value="VE">Venezuela</option>
+                <option value="VN">Vietnam</option>
+                <option value="WF">Wallis &amp; Futuna</option>
+                <option value="EH">Western Sahara</option>
+                <option value="YE">Yemen</option>
+                <option value="ZM">Zambia</option>
+                <option value="ZW">Zimbabwe</option>
+              </select>
+            </label>
 
-  Checkout
+            <h2>Payment details</h2>
+            <div>
+              <legend>Paymeny methods</legend>
+              <div>
+                <label>
+                  <input type="radio" name="payment-methods" id="e-money" />
+                  e-Money
+                </label>
+                <label>
+                  <input type="radio" name="payment-methods" id="cash" />
+                  Cash on Delivery
+                </label>
+              </div>
+            </div>
+            <label>
+              e-MOney Number
+              <input type="tel" id="e-money-number" autocomplete="cc-number" />
+            </label>
+            <label>
+              e-MOney pin
+              <input type="tel" autocomplete="cc-csc" />
+            </label>
+          </form>
+        </div>
+        <div></div>
+      </div>
+    </main>
 
-  Billing details
-  Name
-  Email address
-  Phone number
+    <footer>
+      <div class="footer-cont">
+        <div class="footer-highlight"></div>
+        <div class="logo-cont">
+          <img src="./assets/shared/desktop/logo.svg" alt="Audiophile logo" />
+        </div>
+        <nav class="nav-cont">
+          <menu class="manrope-bold">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./headphones.html">HEADPHONES</a></li>
+            <li><a href="./speakers.html">SPEAKERS</a></li>
+            <li><a href="./earphones.html">EARPHONES</a></li>
+          </menu>
+        </nav>
+        <p class="company manrope-medium">
+          Audiophile is an all in one stop to fulfill your audio needs. We're a
+          small team of music lovers and sound specialists who are devoted to
+          helping you get the most out of personal audio. Come and visit our
+          demo facility - we’re open 7 days a week.
+        </p>
+        <p class="copyright manrope-bold">
+          Copyright 2021. All Rights Reserved
+        </p>
+        <div class="links-cont">
+          <button>
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"
+                fill="#FFF"
+                fill-rule="nonzero" />
+            </svg>
+          </button>
+          <button>
+            <svg width="24" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 2.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337.608a9.864 9.864 0 01-3.127 1.195A4.916 4.916 0 0016.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 1.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 2.557z"
+                fill="#FFF"
+                fill-rule="nonzero" />
+            </svg>
+          </button>
+          <button>
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                fill="#FFF"
+                fill-rule="nonzero" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+    <!-- Go back Checkout Billing details Name Email address Phone number Shipping
+    info Address ZIP code City Country Payment details Payment method e-Money
+    Cash on delivery e-Money number e-money PIN The ‘Cash on Delivery’ option
+    enables you to pay in cash when our delivery courier arrives at your
+    residence. Just make sure your address is correct so that your order will
+    not be cancelled. Summary XX99 MK II x1 $2,999 XX59 x2 $899 YX1 x1 $599
+    Total $5,396 Shipping $10 VAT $120 Grand total $5,526 Continue & pay -->
 
-  Shipping info
-  Address
-  ZIP code
-  City
-  Country
+    <!-- Success Modal -->
+    <!-- Thank you for your order You will receive an email confirmation shortly.
+    XX99 MK II x 1 $2,999 and 2 other item(s) Grand total $5,526 Back to home -->
+    <!-- End success modal -->
 
-  Payment details
-  Payment method
-  e-Money
-  Cash on delivery
-  e-Money number
-  e-money PIN
-
-  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives 
-  at your residence. Just make sure your address is correct so that your order will not be cancelled.
-
-  Summary
-  XX99 MK II x1
-  $2,999
-
-  XX59 x2
-  $899
-
-  YX1 x1
-  $599
-
-  Total $5,396
-  Shipping $10
-  VAT $120
-
-  Grand total $5,526
-
-  Continue & pay
-
-
-  <!-- Success Modal -->
-  Thank you for your order
-  You will receive an email confirmation shortly.
-
-  XX99 MK II x 1
-  $2,999
-  and 2 other item(s)
-
-  Grand total
-  $5,526
-
-  Back to home
-  <!-- End success modal -->
-
-
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-  visit our demo facility - we’re open 7 days a week.
-
-  Copyright 2021. All Rights Reserved
-</body>
-
+    <!-- Home Headphones Speakers Earphones Audiophile is an all in one stop to
+    fulfill your audio needs. We're a small team of music lovers and sound
+    specialists who are devoted to helping you get the most out of personal
+    audio. Come and visit our demo facility - we’re open 7 days a week.
+    Copyright 2021. All Rights Reserved -->
+  </body>
 </html>
