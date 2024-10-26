@@ -434,6 +434,8 @@ footer {
     background-color: var(--peru);
     padding-block: 0.9375rem;
     padding-inline: 1.96875rem 1.84375rem;
+    text-decoration: none;
+    color: var(--white);
   }
 }
 .options {
@@ -625,7 +627,9 @@ footer {
       padding-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem;
     }
 
-    & button {
+    & a {
+      text-decoration: none;
+      color: var(--black);
       font-size: 0.8125rem;
       letter-spacing: 0.0625rem;
       padding-block: 0.9375rem;
@@ -738,7 +742,9 @@ footer {
       opacity: 75%;
     }
 
-    & button {
+    & a {
+      color: var(--white);
+      text-decoration: none;
       text-transform: uppercase;
       font-size: 0.8125rem;
       letter-spacing: 0.0625rem;
@@ -768,13 +774,15 @@ footer {
     letter-spacing: 0.125rem;
   }
 
-  & button {
+  & a {
     font-size: 0.8125rem;
     letter-spacing: 0.0625rem;
     padding-block: 0.9375rem;
     padding-inline: 1.96875rem 1.8475rem;
     border: 1px solid var(--black);
     width: max-content;
+    text-decoration: none;
+    color: var(--black);
   }
 }
 
@@ -1019,7 +1027,7 @@ footer {
       & p {
         padding-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem;
       }
-      & button {
+      & a {
         margin-inline: clamp(3.875rem, 1.5179rem + 4.9107vw, 5.9375rem) 0rem;
       }
     }
