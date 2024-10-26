@@ -108,16 +108,16 @@
         </nav>
       </div>
     </header>
-    <main>
+    <main class="checkout-main">
       <div class="go-btn-cont">
         <button data-return class="go-back-btn manrope-medium">Go back</button>
       </div>
-      <div>
+      <div class="grid-cont">
         <div class="manrope-bold">
           <h1>checkout</h1>
           <form id="checkout-form">
             <h2 id="billing header">billing details</h2>
-            <label>
+            <label id="name-label">
               <span>
                 Name
                 <span>Wrong format</span>
@@ -128,14 +128,14 @@
                 autocomplete="name"
                 placeholder="Alexei Ward" />
             </label>
-            <label>
+            <label id="email-label">
               <span>
                 email address
                 <span>Wrong format</span>
               </span>
               <input type="email" id="email" autocomplete="email" />
             </label>
-            <label>
+            <label id="phone-label">
               <span>
                 phone number
                 <span>Wrong format</span>
@@ -143,8 +143,8 @@
               <input type="tel" id="phone-number" autocomplete="tel" />
             </label>
 
-            <h2>shipping info</h2>
-            <label>
+            <h2 id="shipping-header">shipping info</h2>
+            <label id="address-label">
               <span>
                 Your Address
                 <span>Wrong format</span>
@@ -154,14 +154,14 @@
                 id="street-address"
                 autocomplete="street-address" />
             </label>
-            <label>
+            <label id="postal-label">
               <span>
                 ZIP Code
                 <span>Wrong format</span>
               </span>
               <input type="text" id="postal-code" autocomplete="postal-code" />
             </label>
-            <label>
+            <label id="city-label">
               <span>
                 * city
                 <span>Wrong format</span>
@@ -172,7 +172,7 @@
                 autocomplete="address-level2"
                 required />
             </label>
-            <label>
+            <label id="country-label">
               <span>
                 country
                 <span>Wrong format</span>
@@ -433,8 +433,8 @@
               </select>
             </label>
 
-            <h2>Payment details</h2>
-            <div>
+            <h2 id="payment-label">Payment details</h2>
+            <div id="payment-methods">
               <legend>Paymeny methods</legend>
               <div>
                 <label>
@@ -447,11 +447,11 @@
                 </label>
               </div>
             </div>
-            <label>
+            <label id="e-money-number-label">
               e-MOney Number
               <input type="tel" id="e-money-number" autocomplete="cc-number" />
             </label>
-            <label>
+            <label id="e-money-pin-label">
               e-MOney pin
               <input type="tel" autocomplete="cc-csc" />
             </label>
