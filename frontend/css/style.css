@@ -186,11 +186,14 @@ main {
 }
 
 .grid-cont {
-  align-self: normal;
-
+  /* align-self: normal; */
+  max-width: 69.375rem;
+  width: 100%;
   display: grid;
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
     clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+
+  padding-block: 1.5rem clamp(6.063rem, calc(4.929rem + 4.835vw), 7.25rem);
 
   & .grid-form-cont {
     border-radius: 0.5rem;
@@ -1162,11 +1165,15 @@ footer {
     }
   }
   .grid-cont {
-    /* max-width: 69.375rem;
+    /* align-self: center; */
+    /* align-self: center; */
+    /* 
     min-width: 69.375rem;
     margin-inline: auto; */
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    padding-block: clamp(1.5rem, calc(0.5rem + 2.083vw), 2.375rem)
+      clamp(7.25rem, calc(5.464rem + 3.72vw), 8.813rem);
     & .grid-form-cont {
       padding-inline: clamp(1.75rem, calc(0.321rem + 2.976vw), 3rem);
       padding-block: clamp(1.875rem, calc(0.161rem + 3.571vw), 3.375rem)
