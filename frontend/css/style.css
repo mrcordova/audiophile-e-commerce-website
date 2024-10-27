@@ -187,10 +187,29 @@ main {
 
 .grid-cont {
   align-self: normal;
+
   display: grid;
-  background-color: var(--white);
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
     clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+
+  & .grid-form-cont {
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    padding-inline: clamp(1.5rem, calc(1.261rem + 1.018vw), 1.75rem);
+    padding-block: clamp(1.5rem, calc(1.142rem + 1.527vw), 1.875rem)
+      clamp(1.875rem, calc(1.997rem + -0.254vw), 1.938rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, calc(1.463rem + 2.29vw), 2.563rem);
+
+    & > h1 {
+      text-transform: uppercase;
+      font-size: clamp(1.75rem, calc(1.511rem + 1.018vw), 2rem);
+      letter-spacing: clamp(0.063rem, calc(0.054rem + 0.036vw), 0.071rem);
+      line-height: 1.35;
+    }
+  }
 }
 .checkout-main {
   background-color: var(--less-white);
@@ -200,6 +219,7 @@ main {
   /* width: 100%; */
   display: grid;
 
+  gap: 1rem;
   grid-template-areas:
     "billing"
     "name"
@@ -244,6 +264,13 @@ main {
     }
   }
 
+  .grid-header {
+    color: var(--peru);
+    text-transform: uppercase;
+    font-size: 0.813rem;
+    letter-spacing: 0.058rem;
+    line-height: 1.92;
+  }
   #billing-header {
     grid-area: billing;
   }
@@ -275,7 +302,23 @@ main {
     grid-area: payment;
   }
   #payment-methods {
+    display: grid;
     grid-area: payment-methods;
+    grid-template-areas:
+      "title"
+      "e-money-choice"
+      "cash-choice";
+    gap: 1rem;
+    & legend {
+      padding: 0;
+      grid-area: title;
+    }
+    & > div:first-child {
+      grid-area: e-money-choice;
+    }
+    & > div:nth-child(2) {
+      grid-area: cash-choice;
+    }
   }
   #e-money-number-label {
     grid-area: e-money-number;
@@ -1035,16 +1078,17 @@ footer {
       "e-money-number e-money-pin";
 
     & #payment-methods {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "title choices";
+      grid-template-areas:
+        "title e-money-choice"
+        ". cash-choice";
 
-      & legend {
+      /* & legend {
         grid-area: title;
       }
       & > div {
         grid-area: choices;
-      }
+      } */
     }
   }
   .logo {
@@ -1069,8 +1113,19 @@ footer {
     }
   }
   .grid-cont {
+    /* max-width: 69.375rem;
+    min-width: 69.375rem;
+    margin-inline: auto; */
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
+    & .grid-form-cont {
+      padding-inline: clamp(1.75rem, calc(0.321rem + 2.976vw), 3rem);
+      padding-block: clamp(1.875rem, calc(0.161rem + 3.571vw), 3.375rem)
+        clamp(1.875rem, calc(0.589rem + 2.679vw), 3rem);
+      & > h1 {
+        line-height: 1.125;
+      }
+    }
   }
   .item-gear-section {
     padding-block-start: clamp(0rem, calc(3.214rem + -3.571vw), 1.5rem);
@@ -1318,6 +1373,10 @@ footer {
         margin-inline-start: auto;
       }
     }
+  }
+
+  .grid-cont {
+    /* margin-inline: auto; */
   }
 
   header {

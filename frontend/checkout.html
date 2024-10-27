@@ -113,10 +113,10 @@
         <button data-return class="go-back-btn manrope-medium">Go back</button>
       </div>
       <div class="grid-cont">
-        <div class="manrope-bold">
+        <div class="manrope-bold grid-form-cont">
           <h1>checkout</h1>
           <form id="checkout-form">
-            <h2 id="billing header">billing details</h2>
+            <h2 class="grid-header" id="billing header">billing details</h2>
             <label id="name-label">
               <span>
                 Name
@@ -143,7 +143,7 @@
               <input type="tel" id="phone-number" autocomplete="tel" />
             </label>
 
-            <h2 id="shipping-header">shipping info</h2>
+            <h2 class="grid-header" id="shipping-header">shipping info</h2>
             <label id="address-label">
               <span>
                 Your Address
@@ -433,19 +433,19 @@
               </select>
             </label>
 
-            <h2 id="payment-label">Payment details</h2>
+            <h2 class="grid-header" id="payment-label">Payment details</h2>
             <div id="payment-methods">
               <legend>Payment methods</legend>
+              <!-- <div> -->
               <div>
-                <div>
-                  <input type="radio" name="payment-methods" id="e-money" />
-                  <label for="e-money">e-Money</label>
-                </div>
-                <div>
-                  <input type="radio" name="payment-methods" id="cash" />
-                  <label for="cash">Cash on Delivery</label>
-                </div>
+                <input type="radio" name="payment-methods" id="e-money" />
+                <label for="e-money">e-Money</label>
               </div>
+              <div>
+                <input type="radio" name="payment-methods" id="cash" />
+                <label for="cash">Cash on Delivery</label>
+              </div>
+              <!-- </div> -->
             </div>
             <label id="e-money-number-label">
               e-MOney Number
