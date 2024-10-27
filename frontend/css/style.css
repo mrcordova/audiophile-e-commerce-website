@@ -899,6 +899,7 @@ footer {
   border-radius: 0.5rem;
   padding-inline: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
 
+  overflow: hidden;
   padding-block: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
   border: 0;
   margin: auto;
@@ -906,6 +907,20 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(1.438rem, calc(0.841rem + 2.545vw), 2.063rem);
+  /* text-align: left; */
+
+  & h4 {
+    font-size: clamp(1.5rem, calc(1.023rem + 2.036vw), 2rem);
+    letter-spacing: clamp(0.054rem, calc(0.037rem + 0.071vw), 0.071rem);
+    line-height: 1.16;
+    text-transform: uppercase;
+    /* width: 13ch; */
+  }
+  & > p {
+    color: hsl(from var(--black) h s l / 0.5);
+    font-size: 0.938rem;
+    line-height: 1.66;
+  }
   & .amount {
     color: hsl(from var(--black) h s l / 0.5);
     font-size: 0.875rem;
@@ -914,7 +929,7 @@ footer {
   & .cart-items {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     max-height: 17rem;
     scrollbar-gutter: stable;
     overflow-y: auto;
@@ -950,9 +965,11 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     /* padding-inline: 0.5rem; */
 
     & .order-confirm-accordian {
+      flex: 1.75;
       background-color: var(--white-smoke);
       border-top-left-radius: 0.5rem;
       border-top-right-radius: 0.5rem;
@@ -1006,6 +1023,8 @@ footer {
 
     & .order-confirm-total {
       flex: 1;
+
+      gap: 0.5rem;
       background-color: var(--black);
       border-bottom-left-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
@@ -1018,6 +1037,7 @@ footer {
         color: hsl(from var(--white) h s l / 0.5);
         font-size: 0.938rem;
         line-height: 1.66;
+        text-transform: uppercase;
       }
       & p {
         color: var(--white);
@@ -1025,6 +1045,18 @@ footer {
         line-height: 1.38;
       }
     }
+  }
+  & .back-home-btn {
+    background-color: var(--peru);
+    color: var(--white);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.813rem;
+    letter-spacing: 0.063rem;
+    line-height: 1.38;
+    padding-block: 0.938rem;
+    text-decoration: none;
   }
 }
 .options {
@@ -1570,6 +1602,9 @@ footer {
     /* padding-inline: clamp(2rem, calc(0.857rem + 2.381vw), 3rem); */
     /* padding-block: clamp(2rem, calc(0.857rem + 2.381vw), 3rem); */
 
+    & h4 {
+      line-height: 1.125;
+    }
     & .order-confirm-items-cont {
       flex-direction: row;
 
@@ -1580,6 +1615,9 @@ footer {
       }
 
       & .order-confirm-total {
+        padding-inline: 1.5rem
+          clamp(4.125rem, calc(5.063rem + -1.042vw), 4.563rem);
+        padding-block: clamp(1.188rem, calc(-0.384rem + 3.274vw), 2.563rem);
         border-bottom-left-radius: 0rem;
         border-top-right-radius: 0.5rem;
         border-bottom-left-radius: 0rem;
