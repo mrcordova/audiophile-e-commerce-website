@@ -237,8 +237,7 @@ main {
     "country"
     "payment"
     "payment-methods"
-    "e-money-number"
-    "e-money-pin";
+    "payment-method-choice";
 
   & label {
     display: grid;
@@ -330,6 +329,7 @@ main {
   #payment-methods {
     display: grid;
     grid-area: payment-methods;
+    grid-template-columns: subgrid;
     grid-template-areas:
       "title"
       "e-money-choice"
@@ -371,6 +371,16 @@ main {
         border: 1px solid var(--peru);
       }
     }
+  }
+
+  #payment-method-choice {
+    grid-area: payment-method-choice;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 1rem;
+    grid-template-areas:
+      "e-money-number"
+      "e-money-pin";
   }
   #e-money-number-label {
     grid-area: e-money-number;
@@ -1130,10 +1140,10 @@ footer {
       "country ."
       "payment . "
       "payment-methods payment-methods"
-      "e-money-number e-money-pin";
+      "payment-method-choice payment-method-choice";
 
     & #payment-methods {
-      grid-template-columns: 1fr 1fr;
+      /* grid-template-columns: 1fr 1fr; */
       grid-template-areas:
         "title e-money-choice"
         ". cash-choice";
@@ -1144,6 +1154,10 @@ footer {
       & > div {
         grid-area: choices;
       } */
+    }
+    & #payment-method-choice {
+      grid-area: payment-method-choice;
+      grid-template-areas: "e-money-number e-money-pin";
     }
   }
   .logo {
