@@ -7,6 +7,12 @@ const orderConfirmationDialog = document.querySelector(
 const orderConfirmationDialogBtn = document.querySelector(
   "[data-show-dialog='orderConfirmation']"
 );
+const details = document.querySelector(".item-details");
+const button = document.querySelector(".toggle-button");
+
+button.addEventListener("click", () => {
+  details.open = !details.open; // Toggles the open/close state of the details
+});
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
 
