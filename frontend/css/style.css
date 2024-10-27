@@ -905,6 +905,82 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   gap: clamp(1.438rem, calc(0.841rem + 2.545vw), 2.063rem);
+  & .amount {
+    color: hsl(from var(--black) h s l / 0.5);
+    font-size: 0.875rem;
+    line-height: 1.78;
+  }
+  & .cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-height: 17rem;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+    margin-inline-end: -0.9375rem;
+  }
+
+  & .cart-item-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    & .cart-item-info {
+      flex: 1;
+      & :first-child {
+        font-size: 0.938rem;
+        line-height: 1.66;
+      }
+    }
+  }
+  & .quantity {
+    text-transform: none;
+    color: hsl(from var(--black) h s l / 0.5);
+    font-size: 0.938rem;
+    line-height: 1.66;
+  }
+
+  & img {
+    border-radius: 0.5rem;
+    width: 4rem;
+  }
+  & .order-confirm-items-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* padding-inline: 0.5rem; */
+
+    & .order-confirm-accordian {
+      background-color: var(--white-smoke);
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      padding-inline: 1.5rem;
+      padding-block: 1.5rem;
+      /* padding-inline: 0.5rem; */
+      & .cart-item-cont {
+        padding-block-end: 0.75rem;
+        border-bottom: 1px solid hsl(from var(--black) h s l / 0.08);
+      }
+
+      & > details {
+        padding-block-start: 0.75rem;
+      }
+    }
+
+    & .order-confirm-total {
+      flex: 1;
+      background-color: var(--black);
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      & h5 {
+        color: hsl(from var(--white) h s l / 0.5);
+      }
+      & p {
+        color: var(--white);
+      }
+    }
+  }
 }
 .options {
   background-color: var(--white);
@@ -1448,6 +1524,9 @@ footer {
   #orderConfirmationDialog[open] {
     padding-inline: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
     padding-block: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
+    & .order-confirm-items-cont {
+      flex-direction: row;
+    }
   }
 
   .options {
