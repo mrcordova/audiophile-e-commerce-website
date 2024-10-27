@@ -188,15 +188,19 @@ main {
 }
 
 .grid-cont {
+  gap: 2rem;
+
   max-width: 69.375rem;
   width: 100%;
   display: grid;
+  grid-template-areas: "form" "summary";
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
     clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
 
   padding-block: 1.5rem clamp(6.063rem, calc(4.929rem + 4.835vw), 7.25rem);
 
   & .grid-form-cont {
+    grid-area: form;
     border-radius: 0.5rem;
     background-color: var(--white);
     padding-inline: clamp(1.5rem, calc(1.261rem + 1.018vw), 1.75rem);
@@ -216,6 +220,8 @@ main {
   }
 
   & .checkout-summary {
+    height: max-content;
+    grid-area: summary;
     border-radius: 0.5rem;
     background-color: var(--white);
     padding-inline: clamp(1.5rem, calc(1.261rem + 1.018vw), 1.75rem);
@@ -1293,6 +1299,7 @@ footer {
     }
   }
   .grid-cont {
+    gap: clamp(2rem, calc(2.143rem + -0.298vw), 1.875rem);
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
     padding-block: clamp(1.5rem, calc(0.5rem + 2.083vw), 2.375rem)
@@ -1536,6 +1543,9 @@ footer {
   #cartDialog:popover-open {
     top: 8.063rem;
     right: 10.313rem;
+  }
+  .grid-cont {
+    grid-template-areas: "form summary";
   }
   footer {
     & .footer-cont {
