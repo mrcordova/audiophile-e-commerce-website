@@ -188,7 +188,6 @@ main {
 }
 
 .grid-cont {
-  /* align-self: normal; */
   max-width: 69.375rem;
   width: 100%;
   display: grid;
@@ -341,15 +340,11 @@ main {
     }
 
     &:has(#e-money:checked) + #payment-method-choice {
-      /* background-color: #cd2c2c; */
       display: grid;
     }
 
     &:has(#cash:checked) ~ #cash-on-delivery {
-      /* & #cash-on-delivery { */
-      /* background-color: #cd2c2c; */
       display: flex;
-      /* } */
     }
 
     & > label {
@@ -1166,17 +1161,9 @@ footer {
       "payment-method-choice payment-method-choice";
 
     & #payment-methods {
-      /* grid-template-columns: 1fr 1fr; */
       grid-template-areas:
         "title e-money-choice"
         ". cash-choice";
-
-      /* & legend {
-        grid-area: title;
-      }
-      & > div {
-        grid-area: choices;
-      } */
     }
     & #payment-method-choice {
       grid-area: payment-method-choice;
@@ -1205,11 +1192,6 @@ footer {
     }
   }
   .grid-cont {
-    /* align-self: center; */
-    /* align-self: center; */
-    /* 
-    min-width: 69.375rem;
-    margin-inline: auto; */
     padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
       clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
     padding-block: clamp(1.5rem, calc(0.5rem + 2.083vw), 2.375rem)
@@ -1469,10 +1451,6 @@ footer {
         margin-inline-start: auto;
       }
     }
-  }
-
-  .grid-cont {
-    /* margin-inline: auto; */
   }
 
   header {
