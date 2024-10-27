@@ -189,13 +189,31 @@ main {
   align-self: normal;
   display: grid;
   background-color: var(--white);
+  padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
+    clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
 }
 .checkout-main {
   background-color: var(--less-white);
 }
 
 #checkout-form {
-  width: 100%;
+  /* width: 100%; */
+  display: grid;
+
+  grid-template-areas:
+    "billing"
+    "name"
+    "email"
+    "phone"
+    "shipping"
+    "address"
+    "postal"
+    "city"
+    "country"
+    "payment"
+    "payment-methods"
+    "e-money-number"
+    "e-money-pin";
 
   & label {
     display: grid;
@@ -224,6 +242,46 @@ main {
         outline: 1px solid var(--peru);
       }
     }
+  }
+
+  #billing-header {
+    grid-area: billing;
+  }
+  #name-label {
+    grid-area: name;
+  }
+  #email-label {
+    grid-area: email;
+  }
+  #phone-label {
+    grid-area: phone;
+  }
+  #shipping-header {
+    grid-area: shipping;
+  }
+  #address-label {
+    grid-area: address;
+  }
+  #postal-label {
+    grid-area: postal;
+  }
+  #city-label {
+    grid-area: city;
+  }
+  #country-label {
+    grid-area: country;
+  }
+  #payment-label {
+    grid-area: payment;
+  }
+  #payment-methods {
+    grid-area: payment-methods;
+  }
+  #e-money-number-label {
+    grid-area: e-money-number;
+  }
+  #e-money-pin-label {
+    grid-area: e-money-pin;
   }
 }
 
@@ -961,6 +1019,34 @@ footer {
     right: 2.5rem;
     /* right: 10.313rem; */
   }
+
+  #checkout-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "billing ."
+      "name email"
+      "phone ."
+      "shipping ."
+      "address address"
+      "postal city"
+      "country ."
+      "payment . "
+      "payment-methods payment-methods"
+      "e-money-number e-money-pin";
+
+    & #payment-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "title choices";
+
+      & legend {
+        grid-area: title;
+      }
+      & > div {
+        grid-area: choices;
+      }
+    }
+  }
   .logo {
     margin-inline-start: 2.625rem;
     margin-inline-end: auto;
@@ -981,6 +1067,10 @@ footer {
       padding-inline: clamp(0rem, 10.8482rem + -12.0536vw, 5.0625rem)
         clamp(0rem, 10.9821rem + -12.2024vw, 5.125rem);
     }
+  }
+  .grid-cont {
+    padding-inline: clamp(0rem, 5.2232rem + -5.8036vw, 2.4375rem)
+      clamp(0rem, 5.3571rem + -5.9524vw, 2.5rem);
   }
   .item-gear-section {
     padding-block-start: clamp(0rem, calc(3.214rem + -3.571vw), 1.5rem);
