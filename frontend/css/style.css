@@ -264,6 +264,11 @@ main {
       &::placeholder {
         color: hsl(from var(--black) h s l / 0.4);
       }
+
+      &:hover {
+        cursor: pointer;
+        outline: 1px solid var(--peru);
+      }
     }
   }
 
@@ -325,11 +330,18 @@ main {
       border: 1px solid #cfcfcf;
       border-radius: 0.5rem;
 
+      &:has(input:hover) {
+        border: 1px solid var(--peru);
+      }
+
       & input[type="radio"] {
         margin-inline-start: 1rem;
         padding-inline: 1rem;
         padding-block: 0;
         padding-left: 1rem;
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       & label {
@@ -337,6 +349,10 @@ main {
         padding-block: 1.125rem;
         width: 100%;
         text-transform: none;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       &:has(input:checked) {
