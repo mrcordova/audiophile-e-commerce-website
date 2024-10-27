@@ -894,6 +894,18 @@ footer {
     color: var(--white);
   }
 }
+
+#orderConfirmationDialog[open] {
+  border-radius: 0.5rem;
+  padding-inline: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
+  padding-inline: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
+  border: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.438rem, calc(0.841rem + 2.545vw), 2.063rem);
+}
 .options {
   background-color: var(--white);
   display: flex;
@@ -1431,6 +1443,11 @@ footer {
 
       padding-inline: clamp(0rem, 25.7143rem + -28.5714vw, 12rem);
     }
+  }
+
+  #orderConfirmationDialog[open] {
+    padding-inline: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
+    padding-block: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
   }
 
   .options {

@@ -1,6 +1,12 @@
 const link = document.querySelector("[data-menu-item]");
 const productBtns = document.querySelectorAll("[data-product]");
 const returnBtns = document.querySelectorAll("[data-return]");
+const orderConfirmationDialog = document.querySelector(
+  "#orderConfirmationDialog"
+);
+const orderConfirmationDialogBtn = document.querySelector(
+  "[data-show-dialog='orderConfirmation']"
+);
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
 
@@ -14,6 +20,12 @@ function returnToPage(e) {
 //   const cartDialog = document.getElementById("cartDialog");
 //   cartDialog.showModal();
 // }
+function showOrderConfirmationDialog(e) {
+  const orderConfirmationDialog = document.querySelector(
+    "#orderConfirmationDialog"
+  );
+  orderConfirmationDialog.showModal();
+}
 link.addEventListener("click", (e) => {
   //   e.preventDefault();
 
@@ -37,6 +49,10 @@ for (const productBtn of productBtns) {
 for (const returnBtn of returnBtns) {
   returnBtn.addEventListener("click", returnToPage);
 }
+orderConfirmationDialogBtn.addEventListener(
+  "click",
+  showOrderConfirmationDialog
+);
 
 // for (const showBtn of showBtns) {
 //   showBtn.addEventListener("click", showDialog);

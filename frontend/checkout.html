@@ -17,23 +17,17 @@
   </head>
 
   <body>
-    <!-- Cart Modal -->
-    <!-- Cart(3)
-  Remove All
-
-  XX99 MK II x1
-  $2,999
-  
-  XX59 x2
-  $899
-  
-  YX1 x1
-  $599
-  
-  Total $5,396
-
-  Checkout -->
-    <!-- Cart modal end -->
+    <dialog id="orderConfirmationDialog" class="manrope-bold">
+      <img
+        src="./assets/checkout/icon-order-confirmation.svg"
+        alt="check in orange circle" />
+      <h4>Thank you for your order</h4>
+      <p class="manrope-medium">
+        You will receive an email confirmation shortly.
+      </p>
+      <div></div>
+      <a>Back to home</a>
+    </dialog>
     <header>
       <div class="header-cont">
         <button
@@ -303,7 +297,9 @@
               <p>grand total</p>
               <span class="manrope-bold grand-total">$ 5,446</span>
             </div>
-            <a class="manrope-bold">continue & pay</a>
+            <button data-show-dialog="orderConfirmation" class="manrope-bold">
+              continue & pay
+            </button>
           </div>
         </div>
       </div>
