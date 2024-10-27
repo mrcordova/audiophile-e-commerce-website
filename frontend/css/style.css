@@ -898,7 +898,8 @@ footer {
 #orderConfirmationDialog[open] {
   border-radius: 0.5rem;
   padding-inline: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
-  padding-inline: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
+
+  padding-block: clamp(2rem, calc(1.046rem + 4.071vw), 3rem);
   border: 0;
   margin: auto;
   display: flex;
@@ -979,6 +980,7 @@ footer {
 
         &[open] {
           border-top: 0;
+          padding-block-start: 0;
           & summary {
             /* border-bottom: 1px solid hsl(from var(--black) h s l / 0.08); */
             order: 1;
@@ -997,6 +999,9 @@ footer {
           }
         }
       }
+      &:has(details[open]) ~ .order-confirm-total {
+        justify-content: flex-end;
+      }
     }
 
     & .order-confirm-total {
@@ -1004,11 +1009,20 @@ footer {
       background-color: var(--black);
       border-bottom-left-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
+      padding-inline: 1.5rem;
+      padding-block: 0.938rem 1.188rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       & h5 {
         color: hsl(from var(--white) h s l / 0.5);
+        font-size: 0.938rem;
+        line-height: 1.66;
       }
       & p {
         color: var(--white);
+        font-size: 1.125rem;
+        line-height: 1.38;
       }
     }
   }
@@ -1553,10 +1567,26 @@ footer {
   }
 
   #orderConfirmationDialog[open] {
-    padding-inline: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
-    padding-block: clamp(2rem, calc(0.857rem + 2.381vw), 3rem);
+    /* padding-inline: clamp(2rem, calc(0.857rem + 2.381vw), 3rem); */
+    /* padding-block: clamp(2rem, calc(0.857rem + 2.381vw), 3rem); */
+
     & .order-confirm-items-cont {
       flex-direction: row;
+
+      & .order-confirm-accordian {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+
+      & .order-confirm-total {
+        border-bottom-left-radius: 0rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-left-radius: 0rem;
+
+        /* align-self: center; */
+        /* vertical-align: middle; */
+      }
     }
   }
 
