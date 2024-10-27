@@ -329,7 +329,7 @@ main {
   #payment-methods {
     display: grid;
     grid-area: payment-methods;
-    grid-template-columns: subgrid;
+    /* grid-template-columns: subgrid; */
     grid-template-areas:
       "title"
       "e-money-choice"
@@ -338,6 +338,18 @@ main {
     & legend {
       padding: 0;
       grid-area: title;
+    }
+
+    &:has(#e-money:checked) + #payment-method-choice {
+      /* background-color: #cd2c2c; */
+      display: grid;
+    }
+
+    &:has(#cash:checked) ~ #cash-on-delivery {
+      /* & #cash-on-delivery { */
+      /* background-color: #cd2c2c; */
+      display: flex;
+      /* } */
     }
 
     & > label {
@@ -373,14 +385,25 @@ main {
     }
   }
 
-  #payment-method-choice {
+  & #payment-method-choice {
     grid-area: payment-method-choice;
-    display: grid;
-    grid-template-columns: subgrid;
+    /* display: grid; */
+    display: none;
+    /* grid-template-columns: subgrid; */
     gap: 1rem;
     grid-template-areas:
       "e-money-number"
       "e-money-pin";
+  }
+  & #cash-on-delivery {
+    grid-area: payment-method-choice;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.938rem;
+    line-height: 1.66;
+    color: hsl(from var(--black) h s l / 0.5);
   }
   #e-money-number-label {
     grid-area: e-money-number;
