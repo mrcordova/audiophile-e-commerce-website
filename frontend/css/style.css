@@ -66,7 +66,7 @@ main {
   border: 0;
   border-radius: 0.5rem;
   width: clamp(20.438rem, calc(17.456rem + 12.723vw), 23.563rem);
-  /* height: 30.5rem; */
+
   top: 7.125rem;
   margin-inline: auto;
   padding-inline: clamp(1.75rem, calc(1.452rem + 1.272vw), 2.063rem);
@@ -212,6 +212,107 @@ main {
       font-size: clamp(1.75rem, calc(1.511rem + 1.018vw), 2rem);
       letter-spacing: clamp(0.063rem, calc(0.054rem + 0.036vw), 0.071rem);
       line-height: 1.35;
+    }
+  }
+
+  & .checkout-summary {
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    padding-inline: clamp(1.5rem, calc(1.261rem + 1.018vw), 1.75rem);
+    padding-block: clamp(1.5rem, calc(1.142rem + 1.527vw), 1.875rem)
+      clamp(1.875rem, calc(1.997rem + -0.254vw), 1.938rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-transform: uppercase;
+
+    & h3 {
+      font-size: 1.125rem;
+      letter-spacing: 0.081rem;
+      line-height: 1.38;
+    }
+    & .amount {
+      color: hsl(from var(--black) h s l / 0.5);
+      font-size: 0.875rem;
+      line-height: 1.78;
+    }
+    & .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-height: 17rem;
+      scrollbar-gutter: stable;
+      overflow-y: auto;
+      margin-inline-end: -0.9375rem;
+    }
+
+    & .cart-item-cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      & .cart-item-info {
+        flex: 1;
+        & :first-child {
+          font-size: 0.938rem;
+          line-height: 1.66;
+        }
+      }
+    }
+    & .cart-total-cont {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      & .cart-total {
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+
+        & p {
+          color: hsl(from var(--black) h s l / 0.5);
+          font-size: 0.938rem;
+          line-height: 1.66;
+        }
+        & span {
+          font-size: 1.125rem;
+          line-height: 1.388;
+        }
+      }
+
+      & .grand-total {
+        color: var(--peru);
+      }
+
+      & .total-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      & button,
+      a {
+        background-color: var(--peru);
+        color: var(--white);
+        text-align: center;
+        font-size: 0.813rem;
+        letter-spacing: 0.063rem;
+        line-height: 1.38;
+        padding-block: 0.938rem;
+        text-decoration: none;
+      }
+    }
+    & .quantity {
+      text-transform: none;
+      color: hsl(from var(--black) h s l / 0.5);
+      font-size: 0.938rem;
+      line-height: 1.66;
+    }
+
+    & img {
+      border-radius: 0.5rem;
+      width: 4rem;
     }
   }
 }
