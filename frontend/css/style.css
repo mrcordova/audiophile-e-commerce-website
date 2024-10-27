@@ -320,6 +320,7 @@ main {
     & > div {
       display: flex;
       /* gap: 1rem; */
+
       accent-color: var(--peru);
       border: 1px solid #cfcfcf;
       border-radius: 0.5rem;
@@ -335,24 +336,28 @@ main {
         padding-inline-start: 1rem;
         padding-block: 1.125rem;
         width: 100%;
+        text-transform: none;
       }
 
       &:has(input:checked) {
         border: 1px solid var(--peru);
       }
     }
-    & > div:first-child {
+    & > div:nth-child(2) {
       grid-area: e-money-choice;
     }
-    & > div:nth-child(2) {
+    & > div:nth-child(3) {
       grid-area: cash-choice;
     }
   }
   #e-money-number-label {
     grid-area: e-money-number;
+
+    text-transform: none;
   }
   #e-money-pin-label {
     grid-area: e-money-pin;
+    text-transform: none;
   }
 }
 
