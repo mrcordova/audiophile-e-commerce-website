@@ -163,9 +163,11 @@ main.addEventListener("click", (e) => {
       "span[data-counter-value]"
     ).dataset.counterValue;
     const cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(addCartBtn.dataset.img);
     cart[addCartBtn.dataset.productCart] = {
       amount: counterVal,
       price: addCartBtn.dataset.price,
+      image: addCartBtn.dataset.img,
     };
 
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -192,7 +194,7 @@ header.addEventListener("click", (e) => {
         "beforeend",
         ` <div class="cart-item-cont">
             <img
-              src="./assets/cart/image-xx99-mark-two-headphones.jpg"
+              src="${valuesObj.image}"
               alt="${name}" />
             <div class="cart-item-info manrope-bold">
               <p class="title">${name}</p>
