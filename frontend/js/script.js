@@ -12,6 +12,7 @@ const button = document.querySelector(".toggle-button");
 const main = document.querySelector("main");
 const cartDialog = document.querySelector("#cartDialog");
 const header = document.querySelector("header");
+const VAT = 1.2;
 
 // button.addEventListener("click", () => {
 //   details.open = !details.open; // Toggles the open/close state of the details
@@ -36,7 +37,7 @@ function returnToPage(e) {
   history.back();
 }
 
-function updateCounter(counterBtn) {
+function updateCounter(counterBtn, min = 1) {
   const counterValue = counterBtn.parentElement.querySelector(
     "span[data-counter-value]"
   );
@@ -44,7 +45,7 @@ function updateCounter(counterBtn) {
   const newVal = checkRange(
     parseInt(counterValue.dataset.counterValue) +
       parseInt(counterBtn.dataset.counterAmount),
-    1
+    min
   );
   counterValue.setAttribute("data-counter-value", newVal);
   counterValue.textContent = newVal;
@@ -93,7 +94,34 @@ for (const returnBtn of returnBtns) {
 cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   if (counterBtn) {
-    updateCounter(counterBtn);
+    const cartTotal = cartDialog.querySelector("[data-cart-total]");
+    const priceEle = counterBtn.parentElement.querySelector("[data-price]");
+    const itemTotal =
+      parseFloat(priceEle.dataset.price) *
+      parseFloat(counterBtn.dataset.counterAmount) *
+      VAT;
+
+    // console.log(itemTotal.toFixed(0));
+    updateCounter(counterBtn, 0);
+
+    const newTotal = Math.max(
+      parseFloat(cartTotal.dataset.cartTotal) + parseInt(itemTotal.toFixed(0)),
+      0
+    );
+    // console.log(newTotal);
+    cartTotal.setAttribute("data-cart-total", newTotal);
+    cartTotal.textContent = `${newTotal.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    })}`;
+
+    if (priceEle.dataset.counterValue == "0") {
+      priceEle.parentElement.parentElement.remove();
+    }
+
+    // console.log(cartTotal);
   }
 });
 main.addEventListener("click", (e) => {
@@ -119,4 +147,6 @@ main.addEventListener("click", (e) => {
 header.addEventListener("click", (e) => {
   // console.log(e.target);
   const cartDialogBtn = e.target.closest("button[data-show-dialog]");
+  if (cartDialogBtn) {
+  }
 });
