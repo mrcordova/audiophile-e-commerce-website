@@ -144,6 +144,9 @@ main {
       line-height: 1.38;
       padding-block: 0.938rem;
       text-decoration: none;
+      &:hover {
+        background-color: #fbaf85;
+      }
     }
   }
   & .counter {
@@ -171,6 +174,11 @@ main {
     /* padding-inline: 1.96875rem 1.84375rem; */
     padding-block: 0.438rem;
     padding-inline: 1.072rem 1.234375rem;
+
+    &:hover {
+      color: var(--peru);
+      cursor: pointer;
+    }
   }
 
   & .remove-all-btn {
@@ -194,12 +202,16 @@ main {
   width: 100%;
   display: grid;
   grid-template-areas: "form" "summary";
+
   padding-inline: clamp(1.5rem, 0.6054rem + 3.8168vw, 2.4375rem)
     clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
 
   padding-block: 1.5rem clamp(6.063rem, calc(4.929rem + 4.835vw), 7.25rem);
 
   & .grid-form-cont {
+    /* max-width: 45.625rem; */
+    /* max-width: 39.745rem; */
+    width: 100%;
     grid-area: form;
     border-radius: 0.5rem;
     background-color: var(--white);
@@ -221,6 +233,7 @@ main {
 
   & .checkout-summary {
     height: max-content;
+    /* max-width: 21.875rem; */
     grid-area: summary;
     border-radius: 0.5rem;
     background-color: var(--white);
@@ -307,6 +320,11 @@ main {
         line-height: 1.38;
         padding-block: 0.938rem;
         text-decoration: none;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #fbaf85;
+        }
       }
     }
     & .quantity {
@@ -778,6 +796,11 @@ footer {
   align-self: flex-start;
   line-height: 1.66;
   color: hsl(from var(--black) h s l / 0.5);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--peru);
+  }
 }
 
 .item-cont {
@@ -1147,6 +1170,11 @@ footer {
       color: hsl(from var(--black) h s l / 0.25);
       padding-block: 0.9375rem;
       padding-inline: 1.4375rem 1.625rem;
+
+      &:hover {
+        background-color: var(--white-smoke);
+        color: var(--peru);
+      }
     }
   }
 }
@@ -1314,6 +1342,10 @@ footer {
     padding-block: 0.9375rem;
     padding-inline: 1.96875rem 1.84375rem;
     text-decoration: none;
+
+    &:hover {
+      background-color: #fbaf85;
+    }
   }
 
   & .you-may-like-items-cont {
@@ -1442,13 +1474,15 @@ footer {
 
 @media (min-width: 48rem) {
   #cartDialog:popover-open {
-    /* top: 7.125rem; */
-    /* left: 0; */
-    /* right: 0; */
     margin-inline: 0;
     left: auto;
     right: 2.5rem;
-    /* right: 10.313rem; */
+
+    & .remove-all-btn:hover {
+      text-decoration: none;
+      color: var(--peru);
+      cursor: pointer;
+    }
   }
 
   #checkout-form {
@@ -1782,6 +1816,7 @@ footer {
   }
   .grid-cont {
     grid-template-areas: "form summary";
+    grid-template-columns: 0.68fr 0.32fr;
   }
   footer {
     & .footer-cont {

@@ -13,6 +13,7 @@ const button = document.querySelector(".toggle-button");
 button.addEventListener("click", () => {
   details.open = !details.open; // Toggles the open/close state of the details
 });
+
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
 
