@@ -4,6 +4,13 @@ import { VAT, priceOptions } from "./script.js";
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
 }
+
+const orderConfirmationDialog = document.querySelector(
+  "#orderConfirmationDialog"
+);
+const orderConfirmationDialogBtn = document.querySelector(
+  "[data-show-dialog='orderConfirmation']"
+);
 const cart = JSON.parse(localStorage.getItem("cart"));
 let cartTotal = 0;
 // let cartItemNumber = 0;
@@ -16,7 +23,13 @@ const grandTotal = document.querySelector(
 );
 
 cartItems.replaceChildren();
-console.log(cartItems);
+
+function showOrderConfirmationDialog(e) {
+  const orderConfirmationDialog = document.querySelector(
+    "#orderConfirmationDialog"
+  );
+  orderConfirmationDialog.showModal();
+}
 
 for (const [name, valuesObj] of Object.entries(cart)) {
   const price = parseInt(valuesObj.price).toLocaleString("en-US", {
@@ -60,4 +73,8 @@ grandTotal.textContent = `${parseFloat(
   (cartTotal * VAT + parseInt(shipping.dataset.shipping)).toFixed(0)
 ).toLocaleString("en-US", priceOptions)}`;
 
-// console.log(localStorage.getItem("cart"));
+console.log(localStorage.getItem("cart"));
+orderConfirmationDialogBtn.addEventListener(
+  "click",
+  showOrderConfirmationDialog
+);

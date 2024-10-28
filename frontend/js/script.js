@@ -31,7 +31,6 @@ if (!("cart" in localStorage)) {
 }
 function checkRange(number, min = 1) {
   let n = Number(number);
-  // n = Math.min(min, Math.max(0, n));
   n = Math.max(min, n);
   return n;
 }
@@ -61,12 +60,12 @@ function updateCounter(counterBtn, min = 1) {
 //   const cartDialog = document.getElementById("cartDialog");
 //   cartDialog.showModal();
 // }
-function showOrderConfirmationDialog(e) {
-  const orderConfirmationDialog = document.querySelector(
-    "#orderConfirmationDialog"
-  );
-  orderConfirmationDialog.showModal();
-}
+// function showOrderConfirmationDialog(e) {
+//   const orderConfirmationDialog = document.querySelector(
+//     "#orderConfirmationDialog"
+//   );
+//   orderConfirmationDialog.showModal();
+// }
 link.addEventListener("click", (e) => {
   //   e.preventDefault();
 
