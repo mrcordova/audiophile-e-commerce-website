@@ -558,6 +558,10 @@ header {
       font-size: 0.8125rem;
       line-height: 1.92;
       letter-spacing: 0.125rem;
+
+      &:hover {
+        color: var(--peru);
+      }
     }
   }
   & .mobile-menu-btn {
@@ -657,6 +661,9 @@ footer {
         & a {
           text-decoration: none;
           color: var(--white);
+          &:hover {
+            color: var(--peru);
+          }
         }
       }
     }
@@ -815,6 +822,11 @@ footer {
       background-color: var(--peru);
       padding-block: 0.9375rem;
       padding-inline: 1.96875rem 1.84375rem;
+
+      &:hover {
+        background-color: #fbaf85;
+        cursor: pointer;
+      }
     }
   }
 
@@ -892,6 +904,10 @@ footer {
     padding-inline: 1.96875rem 1.84375rem;
     text-decoration: none;
     color: var(--white);
+
+    &:hover {
+      background-color: #fbaf85;
+    }
   }
 }
 
@@ -1102,6 +1118,10 @@ footer {
       margin-block-end: 1.375rem;
       letter-spacing: 0.0625rem;
       text-decoration: none;
+
+      &:hover {
+        color: var(--peru);
+      }
     }
     & > img {
       position: absolute;
@@ -1258,6 +1278,10 @@ footer {
       border: 1px solid var(--black);
       width: max-content;
       margin-inline: clamp(1.5938rem, -0.583rem + 9.2875vw, 3.875rem) 0rem;
+      &:hover {
+        background-color: var(--black);
+        color: var(--white);
+      }
     }
   }
 }
@@ -1372,6 +1396,10 @@ footer {
       background-color: var(--black);
       padding-block: 0.9375rem;
       padding-inline: 1.96875rem 1.8475rem;
+
+      &:hover {
+        background-color: #4c4c4c;
+      }
     }
   }
 }
@@ -1404,6 +1432,11 @@ footer {
     width: max-content;
     text-decoration: none;
     color: var(--black);
+
+    &:hover {
+      background-color: var(--black);
+      color: var(--white);
+    }
   }
 }
 
@@ -1579,6 +1612,14 @@ footer {
       }
       .links-cont {
         margin-inline: auto 0;
+
+        & button:hover {
+          cursor: pointer;
+
+          & svg {
+            color: var(--peru);
+          }
+        }
       }
       & .company {
         margin-block-end: auto;
