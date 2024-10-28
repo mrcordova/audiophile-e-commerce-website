@@ -9,6 +9,7 @@ const orderConfirmationDialogBtn = document.querySelector(
 );
 const details = document.querySelector(".item-details");
 const button = document.querySelector(".toggle-button");
+const main = document.querySelector("main");
 
 // button.addEventListener("click", () => {
 //   details.open = !details.open; // Toggles the open/close state of the details
@@ -64,3 +65,10 @@ for (const returnBtn of returnBtns) {
 // for (const showBtn of showBtns) {
 //   showBtn.addEventListener("click", showDialog);
 // }
+
+main.addEventListener("click", (e) => {
+  const counterBtn = e.target.closest("button[data-counter-amount]");
+  if (counterBtn) {
+    console.log(counterBtn.dataset.counterAmount);
+  }
+});
