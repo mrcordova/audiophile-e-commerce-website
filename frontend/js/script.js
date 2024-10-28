@@ -117,5 +117,6 @@ main.addEventListener("click", (e) => {
 });
 
 header.addEventListener("click", (e) => {
-  console.log(e.target);
+  // console.log(e.target);
+  const cartDialogBtn = e.target.closest("button[data-show-dialog]");
 });
