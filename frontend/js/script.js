@@ -105,9 +105,7 @@ cartDialog.addEventListener("click", (e) => {
     );
     const cartTotalVal = parseFloat(cartTotal.dataset.cartTotal);
 
-    // console.log(itemTotal);
     updateCounter(counterBtn, 0);
-    // console.log((718.8).toFixed(0));
 
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
@@ -140,7 +138,17 @@ cartDialog.addEventListener("click", (e) => {
 
     // console.log(cartTotal);
   } else if (removeAllBtn) {
-    console.log("blcik");
+    const cartTotal = cartDialog.querySelector("[data-cart-total]");
+    const cartNumber = cartDialog.querySelector("[data-cart-number");
+    const cartItems = cartDialog.querySelector(".cart-items");
+    cartNumber.setAttribute("data-cart-number", 0);
+    cartNumber.textContent = `(0)`;
+
+    cartTotal.setAttribute("data-cart-total", 0);
+    cartTotal.textContent = `$ 0`;
+
+    cartItems.replaceChildren();
+    // console.log("blcik");
   }
 });
 main.addEventListener("click", (e) => {
@@ -159,6 +167,8 @@ main.addEventListener("click", (e) => {
       amount: counterVal,
       price: addCartBtn.dataset.price,
     };
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     // console.log(cart);
   }
 });
@@ -167,5 +177,8 @@ header.addEventListener("click", (e) => {
   // console.log(e.target);
   const cartDialogBtn = e.target.closest("button[data-show-dialog]");
   if (cartDialogBtn) {
+    const cartDialog = document.querySelector("#cartDialog .cart-items");
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart);
   }
 });
