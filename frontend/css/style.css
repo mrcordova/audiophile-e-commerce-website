@@ -92,6 +92,7 @@ main {
     max-height: 17rem;
     scrollbar-gutter: stable;
     overflow-y: auto;
+    overflow-x: hidden;
     margin-inline-end: -0.9375rem;
   }
 

@@ -177,8 +177,43 @@ header.addEventListener("click", (e) => {
   // console.log(e.target);
   const cartDialogBtn = e.target.closest("button[data-show-dialog]");
   if (cartDialogBtn) {
-    const cartDialog = document.querySelector("#cartDialog .cart-items");
+    const cartDialogItemsCont = document.querySelector(
+      "#cartDialog .cart-items"
+    );
     const cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(cart);
+    console.log(Object.entries(cart));
+    for (const [name, valuesObj] of Object.entries(cart)) {
+      const price = parseInt(valuesObj.price).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+      cartDialogItemsCont.insertAdjacentHTML(
+        "beforeend",
+        ` <div class="cart-item-cont">
+            <img
+              src="./assets/cart/image-xx99-mark-two-headphones.jpg"
+              alt="${name}" />
+            <div class="cart-item-info manrope-bold">
+              <p class="title">${name}</p>
+              <p class="amount">${price}</p>
+            </div>
+            <div class="counter">
+              <button data-counter-amount="-1" class="product-btn manrope-bold">
+                -
+              </button>
+              <span
+                data-price="${valuesObj.price}"
+                data-counter-value="${valuesObj.amount}"
+                class="manrope-bold">
+                ${valuesObj.amount}
+              </span>
+              <button data-counter-amount="1" class="product-btn manrope-bold">
+                +
+              </button>
+            </div>
+          </div>`
+      );
+    }
   }
 });
