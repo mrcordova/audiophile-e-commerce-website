@@ -163,7 +163,7 @@ main.addEventListener("click", (e) => {
       "span[data-counter-value]"
     ).dataset.counterValue;
     const cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(addCartBtn.dataset.img);
+    // console.log(addCartBtn.dataset.img);
     cart[addCartBtn.dataset.productCart] = {
       amount: counterVal,
       price: addCartBtn.dataset.price,
@@ -182,7 +182,16 @@ header.addEventListener("click", (e) => {
     const cartDialogItemsCont = document.querySelector(
       "#cartDialog .cart-items"
     );
+    const cartNumberEle = document.querySelector(
+      "#cartDialog span[data-cart-number]"
+    );
+    const cartTotalEle = document.querySelector(
+      " #cartDialog [data-cart-total]"
+    );
+    console.log(cartNumberEle);
     const cart = JSON.parse(localStorage.getItem("cart"));
+    let cartTotal = 0;
+    let cartItemNumber = 0;
     console.log(Object.entries(cart));
     for (const [name, valuesObj] of Object.entries(cart)) {
       const price = parseInt(valuesObj.price).toLocaleString("en-US", {
@@ -216,6 +225,22 @@ header.addEventListener("click", (e) => {
             </div>
           </div>`
       );
+      cartTotal += parseFloat(valuesObj.price) * parseFloat(valuesObj.amount);
+      cartItemNumber += parseFloat(valuesObj.amount);
     }
+    // console.log(cartTotal);
+
+    const newTotal = parseFloat(cartTotal) * VAT;
+    cartTotalEle.setAttribute("data-cart-total", newTotal);
+    cartTotalEle.textContent = `${parseFloat(
+      newTotal.toFixed(0)
+    ).toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    })}`;
+    cartNumberEle.setAttribute("data-cart-number", cartItemNumber);
+    cartNumberEle.textContent = `(${cartItemNumber})`;
   }
 });
