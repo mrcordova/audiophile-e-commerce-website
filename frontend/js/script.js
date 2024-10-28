@@ -11,6 +11,7 @@ const details = document.querySelector(".item-details");
 const button = document.querySelector(".toggle-button");
 const main = document.querySelector("main");
 const cartDialog = document.querySelector("#cartDialog");
+const header = document.querySelector("header");
 
 // button.addEventListener("click", () => {
 //   details.open = !details.open; // Toggles the open/close state of the details
@@ -18,6 +19,9 @@ const cartDialog = document.querySelector("#cartDialog");
 
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
+if (!("cart" in localStorage)) {
+  localStorage.setItem("cart", JSON.stringify({}));
+}
 function checkRange(number, min = 1) {
   let n = Number(number);
   // n = Math.min(min, Math.max(0, n));
@@ -88,7 +92,6 @@ for (const returnBtn of returnBtns) {
 // }
 cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
-
   if (counterBtn) {
     updateCounter(counterBtn);
   }
@@ -97,9 +100,22 @@ main.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const addCartBtn = e.target.closest("button[data-product-cart]");
 
+  // console.log(e.target);
   if (counterBtn) {
     updateCounter(counterBtn);
   } else if (addCartBtn) {
-    // console.log("here");
+    const counterVal = addCartBtn.previousElementSibling.querySelector(
+      "span[data-counter-value]"
+    ).dataset.counterValue;
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    cart[addCartBtn.dataset.productCart] = {
+      amount: counterVal,
+      price: addCartBtn.dataset.price,
+    };
+    // console.log(cart);
   }
+});
+
+header.addEventListener("click", (e) => {
+  console.log(e.target);
 });
