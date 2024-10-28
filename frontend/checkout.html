@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/checkout.js"></script>
 
     <title>Frontend Mentor | Audiophile e-commerce website</title>
   </head>
@@ -371,7 +372,7 @@
         <div class="checkout-summary manrope-bold">
           <h3>Summary</h3>
           <div class="cart-items">
-            <div class="cart-item-cont">
+            <!-- <div class="cart-item-cont">
               <img
                 src="./assets/cart/image-xx99-mark-two-headphones.jpg"
                 alt="xx99 mk ii" />
@@ -400,27 +401,29 @@
                 <p class="amount">$ 599</p>
               </div>
               <p class="quantity">x1</p>
-            </div>
+            </div> -->
           </div>
 
           <div class="cart-total-cont manrope-medium">
             <div class="total-cont">
               <div class="cart-total">
                 <p>total</p>
-                <span class="manrope-bold">$ 5,396</span>
+                <span data-total="5396" class="manrope-bold">$ 5,396</span>
               </div>
-              <div class="cart-total">
+              <div data-shipping="50" class="cart-total">
                 <p>shipping</p>
                 <span class="manrope-bold">$ 50</span>
               </div>
               <div class="cart-total">
                 <p>vat(included)</p>
-                <span class="manrope-bold">$ 1,079</span>
+                <span data-vat="1079" class="manrope-bold">$ 1,079</span>
               </div>
             </div>
             <div class="cart-total">
               <p>grand total</p>
-              <span class="manrope-bold grand-total">$ 5,446</span>
+              <span data-grand-total="6899" class="manrope-bold grand-total">
+                $ 5,446
+              </span>
             </div>
             <button data-show-dialog="orderConfirmation" class="manrope-bold">
               continue & pay

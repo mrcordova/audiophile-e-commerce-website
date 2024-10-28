@@ -13,6 +13,12 @@ const main = document.querySelector("main");
 const cartDialog = document.querySelector("#cartDialog");
 const header = document.querySelector("header");
 const VAT = 1.2;
+const priceOptions = {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2,
+};
 
 // button.addEventListener("click", () => {
 //   details.open = !details.open; // Toggles the open/close state of the details
@@ -95,6 +101,8 @@ for (const returnBtn of returnBtns) {
 cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
+  // e.preventDefault();
+  // console.log(e.target.tagName);d
   if (counterBtn) {
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartTotal = cartDialog.querySelector("[data-cart-total]");
@@ -148,7 +156,6 @@ cartDialog.addEventListener("click", (e) => {
     if (priceEle.dataset.counterValue == "0") {
       const { [itemName]: _, ...newCart } = cart;
       // console.log(priceEle.parentElement.parentElement.children[0]);
-
       localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
     }
@@ -165,7 +172,7 @@ cartDialog.addEventListener("click", (e) => {
     cartTotal.textContent = `$ 0`;
 
     cartItems.replaceChildren();
-    // console.log("blcik");
+    localStorage.setItem("cart", JSON.stringify({}));
   }
 });
 main.addEventListener("click", (e) => {
@@ -188,7 +195,6 @@ main.addEventListener("click", (e) => {
     };
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    // console.log(cart);
   }
 });
 
@@ -209,6 +215,7 @@ header.addEventListener("click", (e) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     let cartTotal = 0;
     let cartItemNumber = 0;
+    cartDialogItemsCont.replaceChildren();
     // console.log(Object.entries(cart));
     for (const [name, valuesObj] of Object.entries(cart)) {
       const price = parseInt(valuesObj.price).toLocaleString("en-US", {
@@ -260,3 +267,5 @@ header.addEventListener("click", (e) => {
     cartNumberEle.textContent = `(${cartItemNumber})`;
   }
 });
+
+export { VAT, priceOptions };
