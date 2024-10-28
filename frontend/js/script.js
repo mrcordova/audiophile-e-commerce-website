@@ -10,6 +10,7 @@ const orderConfirmationDialogBtn = document.querySelector(
 const details = document.querySelector(".item-details");
 const button = document.querySelector(".toggle-button");
 const main = document.querySelector("main");
+const cartDialog = document.querySelector("#cartDialog");
 
 // button.addEventListener("click", () => {
 //   details.open = !details.open; // Toggles the open/close state of the details
@@ -29,6 +30,20 @@ function goToPage(e) {
 }
 function returnToPage(e) {
   history.back();
+}
+
+function updateCounter(counterBtn) {
+  const counterValue = counterBtn.parentElement.querySelector(
+    "span[data-counter-value]"
+  );
+
+  const newVal = checkRange(
+    parseInt(counterValue.dataset.counterValue) +
+      parseInt(counterBtn.dataset.counterAmount),
+    1
+  );
+  counterValue.setAttribute("data-counter-value", newVal);
+  counterValue.textContent = newVal;
 }
 // function showDialog(e) {
 //   const cartDialog = document.getElementById("cartDialog");
@@ -71,23 +86,20 @@ for (const returnBtn of returnBtns) {
 // for (const showBtn of showBtns) {
 //   showBtn.addEventListener("click", showDialog);
 // }
+cartDialog.addEventListener("click", (e) => {
+  const counterBtn = e.target.closest("button[data-counter-amount]");
 
+  if (counterBtn) {
+    updateCounter(counterBtn);
+  }
+});
 main.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
-  // console.log(e.target.tagName);
-  console.log(e.target);
+  const addCartBtn = e.target.closest("button[data-product-cart]");
+
   if (counterBtn) {
-    console.log(counterBtn.dataset.counterAmount);
-    const counterValue = counterBtn.parentElement.querySelector(
-      "span[data-counter-value]"
-    );
-    console.log(counterBtn.parentElement);
-    const newVal = checkRange(
-      parseInt(counterValue.dataset.counterValue) +
-        parseInt(counterBtn.dataset.counterAmount),
-      1
-    );
-    counterValue.setAttribute("data-counter-value", newVal);
-    counterValue.textContent = newVal;
+    updateCounter(counterBtn);
+  } else if (addCartBtn) {
+    // console.log("here");
   }
 });
