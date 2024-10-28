@@ -17,6 +17,12 @@ const main = document.querySelector("main");
 
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
+function checkRange(number, min = 1) {
+  let n = Number(number);
+  // n = Math.min(min, Math.max(0, n));
+  n = Math.max(min, n);
+  return n;
+}
 
 function goToPage(e) {
   window.location.href = `./product-${e.target.dataset.product}.html`;
@@ -68,7 +74,20 @@ for (const returnBtn of returnBtns) {
 
 main.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
+  // console.log(e.target.tagName);
+  console.log(e.target);
   if (counterBtn) {
     console.log(counterBtn.dataset.counterAmount);
+    const counterValue = counterBtn.parentElement.querySelector(
+      "span[data-counter-value]"
+    );
+    console.log(counterBtn.parentElement);
+    const newVal = checkRange(
+      parseInt(counterValue.dataset.counterValue) +
+        parseInt(counterBtn.dataset.counterAmount),
+      1
+    );
+    counterValue.setAttribute("data-counter-value", newVal);
+    counterValue.textContent = newVal;
   }
 });
