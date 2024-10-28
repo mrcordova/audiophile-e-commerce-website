@@ -11,6 +11,8 @@ const orderConfirmationDialog = document.querySelector(
 const orderConfirmationDialogBtn = document.querySelector(
   "[data-show-dialog='orderConfirmation']"
 );
+const details = document.querySelector(".item-details");
+const button = document.querySelector(".toggle-button");
 const cart = JSON.parse(localStorage.getItem("cart"));
 let cartTotal = 0;
 // let cartItemNumber = 0;
@@ -21,15 +23,19 @@ const shipping = document.querySelector(".checkout-summary [data-shipping]");
 const grandTotal = document.querySelector(
   ".checkout-summary [data-grand-total]"
 );
+const main = document.querySelector("main");
 
 cartItems.replaceChildren();
 
 function showOrderConfirmationDialog(e) {
-  const orderConfirmationDialog = document.querySelector(
-    "#orderConfirmationDialog"
-  );
+  //   const orderConfirmationDialog = document.querySelector(
+  //     "#orderConfirmationDialog"
+  //   );
   orderConfirmationDialog.showModal();
 }
+button.addEventListener("click", () => {
+  details.open = !details.open; // Toggles the open/close state of the details
+});
 
 for (const [name, valuesObj] of Object.entries(cart)) {
   const price = parseInt(valuesObj.price).toLocaleString("en-US", {
@@ -54,7 +60,7 @@ for (const [name, valuesObj] of Object.entries(cart)) {
   // cartItemNumber += parseFloat(valuesObj.amount);
 }
 total.setAttribute("data-total", cartTotal);
-console.log(cartTotal);
+// console.log(cartTotal);
 total.textContent = `${parseFloat(cartTotal.toFixed(0)).toLocaleString(
   "en-US",
   priceOptions
@@ -73,8 +79,10 @@ grandTotal.textContent = `${parseFloat(
   (cartTotal * VAT + parseInt(shipping.dataset.shipping)).toFixed(0)
 ).toLocaleString("en-US", priceOptions)}`;
 
-console.log(localStorage.getItem("cart"));
+// console.log(localStorage.getItem("cart"));
 orderConfirmationDialogBtn.addEventListener(
   "click",
   showOrderConfirmationDialog
 );
+
+main.addEventListener("click", (e) => {});

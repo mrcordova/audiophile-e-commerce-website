@@ -1,14 +1,5 @@
 const link = document.querySelector("[data-menu-item]");
-const productBtns = document.querySelectorAll("[data-product]");
-const returnBtns = document.querySelectorAll("[data-return]");
-const orderConfirmationDialog = document.querySelector(
-  "#orderConfirmationDialog"
-);
-const orderConfirmationDialogBtn = document.querySelector(
-  "[data-show-dialog='orderConfirmation']"
-);
-const details = document.querySelector(".item-details");
-const button = document.querySelector(".toggle-button");
+
 const main = document.querySelector("main");
 const cartDialog = document.querySelector("#cartDialog");
 const header = document.querySelector("header");
@@ -35,9 +26,6 @@ function checkRange(number, min = 1) {
   return n;
 }
 
-function goToPage(e) {
-  window.location.href = `./product-${e.target.dataset.product}.html`;
-}
 function returnToPage(e) {
   history.back();
 }
@@ -82,13 +70,14 @@ link.addEventListener("click", (e) => {
 
   return false;
 });
-for (const productBtn of productBtns) {
-  productBtn.addEventListener("click", goToPage);
-}
+// console.log(productBtns);
+// for (const productBtn of productBtns) {
+//   productBtn.addEventListener("click", goToPage);
+// }
 
-for (const returnBtn of returnBtns) {
-  returnBtn.addEventListener("click", returnToPage);
-}
+// for (const returnBtn of returnBtns) {
+//   returnBtn.addEventListener("click", returnToPage);
+// }
 // orderConfirmationDialogBtn.addEventListener(
 //   "click",
 //   showOrderConfirmationDialog
@@ -115,7 +104,7 @@ cartDialog.addEventListener("click", (e) => {
     const cartTotalVal = parseFloat(cartTotal.dataset.cartTotal);
     const itemName = priceEle.parentElement.parentElement.dataset.name;
 
-    console.log(priceEle.parentElement.parentElement);
+    // console.log(priceEle.parentElement.parentElement);
     let cartItemIdx;
     const result = Object.entries(cart).find((val, idx) => {
       cartItemIdx = idx;
@@ -177,8 +166,9 @@ cartDialog.addEventListener("click", (e) => {
 main.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const addCartBtn = e.target.closest("button[data-product-cart]");
-
-  // console.log(e.target);
+  const returnBtn = e.target.closest("button[data-return]");
+  // e.preventDefault();
+  // console.log(e);
   if (counterBtn) {
     const _ = updateCounter(counterBtn);
   } else if (addCartBtn) {
@@ -194,6 +184,8 @@ main.addEventListener("click", (e) => {
     };
 
     localStorage.setItem("cart", JSON.stringify(cart));
+  } else if (returnBtn) {
+    returnToPage(e);
   }
 });
 
