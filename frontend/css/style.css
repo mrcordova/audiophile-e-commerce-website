@@ -845,6 +845,7 @@ footer {
       background-color: var(--peru);
       padding-block: 0.9375rem;
       padding-inline: 1.96875rem 1.84375rem;
+      text-decoration: none;
 
       &:hover {
         background-color: #fbaf85;

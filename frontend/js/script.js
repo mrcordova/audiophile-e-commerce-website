@@ -10,9 +10,9 @@ const orderConfirmationDialogBtn = document.querySelector(
 const details = document.querySelector(".item-details");
 const button = document.querySelector(".toggle-button");
 
-button.addEventListener("click", () => {
-  details.open = !details.open; // Toggles the open/close state of the details
-});
+// button.addEventListener("click", () => {
+//   details.open = !details.open; // Toggles the open/close state of the details
+// });
 
 // const showBtns = document.querySelectorAll("[data-show-dialog]");
 // console.log(link)
@@ -56,10 +56,10 @@ for (const productBtn of productBtns) {
 for (const returnBtn of returnBtns) {
   returnBtn.addEventListener("click", returnToPage);
 }
-orderConfirmationDialogBtn.addEventListener(
-  "click",
-  showOrderConfirmationDialog
-);
+// orderConfirmationDialogBtn.addEventListener(
+//   "click",
+//   showOrderConfirmationDialog
+// );
 
 // for (const showBtn of showBtns) {
 //   showBtn.addEventListener("click", showDialog);
