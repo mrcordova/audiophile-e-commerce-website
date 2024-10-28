@@ -186,6 +186,12 @@ main {
     line-height: 1.66;
     color: hsl(from var(--black) h s l / 0.5);
     text-decoration: underline;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--peru);
+    }
   }
 
   & .title {

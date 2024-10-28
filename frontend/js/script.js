@@ -93,16 +93,21 @@ for (const returnBtn of returnBtns) {
 // }
 cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
+  const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
   if (counterBtn) {
     const cartTotal = cartDialog.querySelector("[data-cart-total]");
     const cartNumber = cartDialog.querySelector("[data-cart-number");
     const priceEle = counterBtn.parentElement.querySelector("[data-price]");
-    const itemTotal =
+    const itemTotal = parseFloat(
       parseFloat(priceEle.dataset.price) *
-      parseInt(counterBtn.dataset.counterAmount) *
-      VAT;
+        parseInt(counterBtn.dataset.counterAmount) *
+        VAT
+    );
+    const cartTotalVal = parseFloat(cartTotal.dataset.cartTotal);
 
+    // console.log(itemTotal);
     updateCounter(counterBtn, 0);
+    // console.log((718.8).toFixed(0));
 
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
@@ -111,24 +116,31 @@ cartDialog.addEventListener("click", (e) => {
     cartNumber.setAttribute("data-cart-number", newCartNumber);
     cartNumber.textContent = `(${newCartNumber})`;
 
+    // console.log(itemTotal.toFixed(0));
     const newTotal = Math.max(
-      parseFloat(cartTotal.dataset.cartTotal) + parseInt(itemTotal.toFixed(0)),
+      parseFloat(cartTotalVal) + parseFloat(itemTotal),
       0
     );
 
+    // console.log(newTotal.toFixed(0));
     cartTotal.setAttribute("data-cart-total", newTotal);
-    cartTotal.textContent = `${newTotal.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-    })}`;
+    cartTotal.textContent = `${parseFloat(newTotal.toFixed(0)).toLocaleString(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      }
+    )}`;
 
     if (priceEle.dataset.counterValue == "0") {
       priceEle.parentElement.parentElement.remove();
     }
 
     // console.log(cartTotal);
+  } else if (removeAllBtn) {
+    console.log("blcik");
   }
 });
 main.addEventListener("click", (e) => {
