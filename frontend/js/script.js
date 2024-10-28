@@ -49,6 +49,7 @@ function updateCounter(counterBtn, min = 1) {
   );
   counterValue.setAttribute("data-counter-value", newVal);
   counterValue.textContent = newVal;
+  return newVal;
 }
 // function showDialog(e) {
 //   const cartDialog = document.getElementById("cartDialog");
@@ -95,6 +96,7 @@ cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
   if (counterBtn) {
+    const cart = JSON.parse(localStorage.getItem("cart"));
     const cartTotal = cartDialog.querySelector("[data-cart-total]");
     const cartNumber = cartDialog.querySelector("[data-cart-number");
     const priceEle = counterBtn.parentElement.querySelector("[data-price]");
@@ -104,8 +106,16 @@ cartDialog.addEventListener("click", (e) => {
         VAT
     );
     const cartTotalVal = parseFloat(cartTotal.dataset.cartTotal);
+    const itemName = priceEle.parentElement.parentElement.dataset.name;
 
-    updateCounter(counterBtn, 0);
+    console.log(priceEle.parentElement.parentElement);
+    let cartItemIdx;
+    const result = Object.entries(cart).find((val, idx) => {
+      cartItemIdx = idx;
+      return val[0] == itemName;
+    });
+    // console.log(cartItemIdx);
+    result[1].amount = updateCounter(counterBtn, 0);
 
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
@@ -132,7 +142,14 @@ cartDialog.addEventListener("click", (e) => {
       }
     )}`;
 
+    // console.log(cart);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     if (priceEle.dataset.counterValue == "0") {
+      const { [itemName]: _, ...newCart } = cart;
+      // console.log(priceEle.parentElement.parentElement.children[0]);
+
+      localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
     }
 
@@ -157,7 +174,7 @@ main.addEventListener("click", (e) => {
 
   // console.log(e.target);
   if (counterBtn) {
-    updateCounter(counterBtn);
+    const _ = updateCounter(counterBtn);
   } else if (addCartBtn) {
     const counterVal = addCartBtn.previousElementSibling.querySelector(
       "span[data-counter-value]"
@@ -188,11 +205,11 @@ header.addEventListener("click", (e) => {
     const cartTotalEle = document.querySelector(
       " #cartDialog [data-cart-total]"
     );
-    console.log(cartNumberEle);
+    // console.log(cartNumberEle);
     const cart = JSON.parse(localStorage.getItem("cart"));
     let cartTotal = 0;
     let cartItemNumber = 0;
-    console.log(Object.entries(cart));
+    // console.log(Object.entries(cart));
     for (const [name, valuesObj] of Object.entries(cart)) {
       const price = parseInt(valuesObj.price).toLocaleString("en-US", {
         style: "currency",
@@ -201,7 +218,7 @@ header.addEventListener("click", (e) => {
       });
       cartDialogItemsCont.insertAdjacentHTML(
         "beforeend",
-        ` <div class="cart-item-cont">
+        ` <div class="cart-item-cont" data-name="${name}">
             <img
               src="${valuesObj.image}"
               alt="${name}" />
@@ -228,7 +245,6 @@ header.addEventListener("click", (e) => {
       cartTotal += parseFloat(valuesObj.price) * parseFloat(valuesObj.amount);
       cartItemNumber += parseFloat(valuesObj.amount);
     }
-    // console.log(cartTotal);
 
     const newTotal = parseFloat(cartTotal) * VAT;
     cartTotalEle.setAttribute("data-cart-total", newTotal);
