@@ -52,3 +52,7 @@ app.get("/getData", async (req, res) => {
     res.sendStatus(500).json({ error: "Database error" });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`example app listening on port ${PORT}`);
+});
