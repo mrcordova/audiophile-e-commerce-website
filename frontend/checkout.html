@@ -301,7 +301,8 @@
               </span>
               <input
                 required
-                pattern="[0-9]{5,5}"
+                pattern="[0-9]{5}"
+                title="postal code must be 5 characters long"
                 minlength="5"
                 maxlength="5"
                 type="tel"
@@ -359,7 +360,7 @@
                   <span data-error class="hide">Wrong format</span>
                 </span>
                 <input
-                  pattern="[0-9]{9, 9}"
+                  pattern="[0-9]{9,9}"
                   minlength="9"
                   maxlength="9"
                   type="tel"
@@ -373,9 +374,9 @@
                   <span data-error class="hide">Wrong format</span>
                 </span>
                 <input
-                  pattern="[0-9]{4, 4}"
-                  minlength="5"
-                  maxlength="5"
+                  pattern="[0-9]{4,4}"
+                  minlength="4"
+                  maxlength="4"
                   type="tel"
                   id="e-money-pin"
                   autocomplete="cc-csc"

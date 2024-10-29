@@ -33,10 +33,12 @@ function showOrderConfirmationDialog(e) {
   //   const orderConfirmationDialog = document.querySelector(
   //     "#orderConfirmationDialog"
   //   );
+
   if (checkoutForm.checkValidity()) {
     orderConfirmationDialog.showModal();
   } else {
     // console.log(checkoutForm.validity);
+
     checkoutForm.reportValidity();
   }
 }
@@ -92,7 +94,7 @@ orderConfirmationDialogBtn.addEventListener(
   showOrderConfirmationDialog
 );
 main.addEventListener("click", (e) => {});
-
+const eMoneyNumber = document.querySelector("#e-money-number");
 main.addEventListener("input", (e) => {
   //   console.log(e.target, "here");
   //   console.log("djfalkd");
@@ -104,6 +106,19 @@ main.addEventListener("input", (e) => {
       spanError.classList.toggle("error", !input.validity.valid);
       spanError.classList.toggle("hide", input.validity.valid);
       //   console.log(input.validity);
+    } else if (input.getAttribute("type") == "radio") {
+      const eMoneyNumber = document.querySelector("#e-money-number");
+      const eMoneyPin = document.querySelector("#e-money-pin");
+
+      if (input.getAttribute("id") == "e-money") {
+        eMoneyNumber.setAttribute("required", true);
+        eMoneyPin.setAttribute("required", true);
+      } else {
+        eMoneyNumber.removeAttribute("required");
+        eMoneyPin.removeAttribute("required");
+      }
+      //   console.log(input);
     }
+    // console.log(eMoneyNumber.validity);
   }
 });
