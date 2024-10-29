@@ -134,7 +134,7 @@ main.addEventListener("click", async (e) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(cart[addCartBtn.data.productCart]),
+        body: JSON.stringify(cart[addCartBtn.dataset.productCart]),
       }
     );
 
