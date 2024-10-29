@@ -90,10 +90,7 @@ function showOrderConfirmationDialog(e) {
     grandTotalPara.textContent = `${parseInt(
       grandTotal.dataset.grandTotal
     ).toLocaleString("en-US", priceOptions)}`;
-    //   const cart = localStorage.getItem('cart')
   } else {
-    // console.log(checkoutForm.validity);
-
     checkoutForm.reportValidity();
   }
 }
