@@ -37,6 +37,7 @@ const server = createServer(async (req, res) => {
     const cartQuery = "SELECT * FROM cart";
     try {
       const [cartRows] = await connection.promise().execute(cartQuery);
+      console.log(cartRows);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(cartRows));
     } catch {
