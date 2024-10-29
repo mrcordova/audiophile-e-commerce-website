@@ -71,11 +71,14 @@ cartDialog.addEventListener("click", async (e) => {
     });
     result[1].amount = updateCounter(counterBtn, 0);
 
-    const updateProductResponse = await fetch(`${URL}/updateProduct`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ product: result[0], ...result[1] }),
-    });
+    const updateProductResponse = await fetch(
+      `${URL}/updateProduct/${result[0]}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result[1]),
+      }
+    );
     console.log(await updateProductResponse.json());
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
