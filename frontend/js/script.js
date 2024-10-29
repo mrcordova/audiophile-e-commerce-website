@@ -118,7 +118,7 @@ cartDialog.addEventListener("click", async (e) => {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    if (!response.ok) {
+    if (!deleteProductResponse.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     console.log(await deleteProductResponse.json());
