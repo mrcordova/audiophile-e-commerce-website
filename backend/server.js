@@ -62,7 +62,7 @@ app.post("/updateProductAmount", async (req, res) => {
     const [results, fields] = await connection
       .promise()
       .execute({ sql: productQuery, values: [amount, price, image, product] });
-    res.status(201).json({ success: true, fields });
+    res.status(201).json({ success: true });
   } catch (error) {
     console.error(error);
     res.sendStatus(500).json({ error: "database error" });
