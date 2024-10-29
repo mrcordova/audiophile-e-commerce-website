@@ -114,7 +114,7 @@ cartDialog.addEventListener("click", async (e) => {
     cartTotal.setAttribute("data-cart-total", 0);
     cartTotal.textContent = `$ 0`;
     cartItems.replaceChildren();
-    const deleteProductResponse = await fetch("/removeAllProduct", {
+    const deleteProductResponse = await fetch(`${URL}/removeAllProduct`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
