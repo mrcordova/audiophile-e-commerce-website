@@ -84,7 +84,19 @@ app.put("/updateProduct/:productName", async (req, res) => {
     console.log(error);
   }
 });
+app.delete("/removeProduct/:productName", async (req, res) => {
+  try {
+    const { productName } = req.params;
+    const deleteProductQuery = "DELETE FROM cart WHERE `product` = ? LIMIT 1";
+    const [results, fields] = await connection
+      .promise()
+      .execute({ sql: deleteProductQuery, values: [productName] });
 
+    res.status(201).json({ success: true });
+  } catch (error) {
+    console.log(error);
+  }
+});
 app.delete("/removeAllProduct", async (req, res) => {
   try {
     const deleteProductQuery = "DELETE FROM cart";

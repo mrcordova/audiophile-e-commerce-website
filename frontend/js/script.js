@@ -101,6 +101,14 @@ cartDialog.addEventListener("click", async (e) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     if (priceEle.dataset.counterValue == "0") {
       const { [itemName]: _, ...newCart } = cart;
+      const deleteProductResponse = await fetch(
+        `${URL}/removeProduct/${result[0]}`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      console.log(await deleteProductResponse.json());
       localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
     }
