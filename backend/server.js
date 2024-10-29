@@ -33,23 +33,23 @@ connection.connect(function (err) {
 
   console.log("Coonected!");
 });
+// CORS Middleware function
+const enableCors = (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allows requests from any origin
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allowed HTTP methods
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allowed headers
 
-const server = createServer(async (req, res) => {
-  // Add CORS headers to allow the specific frontend origin
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://audiophile-e-commerce-website.onrender.com"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  // Respond to OPTIONS preflight requests with 204 (No Content)
+  // If it’s a preflight request, respond with 204 (No Content)
   if (req.method === "OPTIONS") {
     res.writeHead(204);
     res.end();
-    return;
+    return false; // Stop further processing for preflight requests
   }
+  return true;
+};
 
+const server = createServer(async (req, res) => {
+  if (!enableCors(req, res)) return;
   if (req.url === "getData" && req.method == "GET") {
     const cartQuery = "SELECT * FROM cart";
     try {
