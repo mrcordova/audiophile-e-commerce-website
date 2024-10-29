@@ -1,5 +1,3 @@
-const link = document.querySelector("[data-menu-item]");
-
 const main = document.querySelector("main");
 const cartDialog = document.querySelector("#cartDialog");
 const header = document.querySelector("header");
@@ -11,12 +9,6 @@ const priceOptions = {
   maximumFractionDigits: 2,
 };
 
-// button.addEventListener("click", () => {
-//   details.open = !details.open; // Toggles the open/close state of the details
-// });
-
-// const showBtns = document.querySelectorAll("[data-show-dialog]");
-// console.log(link)
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
 }
@@ -44,53 +36,11 @@ function updateCounter(counterBtn, min = 1) {
   counterValue.textContent = newVal;
   return newVal;
 }
-// function showDialog(e) {
-//   const cartDialog = document.getElementById("cartDialog");
-//   cartDialog.showModal();
-// }
-// function showOrderConfirmationDialog(e) {
-//   const orderConfirmationDialog = document.querySelector(
-//     "#orderConfirmationDialog"
-//   );
-//   orderConfirmationDialog.showModal();
-// }
-link.addEventListener("click", (e) => {
-  //   e.preventDefault();
 
-  // Prevent the default immediate navigation
-  //   e.preventDefault();
-
-  console.log("here");
-
-  // Wait 5 seconds (5000 milliseconds) before navigating to the href
-  //   setTimeout(function () {
-  // Navigate to the href after the delay
-  // window.location.href = link.href;
-  //   }, 5000);
-
-  return false;
-});
-// console.log(productBtns);
-// for (const productBtn of productBtns) {
-//   productBtn.addEventListener("click", goToPage);
-// }
-
-// for (const returnBtn of returnBtns) {
-//   returnBtn.addEventListener("click", returnToPage);
-// }
-// orderConfirmationDialogBtn.addEventListener(
-//   "click",
-//   showOrderConfirmationDialog
-// );
-
-// for (const showBtn of showBtns) {
-//   showBtn.addEventListener("click", showDialog);
-// }
 cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
-  // e.preventDefault();
-  // console.log(e.target.tagName);d
+
   if (counterBtn) {
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartTotal = cartDialog.querySelector("[data-cart-total]");
@@ -104,13 +54,11 @@ cartDialog.addEventListener("click", (e) => {
     const cartTotalVal = parseFloat(cartTotal.dataset.cartTotal);
     const itemName = priceEle.parentElement.parentElement.dataset.name;
 
-    // console.log(priceEle.parentElement.parentElement);
     let cartItemIdx;
     const result = Object.entries(cart).find((val, idx) => {
       cartItemIdx = idx;
       return val[0] == itemName;
     });
-    // console.log(cartItemIdx);
     result[1].amount = updateCounter(counterBtn, 0);
 
     const newCartNumber =
@@ -120,35 +68,23 @@ cartDialog.addEventListener("click", (e) => {
     cartNumber.setAttribute("data-cart-number", newCartNumber);
     cartNumber.textContent = `(${newCartNumber})`;
 
-    // console.log(itemTotal.toFixed(0));
     const newTotal = Math.max(
       parseFloat(cartTotalVal) + parseFloat(itemTotal),
       0
     );
 
-    // console.log(newTotal.toFixed(0));
     cartTotal.setAttribute("data-cart-total", newTotal);
     cartTotal.textContent = `${parseFloat(newTotal.toFixed(0)).toLocaleString(
       "en-US",
-      {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 2,
-      }
+      priceOptions
     )}`;
-
-    // console.log(cart);
 
     localStorage.setItem("cart", JSON.stringify(cart));
     if (priceEle.dataset.counterValue == "0") {
       const { [itemName]: _, ...newCart } = cart;
-      // console.log(priceEle.parentElement.parentElement.children[0]);
       localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
     }
-
-    // console.log(cartTotal);
   } else if (removeAllBtn) {
     const cartTotal = cartDialog.querySelector("[data-cart-total]");
     const cartNumber = cartDialog.querySelector("[data-cart-number");
@@ -175,7 +111,6 @@ main.addEventListener("click", (e) => {
       "span[data-counter-value]"
     ).dataset.counterValue;
     const cart = JSON.parse(localStorage.getItem("cart"));
-    // console.log(addCartBtn.dataset.img);
     cart[addCartBtn.dataset.productCart] = {
       amount: counterVal,
       price: addCartBtn.dataset.price,
@@ -189,7 +124,6 @@ main.addEventListener("click", (e) => {
 });
 
 header.addEventListener("click", (e) => {
-  // console.log(e.target);
   const cartDialogBtn = e.target.closest("button[data-show-dialog]");
   if (cartDialogBtn) {
     const cartDialogItemsCont = document.querySelector(
@@ -201,12 +135,10 @@ header.addEventListener("click", (e) => {
     const cartTotalEle = document.querySelector(
       " #cartDialog [data-cart-total]"
     );
-    // console.log(cartNumberEle);
     const cart = JSON.parse(localStorage.getItem("cart"));
     let cartTotal = 0;
     let cartItemNumber = 0;
     cartDialogItemsCont.replaceChildren();
-    // console.log(Object.entries(cart));
     for (const [name, valuesObj] of Object.entries(cart)) {
       const price = parseInt(valuesObj.price).toLocaleString("en-US", {
         style: "currency",
@@ -247,12 +179,7 @@ header.addEventListener("click", (e) => {
     cartTotalEle.setAttribute("data-cart-total", newTotal);
     cartTotalEle.textContent = `${parseFloat(
       newTotal.toFixed(0)
-    ).toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-    })}`;
+    ).toLocaleString("en-US", priceOptions)}`;
     cartNumberEle.setAttribute("data-cart-number", cartItemNumber);
     cartNumberEle.textContent = `(${cartItemNumber})`;
   }

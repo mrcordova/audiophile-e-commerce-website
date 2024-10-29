@@ -1,6 +1,5 @@
 import { VAT, priceOptions } from "./script.js";
 
-// console.log(VAT);
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
 }
@@ -29,10 +28,6 @@ const backHomeBtn = document.querySelector(".back-home-btn");
 cartItems.replaceChildren();
 
 function showOrderConfirmationDialog(e) {
-  //   const orderConfirmationDialog = document.querySelector(
-  //     "#orderConfirmationDialog"
-  //   );
-
   if (checkoutForm.checkValidity()) {
     orderConfirmationDialog.showModal();
     const displayItem = orderConfirmationDialog.querySelector(
@@ -121,10 +116,8 @@ for (const [name, valuesObj] of Object.entries(cart)) {
               </div>`
   );
   cartTotal += parseFloat(valuesObj.price) * parseFloat(valuesObj.amount);
-  // cartItemNumber += parseFloat(valuesObj.amount);
 }
 total.setAttribute("data-total", cartTotal);
-// console.log(cartTotal);
 total.textContent = `${parseFloat(cartTotal.toFixed(0)).toLocaleString(
   "en-US",
   priceOptions
@@ -143,7 +136,6 @@ grandTotal.textContent = `${parseFloat(
   (cartTotal * VAT + parseInt(shipping.dataset.shipping)).toFixed(0)
 ).toLocaleString("en-US", priceOptions)}`;
 
-// console.log(localStorage.getItem("cart"));
 orderConfirmationDialogBtn.addEventListener(
   "click",
   showOrderConfirmationDialog
@@ -151,8 +143,6 @@ orderConfirmationDialogBtn.addEventListener(
 main.addEventListener("click", (e) => {});
 const eMoneyNumber = document.querySelector("#e-money-number");
 main.addEventListener("input", (e) => {
-  //   console.log(e.target, "here");
-  //   console.log("djfalkd");
   const input = e.target.closest("input");
   if (input) {
     if (input.getAttribute("type") !== "radio") {
@@ -160,7 +150,6 @@ main.addEventListener("input", (e) => {
         input.previousElementSibling.querySelector("[data-error]");
       spanError.classList.toggle("error", !input.validity.valid);
       spanError.classList.toggle("hide", input.validity.valid);
-      //   console.log(input.validity);
     } else if (input.getAttribute("type") == "radio") {
       const eMoneyNumber = document.querySelector("#e-money-number");
       const eMoneyPin = document.querySelector("#e-money-pin");
@@ -172,8 +161,6 @@ main.addEventListener("input", (e) => {
         eMoneyNumber.removeAttribute("required");
         eMoneyPin.removeAttribute("required");
       }
-      //   console.log(input);
     }
-    // console.log(eMoneyNumber.validity);
   }
 });
