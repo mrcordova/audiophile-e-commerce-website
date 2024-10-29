@@ -47,7 +47,7 @@ function updateCounter(counterBtn, min = 1) {
   return newVal;
 }
 
-cartDialog.addEventListener("click", (e) => {
+cartDialog.addEventListener("click", async (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
 
@@ -71,6 +71,12 @@ cartDialog.addEventListener("click", (e) => {
     });
     result[1].amount = updateCounter(counterBtn, 0);
 
+    const updateProductResponse = await fetch(`${URL}/updateProduct`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ product: result[0], ...result[1] }),
+    });
+    console.log(await updateProductResponse.json());
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
       parseInt(counterBtn.dataset.counterAmount);
@@ -139,7 +145,7 @@ main.addEventListener("click", async (e) => {
     });
 
     const updateProductAmount = await updateProductAmountResponse.json();
-    console.log(updateProductAmount);
+    // console.log(updateProductAmount);
     localStorage.setItem("cart", JSON.stringify(cart));
   } else if (returnBtn) {
     returnToPage(e);
