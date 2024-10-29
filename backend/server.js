@@ -61,7 +61,7 @@ app.post("/updateProductAmount", async (req, res) => {
       "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
     const [results, fields] = await connection
       .promise()
-      .execute({ sql: express.query, values: [amount, price, image, product] });
+      .execute({ sql: productQuery, values: [amount, price, image, product] });
     res.status(201).json({ success: true, fields });
   } catch (error) {
     console.error(error);
