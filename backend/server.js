@@ -32,12 +32,20 @@ connection.connect(function (err) {
   console.log("Coonected!");
 });
 
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World");
+const server = createServer(async (req, res) => {
+  if (req.url === "getData" && req.method == "GET") {
+    const cartQuery = "SELECT * FROM cart";
+    try {
+      const [cartRows] = await connection.promise().execute(cartQuery);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(cartRows));
+    } catch {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("failed");
+    }
+  }
 });
 
 server.listen(PORT, () => {
-  console.log(`Server running at port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

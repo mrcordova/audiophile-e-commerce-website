@@ -8,7 +8,12 @@ const priceOptions = {
   minimumFractionDigits: 0,
   maximumFractionDigits: 2,
 };
-
+const URL = "https://audiophile-e-commerce-backend.onrender.com";
+const cartResponse = await fetch(`${URL}/getData`, {
+  method: "GET",
+  headers: { "Content-Type": "application/json" },
+});
+console.log(await cartResponse.json());
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
 }
