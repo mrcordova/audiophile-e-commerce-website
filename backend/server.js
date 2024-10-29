@@ -90,7 +90,8 @@ app.delete("/removeAllProduct", async (req, res) => {
     const deleteProductQuery = "DELETE FROM cart";
     const [results, fields] = await connection
       .promise()
-      .execute({ sql: deleteProductQuery });
+      .execute({ sql: deleteProductQuery, values: [] });
+
     res.status(201).json({ success: true });
   } catch (error) {
     console.log(error);
