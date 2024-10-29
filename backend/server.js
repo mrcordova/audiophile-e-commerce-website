@@ -1,5 +1,8 @@
 const mysql = require("mysql2");
 const cors = require("cors");
+const express = require("express");
+
+const app = express();
 
 const { createServer } = require("node:http");
 
@@ -33,37 +36,19 @@ connection.connect(function (err) {
 
   console.log("Coonected!");
 });
-// CORS Middleware function
-const enableCors = (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Allows requests from any origin
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allowed HTTP methods
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allowed headers
 
-  // If it’s a preflight request, respond with 204 (No Content)
-  if (req.method === "OPTIONS") {
-    res.writeHead(204);
-    res.end();
-    return false; // Stop further processing for preflight requests
-  }
-  return true;
-};
+app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ type: "*/*" }));
 
-const server = createServer(async (req, res) => {
-  if (!enableCors(req, res)) return;
-  if (req.url === "getData" && req.method == "GET") {
+app.get("/getData", async (req, res) => {
+  try {
     const cartQuery = "SELECT * FROM cart";
-    try {
-      const [cartRows] = await connection.promise().execute(cartQuery);
-      console.log(cartRows);
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify(cartRows));
-    } catch {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("failed");
-    }
-  }
-});
+    const [cartRows] = await connection.promise().execute(cartQuery);
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    res.json({ data: cartRows });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500).json({ error: "Database error" });
+  }
 });

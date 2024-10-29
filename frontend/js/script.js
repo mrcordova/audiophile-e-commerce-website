@@ -13,9 +13,7 @@ const cartResponse = await fetch(`${URL}/getData`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
   },
-  mode: "no-cors",
 });
 console.log(await cartResponse.json());
 if (!("cart" in localStorage)) {
