@@ -10,6 +10,8 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
 
+const allowedOrigins = ["https://audiophile-e-commerce-website.onrender.com"];
+
 const PORT = process.env.PORT || 3000;
 
 let connection = mysql.createConnection({
@@ -33,6 +35,23 @@ connection.connect(function (err) {
 });
 
 const server = createServer(async (req, res) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  // Allow specific HTTP methods and headers
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // Handle OPTIONS preflight request
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
   if (req.url === "getData" && req.method == "GET") {
     const cartQuery = "SELECT * FROM cart";
     try {
