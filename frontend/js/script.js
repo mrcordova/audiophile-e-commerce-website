@@ -12,7 +12,7 @@ const URL = "https://audiophile-e-commerce-backend.onrender.com";
 const cartResponse = await fetch(`${URL}/getData`);
 // console.log(await cartResponse.json());
 const cartArray = await cartResponse.json();
-const cart = cartArray.reduce((a, v) => ({ ...a, [v.product]: v }), {});
+const cart = cartArray.data.reduce((a, v) => ({ ...a, [v.product]: v }), {});
 console.log(cart);
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
