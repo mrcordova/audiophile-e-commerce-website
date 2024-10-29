@@ -167,8 +167,7 @@ main.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const addCartBtn = e.target.closest("button[data-product-cart]");
   const returnBtn = e.target.closest("button[data-return]");
-  // e.preventDefault();
-  // console.log(e);
+
   if (counterBtn) {
     const _ = updateCounter(counterBtn);
   } else if (addCartBtn) {

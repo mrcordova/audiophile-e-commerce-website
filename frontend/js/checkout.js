@@ -4,7 +4,7 @@ import { VAT, priceOptions } from "./script.js";
 if (!("cart" in localStorage)) {
   localStorage.setItem("cart", JSON.stringify({}));
 }
-
+const isNum = (val) => /^\d+[.]*\d*$/.test(val);
 const orderConfirmationDialog = document.querySelector(
   "#orderConfirmationDialog"
 );
@@ -24,6 +24,8 @@ const grandTotal = document.querySelector(
   ".checkout-summary [data-grand-total]"
 );
 const main = document.querySelector("main");
+const checkoutForm = main.querySelector("#checkout-form");
+// const inputs = main.querySelectorAll("input");
 
 cartItems.replaceChildren();
 
@@ -31,7 +33,12 @@ function showOrderConfirmationDialog(e) {
   //   const orderConfirmationDialog = document.querySelector(
   //     "#orderConfirmationDialog"
   //   );
-  orderConfirmationDialog.showModal();
+  if (checkoutForm.checkValidity()) {
+    orderConfirmationDialog.showModal();
+  } else {
+    //   console.log(checkoutForm.reportValidity());
+    checkoutForm.reportValidity();
+  }
 }
 button.addEventListener("click", () => {
   details.open = !details.open; // Toggles the open/close state of the details
@@ -84,5 +91,19 @@ orderConfirmationDialogBtn.addEventListener(
   "click",
   showOrderConfirmationDialog
 );
-
 main.addEventListener("click", (e) => {});
+
+main.addEventListener("input", (e) => {
+  //   console.log(e.target, "here");
+  //   console.log("djfalkd");
+  const input = e.target.closest("input");
+  if (input) {
+    if (input.getAttribute("type") !== "radio") {
+      const spanError =
+        input.previousElementSibling.querySelector("[data-error]");
+      spanError.classList.toggle("error", !input.validity.valid);
+      spanError.classList.toggle("hide", input.validity.valid);
+      //   console.log(input.validity);
+    }
+  }
+});

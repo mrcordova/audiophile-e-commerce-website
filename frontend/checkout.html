@@ -235,14 +235,15 @@
       <div class="grid-cont">
         <div class="manrope-bold grid-form-cont">
           <h1>checkout</h1>
-          <form id="checkout-form">
+          <form novalidate id="checkout-form">
             <h2 class="grid-header" id="billing header">billing details</h2>
             <label id="name-label">
               <span>
                 Name
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                required
                 type="text"
                 id="name"
                 autocomplete="name"
@@ -251,9 +252,11 @@
             <label id="email-label">
               <span>
                 email address
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                required
+                pattern="[A-Za-z0-9]+@[A-Za-z0-9]+[.][A-Za-z0-9]+"
                 type="email"
                 id="email"
                 autocomplete="email"
@@ -262,9 +265,13 @@
             <label id="phone-label">
               <span>
                 phone number
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                required
+                pattern="[0-9]{10,11}$"
+                minlength="10"
+                maxlength="11"
                 type="tel"
                 id="phone-number"
                 autocomplete="tel"
@@ -275,9 +282,11 @@
             <label id="address-label">
               <span>
                 Your Address
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                pattern="[0-9]+\s[A-za-z]+\s[A-Za-z]+\s*[0-9A-Za-z.]*"
+                required
                 type="text"
                 id="street-address"
                 placeholder="1137 Williams Avenue"
@@ -286,32 +295,37 @@
             <label id="postal-label">
               <span>
                 ZIP Code
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
-                type="text"
+                required
+                pattern="[0-9]{5,5}"
+                minlength="5"
+                maxlength="5"
+                type="tel"
                 id="postal-code"
                 autocomplete="postal-code"
                 placeholder="10001" />
             </label>
             <label id="city-label">
               <span>
-                * city
-                <span class="hide">Wrong format</span>
+                city
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                required
                 type="text"
                 id="city"
                 autocomplete="address-level2"
-                placeholder="New York"
-                required />
+                placeholder="New York" />
             </label>
             <label id="country-label">
               <span>
                 country
-                <span class="hide">Wrong format</span>
+                <span data-error class="hide">Wrong format</span>
               </span>
               <input
+                required
                 type="text"
                 id="country"
                 autocomplete="country"
@@ -323,7 +337,11 @@
               <legend>Payment methods</legend>
 
               <label for="e-money">
-                <input type="radio" name="payment-methods" id="e-money" />
+                <input
+                  required
+                  type="radio"
+                  name="payment-methods"
+                  id="e-money" />
                 e-Money
               </label>
 
@@ -336,9 +354,12 @@
               <label id="e-money-number-label">
                 <span>
                   e-Money Number
-                  <span class="hide">Wrong format</span>
+                  <span data-error class="hide">Wrong format</span>
                 </span>
                 <input
+                  pattern="[0-9]{9, 9}"
+                  minlength="9"
+                  maxlength="9"
                   type="tel"
                   id="e-money-number"
                   autocomplete="cc-number"
@@ -347,9 +368,12 @@
               <label id="e-money-pin-label">
                 <span>
                   e-Money Pin
-                  <span class="hide">Wrong format</span>
+                  <span data-error class="hide">Wrong format</span>
                 </span>
                 <input
+                  pattern="[0-9]{4, 4}"
+                  minlength="5"
+                  maxlength="5"
                   type="tel"
                   id="e-money-pin"
                   autocomplete="cc-csc"
