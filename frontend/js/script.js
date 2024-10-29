@@ -132,7 +132,10 @@ main.addEventListener("click", async (e) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(cart[addCartBtn.dataset.productCart]),
+      body: JSON.stringify({
+        product: addCartBtn.dataset.productCart,
+        ...cart[addCartBtn.dataset.productCart],
+      }),
     });
 
     const updateProductAmount = await updateProductAmountResponse.json();
