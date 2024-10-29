@@ -36,7 +36,7 @@ function showOrderConfirmationDialog(e) {
   if (checkoutForm.checkValidity()) {
     orderConfirmationDialog.showModal();
   } else {
-    //   console.log(checkoutForm.reportValidity());
+    // console.log(checkoutForm.validity);
     checkoutForm.reportValidity();
   }
 }

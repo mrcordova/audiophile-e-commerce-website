@@ -235,7 +235,7 @@
       <div class="grid-cont">
         <div class="manrope-bold grid-form-cont">
           <h1>checkout</h1>
-          <form novalidate id="checkout-form">
+          <form id="checkout-form">
             <h2 class="grid-header" id="billing header">billing details</h2>
             <label id="name-label">
               <span>
@@ -257,6 +257,7 @@
               <input
                 required
                 pattern="[A-Za-z0-9]+@[A-Za-z0-9]+[.][A-Za-z0-9]+"
+                title="email must include '@' and TLD(i.e. .com)"
                 type="email"
                 id="email"
                 autocomplete="email"
@@ -269,6 +270,7 @@
               </span>
               <input
                 required
+                title="phone number must be between 10 to 11 digits"
                 pattern="[0-9]{10,11}$"
                 minlength="10"
                 maxlength="11"
