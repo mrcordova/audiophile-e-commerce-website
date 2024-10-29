@@ -85,6 +85,18 @@ app.put("/updateProduct/:productName", async (req, res) => {
   }
 });
 
+app.delete("/removeAllProduct", async (req, res) => {
+  try {
+    const deleteProductQuery = "DELETE FROM cart";
+    const [results, fields] = await connection
+      .promise()
+      .execute({ sql: deleteProductQuery });
+    res.status(201).json({ success: true });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`example app listening on port ${PORT}`);
 });

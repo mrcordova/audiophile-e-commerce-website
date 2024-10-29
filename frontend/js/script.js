@@ -79,7 +79,7 @@ cartDialog.addEventListener("click", async (e) => {
         body: JSON.stringify(result[1]),
       }
     );
-    console.log(await updateProductResponse.json());
+    // console.log(await updateProductResponse.json());
     const newCartNumber =
       parseInt(cartNumber.dataset.cartNumber) +
       parseInt(counterBtn.dataset.counterAmount);
@@ -113,8 +113,12 @@ cartDialog.addEventListener("click", async (e) => {
 
     cartTotal.setAttribute("data-cart-total", 0);
     cartTotal.textContent = `$ 0`;
-
     cartItems.replaceChildren();
+    const deleteProductResponse = await fetch("/removeAllProduct", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(await deleteProductResponse.json());
     localStorage.setItem("cart", JSON.stringify({}));
   }
 });
