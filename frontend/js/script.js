@@ -108,7 +108,7 @@ cartDialog.addEventListener("click", async (e) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      console.log(await deleteProductResponse.json());
+      // console.log(await deleteProductResponse.json());
       localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
     }
@@ -129,7 +129,7 @@ cartDialog.addEventListener("click", async (e) => {
     if (!deleteProductResponse.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    console.log(await deleteProductResponse.json());
+    // console.log(await deleteProductResponse.json());
     localStorage.setItem("cart", JSON.stringify({}));
   }
 });
