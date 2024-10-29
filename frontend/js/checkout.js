@@ -36,6 +36,62 @@ function showOrderConfirmationDialog(e) {
 
   if (checkoutForm.checkValidity()) {
     orderConfirmationDialog.showModal();
+    const displayItem = orderConfirmationDialog.querySelector(
+      ".order-confirm-accordian > .cart-item-cont"
+    );
+    const detailsItem = orderConfirmationDialog.querySelector(
+      "details > .cart-items"
+    );
+    const summaryEle = orderConfirmationDialog.querySelector("summary");
+    const grandTotal = main.querySelector(".cart-total > [data-grand-total]");
+    const grandTotalPara = orderConfirmationDialog.querySelector(
+      ".order-confirm-total > [data-grand-total]"
+    );
+    let itemsToDisplay = 0;
+
+    displayItem.replaceChildren();
+    detailsItem.replaceChildren();
+    Object.entries(cart).forEach((val, idx) => {
+      const price = parseInt(val[1].price).toLocaleString(
+        "en-US",
+        priceOptions
+      );
+      if (idx == 0) {
+        displayItem.insertAdjacentHTML(
+          "beforeend",
+          `<img
+              src="${val[1].image}"              
+              alt="${val[0]}" />
+            <div class="cart-item-info manrope-bold">
+              <p>${val[0]}</p>
+              <p class="amount">${price}</p>
+            </div>
+            <p class="quantity">x${val[1].amount}</p>`
+        );
+      } else {
+        detailsItem.insertAdjacentHTML(
+          "beforeend",
+          `<div class="cart-item-cont">
+                <img
+                src="${val[1].image}"              
+                alt="${val[0]}" />
+                <div class="cart-item-info manrope-bold">
+                    <p>${val[0]}</p>
+                    <p class="amount">${price}</p>
+                </div>
+                <p class="quantity">x${val[1].amount}</p>
+            </div>`
+        );
+        itemsToDisplay++;
+      }
+    });
+
+    summaryEle.textContent = `and ${itemsToDisplay} other item(s)`;
+
+    grandTotalPara.textContent = `${parseInt(
+      grandTotal.dataset.grandTotal
+    ).toLocaleString("en-US", priceOptions)}`;
+    //   const cart = localStorage.getItem('cart')
   } else {
     // console.log(checkoutForm.validity);
 
@@ -47,11 +103,7 @@ button.addEventListener("click", () => {
 });
 
 for (const [name, valuesObj] of Object.entries(cart)) {
-  const price = parseInt(valuesObj.price).toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  });
+  const price = parseInt(valuesObj.price).toLocaleString("en-US", priceOptions);
   cartItems.insertAdjacentHTML(
     "beforeend",
     ` <div class="cart-item-cont">
