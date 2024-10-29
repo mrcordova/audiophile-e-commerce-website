@@ -71,7 +71,7 @@ app.post("/addProduct", async (req, res) => {
 
 app.put("/updateProduct/:product", async (req, res) => {
   try {
-    const product = req.params.product;
+    const product = req.params.product.join(" ");
     const { price, amount, image } = req.body;
     const updateProductQuery =
       "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";

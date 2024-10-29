@@ -72,7 +72,7 @@ cartDialog.addEventListener("click", async (e) => {
     result[1].amount = updateCounter(counterBtn, 0);
 
     const updateProductResponse = await fetch(
-      `${URL}/updateProduct/${result[0]}`,
+      `${URL}/updateProduct/${result[0].join("-")}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
