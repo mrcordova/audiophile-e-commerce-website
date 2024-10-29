@@ -11,6 +11,7 @@ require("dotenv").config();
 const corsOptions = {
   origin: "https://audiophile-e-commerce-website.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 };
 
 const allowedOrigins = ["https://audiophile-e-commerce-website.onrender.com"];
