@@ -74,7 +74,7 @@ cartDialog.addEventListener("click", async (e) => {
     const updateProductResponse = await fetch(
       `${URL}/updateProduct/${result[0]}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(result[1]),
       }
