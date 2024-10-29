@@ -49,6 +49,7 @@ const server = createServer(async (req, res) => {
     res.end();
     return;
   }
+
   if (req.url === "getData" && req.method == "GET") {
     const cartQuery = "SELECT * FROM cart";
     try {
