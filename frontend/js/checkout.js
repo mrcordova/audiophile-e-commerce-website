@@ -1,7 +1,16 @@
-import { VAT, priceOptions } from "./script.js";
+import { VAT, priceOptions, URL } from "./script.js";
 
 if (!("cart" in localStorage)) {
-  localStorage.setItem("cart", JSON.stringify({}));
+  const cartResponse = await fetch(`${URL}/getData`);
+  const cartArray = await cartResponse.json();
+  const cart = cartArray.data.reduce(
+    (a, v) => ({
+      ...a,
+      [v.product]: { amount: v.amount, price: v.price, image: v.image },
+    }),
+    {}
+  );
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 const isNum = (val) => /^\d+[.]*\d*$/.test(val);
 const orderConfirmationDialog = document.querySelector(
@@ -90,9 +99,16 @@ function showOrderConfirmationDialog(e) {
   }
 }
 
-backHomeBtn.addEventListener("click", (e) => {
+backHomeBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
+  const deleteProductResponse = await fetch(`${URL}/removeAllProduct`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!deleteProductResponse.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
   localStorage.setItem("cart", JSON.stringify({}));
   window.location.href = e.target.href;
 });

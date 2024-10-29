@@ -232,4 +232,4 @@ header.addEventListener("click", (e) => {
   }
 });
 
-export { VAT, priceOptions };
+export { VAT, priceOptions, URL };
