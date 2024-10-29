@@ -35,17 +35,23 @@ connection.connect(function (err) {
 });
 
 const server = createServer(async (req, res) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  // Allow specific HTTP methods and headers
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  // const origin = req.headers.origin;
+  // if (allowedOrigins.includes(origin)) {
+  //   res.setHeader("Access-Control-Allow-Origin", origin);
+  // }
+  // // Allow specific HTTP methods and headers
+  // res.setHeader(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, PUT, DELETE, OPTIONS"
+  // );
+  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://audiophile-e-commerce-website.onrender.com"
+  ); // allow specific origin
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // specify allowed methods
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // specify allowed headers
   // Handle OPTIONS preflight request
   if (req.method === "OPTIONS") {
     res.writeHead(204);
