@@ -127,16 +127,13 @@ main.addEventListener("click", async (e) => {
       image: addCartBtn.dataset.img,
     };
 
-    const updateProductAmountResponse = await fetch(
-      `${URL}/updateProductAmount`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cart[addCartBtn.dataset.productCart]),
-      }
-    );
+    const updateProductAmountResponse = await fetch(`${URL}/addProduct`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cart[addCartBtn.dataset.productCart]),
+    });
 
     const updateProductAmount = await updateProductAmountResponse.json();
     console.log(updateProductAmount);

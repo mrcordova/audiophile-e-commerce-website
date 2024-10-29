@@ -54,14 +54,14 @@ app.get("/getData", async (req, res) => {
   }
 });
 
-app.post("/updateProductAmount", async (req, res) => {
+app.post("/addProduct", async (req, res) => {
   try {
     const { product, price, amount, image } = req.body;
     const productQuery =
-      "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
+      "INSERT INTO `cart`(`product`, `amount`, `price`, `image`) VALUES (?,?,?,?)";
     const [results, fields] = await connection
       .promise()
-      .execute({ sql: productQuery, values: [amount, price, image, product] });
+      .execute({ sql: productQuery, values: [product, amount, price, image] });
     res.status(201).json({ success: true });
   } catch (error) {
     console.error(error);
