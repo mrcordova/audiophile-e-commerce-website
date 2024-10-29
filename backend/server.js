@@ -50,14 +50,14 @@ const server = createServer(async (req, res) => {
     "Access-Control-Allow-Origin",
     "https://audiophile-e-commerce-website.onrender.com"
   ); // allow specific origin
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // specify allowed methods
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT"); // specify allowed methods
   res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // specify allowed headers
   // Handle OPTIONS preflight request
-  if (req.method === "OPTIONS") {
-    res.writeHead(204);
-    res.end();
-    return;
-  }
+  // if (req.method === "OPTIONS") {
+  //   res.writeHead(204);
+  //   res.end();
+  //   return;
+  // }
   if (req.url === "getData" && req.method == "GET") {
     const cartQuery = "SELECT * FROM cart";
     try {
