@@ -35,29 +35,20 @@ connection.connect(function (err) {
 });
 
 const server = createServer(async (req, res) => {
-  // const origin = req.headers.origin;
-  // if (allowedOrigins.includes(origin)) {
-  //   res.setHeader("Access-Control-Allow-Origin", origin);
-  // }
-  // // Allow specific HTTP methods and headers
-  // res.setHeader(
-  //   "Access-Control-Allow-Methods",
-  //   "GET, POST, PUT, DELETE, OPTIONS"
-  // );
-  // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
+  // Add CORS headers to allow the specific frontend origin
   res.setHeader(
     "Access-Control-Allow-Origin",
     "https://audiophile-e-commerce-website.onrender.com"
-  ); // allow specific origin
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT"); // specify allowed methods
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // specify allowed headers
-  // Handle OPTIONS preflight request
-  // if (req.method === "OPTIONS") {
-  //   res.writeHead(204);
-  //   res.end();
-  //   return;
-  // }
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Respond to OPTIONS preflight requests with 204 (No Content)
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
   if (req.url === "getData" && req.method == "GET") {
     const cartQuery = "SELECT * FROM cart";
     try {
