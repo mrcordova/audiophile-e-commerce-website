@@ -53,6 +53,21 @@ app.get("/getData", async (req, res) => {
   }
 });
 
+app.post("/updateProductAmount", async (req, res) => {
+  try {
+    const { product, price, amount, image } = req.body;
+    const productQuery =
+      "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
+    const [results, fields] = await connection
+      .promise()
+      .execute({ sql: express.query, values: [amount, price, image, product] });
+    res.status(201).json({ success: true, fields });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500).json({ error: "database error" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`example app listening on port ${PORT}`);
 });

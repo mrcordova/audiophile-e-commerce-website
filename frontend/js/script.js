@@ -9,19 +9,18 @@ const priceOptions = {
   maximumFractionDigits: 2,
 };
 const URL = "https://audiophile-e-commerce-backend.onrender.com";
-const cartResponse = await fetch(`${URL}/getData`);
-// console.log(await cartResponse.json());
-const cartArray = await cartResponse.json();
-const cart = cartArray.data.reduce(
-  (a, v) => ({
-    ...a,
-    [v.product]: { amount: v.amount, price: v.price, image: v.image },
-  }),
-  {}
-);
-console.log(cart);
+
 if (!("cart" in localStorage)) {
-  localStorage.setItem("cart", JSON.stringify({}));
+  const cartResponse = await fetch(`${URL}/getData`);
+  const cartArray = await cartResponse.json();
+  const cart = cartArray.data.reduce(
+    (a, v) => ({
+      ...a,
+      [v.product]: { amount: v.amount, price: v.price, image: v.image },
+    }),
+    {}
+  );
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 function checkRange(number, min = 1) {
   let n = Number(number);
@@ -110,7 +109,7 @@ cartDialog.addEventListener("click", (e) => {
     localStorage.setItem("cart", JSON.stringify({}));
   }
 });
-main.addEventListener("click", (e) => {
+main.addEventListener("click", async (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const addCartBtn = e.target.closest("button[data-product-cart]");
   const returnBtn = e.target.closest("button[data-return]");
@@ -128,6 +127,19 @@ main.addEventListener("click", (e) => {
       image: addCartBtn.dataset.img,
     };
 
+    const updateProductAmountResponse = await fetch(
+      `${URL}/updateProductAmount`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cart[addCartBtn.data.productCart]),
+      }
+    );
+
+    const updateProductAmount = await updateProductAmountResponse.json();
+    console.log(updateProductAmount);
     localStorage.setItem("cart", JSON.stringify(cart));
   } else if (returnBtn) {
     returnToPage(e);
