@@ -15,7 +15,6 @@ const details = document.querySelector(".item-details");
 const button = document.querySelector(".toggle-button");
 const cart = JSON.parse(localStorage.getItem("cart"));
 let cartTotal = 0;
-// let cartItemNumber = 0;
 const cartItems = document.querySelector(".checkout-summary .cart-items");
 const total = document.querySelector(".checkout-summary [data-total]");
 const vat = document.querySelector(".checkout-summary [data-vat]");
@@ -25,7 +24,7 @@ const grandTotal = document.querySelector(
 );
 const main = document.querySelector("main");
 const checkoutForm = main.querySelector("#checkout-form");
-// const inputs = main.querySelectorAll("input");
+const backHomeBtn = document.querySelector(".back-home-btn");
 
 cartItems.replaceChildren();
 
@@ -98,6 +97,13 @@ function showOrderConfirmationDialog(e) {
     checkoutForm.reportValidity();
   }
 }
+
+backHomeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  localStorage.setItem("cart", JSON.stringify({}));
+  window.location.href = e.target.href;
+});
 button.addEventListener("click", () => {
   details.open = !details.open; // Toggles the open/close state of the details
 });
