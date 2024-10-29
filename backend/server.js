@@ -1,6 +1,8 @@
 const mysql = require("mysql2");
 const cors = require("cors");
 
+const { createServer } = require("node:http");
+
 require("dotenv").config();
 
 const corsOptions = {
@@ -28,4 +30,14 @@ connection.connect(function (err) {
   if (err) throw err;
 
   console.log("Coonected!");
+});
+
+const server = createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World");
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running at port ${PORT}`);
 });
