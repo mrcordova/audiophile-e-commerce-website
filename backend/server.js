@@ -71,6 +71,13 @@ app.post("/addProduct", async (req, res) => {
         sql: productQuery,
         values: [product, amount, price, image],
       });
+    } else {
+      const updateProductQuery =
+        "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
+      const [results, fields] = await connection.promise().execute({
+        sql: updateProductQuery,
+        values: [amount, price, image, product],
+      });
     }
     res.status(201).json({ success: true });
   } catch (error) {
