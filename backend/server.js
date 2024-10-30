@@ -9,7 +9,7 @@ const { createServer } = require("node:http");
 require("dotenv").config();
 const allowedOrigins = [
   "https://audiophile-e-commerce-website.onrender.com",
-  "http://127.0.0.1:5500/",
+  "http://127.0.0.1:5500",
 ];
 
 // const corsOptions = {
