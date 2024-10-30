@@ -35,17 +35,6 @@ const checkoutForm = main.querySelector("#checkout-form");
 const backHomeBtn = document.querySelector(".back-home-btn");
 const cartDialog = document.querySelector("#cartDialog");
 
-cartDialog.addEventListener("click", (e) => {
-  const counterBtn = e.target.closest("button[data-counter-amount]");
-  const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
-  if (counterBtn || removeAllBtn) {
-    // location.reload();
-    document
-      .querySelector(".checkout-summary")
-      .contentWindow.location.reload(true);
-  }
-});
-
 cartItems.replaceChildren();
 
 function showOrderConfirmationDialog(e) {
