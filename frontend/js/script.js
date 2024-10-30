@@ -143,10 +143,10 @@ main.addEventListener("click", async (e) => {
   } else if (addCartBtn) {
     const counterVal = addCartBtn.previousElementSibling.querySelector(
       "span[data-counter-value]"
-    ).dataset.counterValue;
+    );
     const cart = JSON.parse(localStorage.getItem("cart"));
     cart[addCartBtn.dataset.productCart] = {
-      amount: counterVal,
+      amount: counterVal.dataset.counterValue,
       price: addCartBtn.dataset.price,
       image: addCartBtn.dataset.img,
     };
@@ -163,8 +163,11 @@ main.addEventListener("click", async (e) => {
     });
 
     const updateProductAmount = await updateProductAmountResponse.json();
+
     // console.log(updateProductAmount);
     localStorage.setItem("cart", JSON.stringify(cart));
+    counterVal.setAttribute("data-counter-value", 1);
+    counterVal.textContent = 1;
   } else if (returnBtn) {
     returnToPage(e);
   }
