@@ -39,7 +39,10 @@ cartDialog.addEventListener("click", (e) => {
   const counterBtn = e.target.closest("button[data-counter-amount]");
   const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
   if (counterBtn || removeAllBtn) {
-    location.reload();
+    // location.reload();
+    document
+      .querySelector(".checkout-summary")
+      .contentWindow.location.reload(true);
   }
 });
 
@@ -168,6 +171,7 @@ orderConfirmationDialogBtn.addEventListener(
 
 main.addEventListener("input", (e) => {
   const input = e.target.closest("input");
+  console.log("here");
   if (input) {
     if (input.getAttribute("type") !== "radio") {
       const spanError =
