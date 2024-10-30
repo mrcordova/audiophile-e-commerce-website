@@ -7,14 +7,27 @@ const app = express();
 const { createServer } = require("node:http");
 
 require("dotenv").config();
+const allowedOrigins = [
+  "https://audiophile-e-commerce-website.onrender.com",
+  "http://127.0.0.1:5500/",
+];
 
+// const corsOptions = {
+//   origin: "https://audiophile-e-commerce-website.onrender.com",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type"],
+// };
 const corsOptions = {
-  origin: "https://audiophile-e-commerce-website.onrender.com",
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type"],
 };
-
-const allowedOrigins = ["https://audiophile-e-commerce-website.onrender.com"];
 
 const PORT = process.env.PORT || 3000;
 
