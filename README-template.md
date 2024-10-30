@@ -106,6 +106,8 @@ https://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-jav
 https://stackoverflow.com/questions/2616974/limit-length-of-characters-in-a-regular-expression
 https://regex101.com/r/Z7GWSW/1
 
+https://stackoverflow.com/questions/4215737/how-to-convert-an-array-into-an-object
+
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
