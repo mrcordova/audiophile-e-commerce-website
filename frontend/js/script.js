@@ -167,7 +167,7 @@ main.addEventListener("click", async (e) => {
         `HTTP error! Status: ${updateProductAmountResponse.status}`
       );
     }
-    const updateProductAmount = await updateProductAmountResponse.json();
+    // const updateProductAmount = await updateProductAmountResponse.json();
 
     // console.log(updateProductAmount);
     localStorage.setItem("cart", JSON.stringify(cart));

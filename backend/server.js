@@ -57,7 +57,8 @@ app.get("/getData", async (req, res) => {
 app.post("/addProduct", async (req, res) => {
   try {
     const { product, price, amount, image } = req.body;
-    const checkProductQuery = "SELECT 1 FROM `cart` WHERE product = ? LIMIT 1";
+    const checkProductQuery =
+      "SELECT 1 FROM `cart` WHERE `product` = ? LIMIT 1";
 
     const [rows] = await connection.promise().execute({
       sql: checkProductQuery,
