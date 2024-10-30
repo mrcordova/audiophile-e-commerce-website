@@ -162,6 +162,9 @@ main.addEventListener("click", async (e) => {
       }),
     });
 
+    if (!updateProductAmountResponse.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
     const updateProductAmount = await updateProductAmountResponse.json();
 
     // console.log(updateProductAmount);
