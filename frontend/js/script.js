@@ -108,6 +108,7 @@ cartDialog.addEventListener("click", async (e) => {
           headers: { "Content-Type": "application/json" },
         }
       );
+
       // console.log(await deleteProductResponse.json());
       localStorage.setItem("cart", JSON.stringify(newCart));
       priceEle.parentElement.parentElement.remove();
