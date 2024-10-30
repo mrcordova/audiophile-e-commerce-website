@@ -65,7 +65,7 @@ app.post("/addProduct", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.error(error);
-    res.sendStatus(500).json({ error: "database error" });
+    res.status(500).json({ error: "database error" });
   }
 });
 
