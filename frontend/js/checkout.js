@@ -33,6 +33,15 @@ const grandTotal = document.querySelector(
 const main = document.querySelector("main");
 const checkoutForm = main.querySelector("#checkout-form");
 const backHomeBtn = document.querySelector(".back-home-btn");
+const cartDialog = document.querySelector("#cartDialog");
+
+cartDialog.addEventListener("click", (e) => {
+  const counterBtn = e.target.closest("button[data-counter-amount]");
+  const removeAllBtn = e.target.closest("button[data-cart-remove-all]");
+  if (counterBtn || removeAllBtn) {
+    location.reload();
+  }
+});
 
 cartItems.replaceChildren();
 
@@ -156,8 +165,7 @@ orderConfirmationDialogBtn.addEventListener(
   "click",
   showOrderConfirmationDialog
 );
-main.addEventListener("click", (e) => {});
-const eMoneyNumber = document.querySelector("#e-money-number");
+
 main.addEventListener("input", (e) => {
   const input = e.target.closest("input");
   if (input) {
