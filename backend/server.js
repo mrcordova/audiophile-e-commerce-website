@@ -50,7 +50,10 @@ app.get("/getData", async (req, res) => {
     res.json({ data: cartRows });
   } catch (error) {
     console.error(error);
-    res.sendStatus(500).json({ error: "Database error" });
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
   }
 });
 
@@ -102,6 +105,10 @@ app.put("/updateProduct/:productName", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.log(error);
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
   }
 });
 app.delete("/removeProduct/:productName", async (req, res) => {
@@ -115,6 +122,10 @@ app.delete("/removeProduct/:productName", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.log(error);
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
   }
 });
 app.delete("/removeAllProduct", async (req, res) => {
@@ -127,6 +138,10 @@ app.delete("/removeAllProduct", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.log(error);
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
   }
 });
 
