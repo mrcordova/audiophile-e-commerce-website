@@ -44,7 +44,7 @@ main {
 
   align-items: center;
 
-  & .title {
+  & > .title {
     color: var(--white);
 
     padding-block: clamp(7.625rem, calc(3.271rem + 18.575vw), 12.188rem)
