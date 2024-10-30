@@ -64,7 +64,7 @@ app.post("/addProduct", async (req, res) => {
       sql: checkProductQuery,
       values: [product],
     });
-    if (rows.length > 0) {
+    if (rows.length == 0) {
       const productQuery =
         "INSERT INTO `cart`(`product`, `amount`, `price`, `image`) VALUES (?,?,?,?)";
       const [results, fields] = await connection.promise().execute({
