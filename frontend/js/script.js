@@ -99,7 +99,6 @@ cartDialog.addEventListener("click", async (e) => {
     )}`;
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(localStorage.getItem("cart"));
     if (priceEle.dataset.counterValue == "0") {
       const { [itemName]: _, ...newCart } = cart;
       const deleteProductResponse = await fetch(

@@ -33,7 +33,7 @@ const grandTotal = document.querySelector(
 const main = document.querySelector("main");
 const checkoutForm = main.querySelector("#checkout-form");
 const backHomeBtn = document.querySelector(".back-home-btn");
-const cartDialog = document.querySelector("#cartDialog");
+// const cartDialog = document.querySelector("#cartDialog");
 
 cartItems.replaceChildren();
 
