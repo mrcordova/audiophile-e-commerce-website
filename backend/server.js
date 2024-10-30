@@ -65,7 +65,10 @@ app.post("/addProduct", async (req, res) => {
     res.status(201).json({ success: true });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "database error" });
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
   }
 });
 
