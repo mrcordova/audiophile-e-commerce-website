@@ -1033,7 +1033,7 @@ footer {
 
         & summary {
           /* border-top: 1px solid hsl(from var(--black) h s l / 0.08); */
-
+          cursor: pointer;
           list-style: none;
           text-align: center;
           color: hsl(from var(--black) h s l / 0.5);
@@ -1052,6 +1052,7 @@ footer {
           }
 
           & button {
+            cursor: pointer;
             width: 100%;
             border-top: 1px solid hsl(from var(--black) h s l / 0.08);
             padding-block-start: 0.75rem;

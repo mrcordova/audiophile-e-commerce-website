@@ -160,7 +160,7 @@ orderConfirmationDialogBtn.addEventListener(
 
 main.addEventListener("input", (e) => {
   const input = e.target.closest("input");
-  console.log("here");
+  // console.log("here");
   if (input) {
     if (input.getAttribute("type") !== "radio") {
       const spanError =
