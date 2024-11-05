@@ -157,6 +157,10 @@ app.delete("/removeAllProduct", async (req, res) => {
     }
   }
 });
+// Express example
+app.get("/health-check", (req, res) => {
+  res.status(200).json({ message: "Backend is active" });
+});
 
 app.listen(PORT, () => {
   console.log(`example app listening on port ${PORT}`);
