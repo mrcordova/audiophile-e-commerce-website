@@ -48,7 +48,7 @@ let connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
 
-  console.log("Coonected!");
+  console.log("Conected!");
 });
 
 app.use(cors(corsOptions));
