@@ -157,6 +157,8 @@ main.addEventListener("click", async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "bypass-tunnel-reminder": true,
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({
         product: addCartBtn.dataset.productCart,
