@@ -83,8 +83,8 @@ const poolPromise = pool.promise();
 // app.options('*', cors(corsOptions))
 const corsOptions = {
   origin: 'https://audiophile-e-commerce-website.onrender.com', // allow only this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'bypass-tunnel-reminder'], // allowed headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'bypass-tunnel-reminder', "localtunnel-agent-ips"], // allowed headers
   credentials: true // allow cookies to be sent
 };
 
@@ -199,18 +199,17 @@ app.delete("/removeAllProduct", async (req, res) => {
 });
 // Express example
 app.get("/health-check", async (req, res) => {
-  try {
-    const cartQuery = "SELECT 1 FROM cart";
-    const [cartRows] = await poolPromise.query(cartQuery);
 
-    // res.json({ data: cartRows });
-    res.status(200).json({ message: "Backend is active" });
+  try {
+   
+    const cartQuery = "Select 1 from cart LIMIT 1";
+   
+    const [cart] = await poolPromise.query(cartQuery);
+  
+    res.json({ success: true });
+    
   } catch (error) {
     console.error(error);
-    if (!res.headersSent) {
-      // Only send the response if headers have not been sent yet
-      res.status(500).json({ error: "database error" });
-    }
   }
 });
 
