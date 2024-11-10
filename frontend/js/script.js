@@ -156,9 +156,7 @@ main.addEventListener("click", async (e) => {
     const updateProductAmountResponse = await fetch(`${URL}/addProduct`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "bypass-tunnel-reminder": true,
-        'Access-Control-Allow-Origin': '*'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         product: addCartBtn.dataset.productCart,
