@@ -12,7 +12,7 @@ const priceOptions = {
 const URL = "https://audiophile_ecommerce_backend.loca.lt";
 
 if (!("cart" in localStorage)) {
-  const cartResponse = await fetch(`${URL}/getData`);
+  const cartResponse = await fetch(`${URL}/getData`, {headers: {"bypass-tunnel-reminder": true}});
   const cartArray = await cartResponse.json();
   const cart = cartArray.data.reduce(
     (a, v) => ({
