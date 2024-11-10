@@ -29,13 +29,13 @@ const corsOptions = {
   allowedHeaders: ["Content-Type"],
 };
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 let connection = mysql.createConnection({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   typeCast: function (field, next) {
     if (field.type === "NEWDECIMAL") {
