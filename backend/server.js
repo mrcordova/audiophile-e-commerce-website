@@ -26,7 +26,12 @@ const corsOptions = {
     }
   },
   methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization", "bypass-tunnel-reminder"],
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "bypass-tunnel-reminder",
+    "Access-Control-Allow-Origin",
+  ],
 };
 
 const PORT = process.env.PORT || 3001;
@@ -161,8 +166,8 @@ app.delete("/removeAllProduct", async (req, res) => {
 });
 // Express example
 app.get("/health-check", async (req, res) => {
-   try {
-    const cartQuery = "SELECT * FROM cart";
+  try {
+    const cartQuery = "SELECT 1 FROM cart";
     const [cartRows] = await poolPromise.query(cartQuery);
 
     // res.json({ data: cartRows });
