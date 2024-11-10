@@ -12,16 +12,21 @@ const priceOptions = {
 const URL = "https://audiophile-backend.loca.lt";
 
 if (!("cart" in localStorage)) {
-  const cartResponse = await fetch(`${URL}/getData`, {headers: {"bypass-tunnel-reminder": true}});
-  const cartArray = await cartResponse.json();
-  const cart = cartArray.data.reduce(
-    (a, v) => ({
-      ...a,
-      [v.product]: { amount: v.amount, price: v.price, image: v.image },
-    }),
-    {}
-  );
-  localStorage.setItem("cart", JSON.stringify(cart));
+  try {
+    
+    const cartResponse = await fetch(`${URL}/getData`, {headers: {"bypass-tunnel-reminder": true}});
+    const cartArray = await cartResponse.json();
+    const cart = cartArray.data.reduce(
+      (a, v) => ({
+        ...a,
+        [v.product]: { amount: v.amount, price: v.price, image: v.image },
+      }),
+      {}
+    );
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } catch (error) {
+    console.error(error);
+  }
 }
 function checkRange(number, min = 1) {
   let n = Number(number);
