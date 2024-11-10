@@ -26,17 +26,20 @@ const corsOptions = {
     }
   },
   methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ['Content-Type', 'Authorization', 'bypass-tunnel-reminder'],
+  allowedHeaders: ["Content-Type", "Authorization", "bypass-tunnel-reminder"],
 };
 
 const PORT = process.env.PORT || 3001;
 
-let connection = mysql.createConnection({
+const pool = mysql.createPool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
   typeCast: function (field, next) {
     if (field.type === "NEWDECIMAL") {
       return parseFloat(field.string());
@@ -44,21 +47,21 @@ let connection = mysql.createConnection({
     return next();
   },
 });
+const poolPromise = pool.promise();
+// connection.connect(function (err) {
+//   if (err) throw err;
 
-connection.connect(function (err) {
-  if (err) throw err;
+//   console.log("Conected!");
+// });
 
-  console.log("Conected!");
-});
-
-app.use('*', cors(corsOptions));
+app.use("*", cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ type: "*/*" }));
 
 app.get("/getData", async (req, res) => {
   try {
     const cartQuery = "SELECT * FROM cart";
-    const [cartRows] = await connection.promise().execute(cartQuery);
+    const [cartRows] = await poolPromise.query(cartQuery);
 
     res.json({ data: cartRows });
   } catch (error) {
@@ -76,21 +79,21 @@ app.post("/addProduct", async (req, res) => {
     const checkProductQuery =
       "SELECT 1 FROM `cart` WHERE `product` = ? LIMIT 1";
 
-    const [rows] = await connection.promise().execute({
+    const [rows] = await poolPromise.query({
       sql: checkProductQuery,
       values: [product],
     });
     if (rows.length == 0) {
       const productQuery =
         "INSERT INTO `cart`(`product`, `amount`, `price`, `image`) VALUES (?,?,?,?)";
-      const [results, fields] = await connection.promise().execute({
+      const [results, fields] = await poolPromise.query({
         sql: productQuery,
         values: [product, amount, price, image],
       });
     } else {
       const updateProductQuery =
         "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
-      const [results, fields] = await connection.promise().execute({
+      const [results, fields] = await poolPromise.query({
         sql: updateProductQuery,
         values: [amount, price, image, product],
       });
@@ -111,7 +114,7 @@ app.put("/updateProduct/:productName", async (req, res) => {
     const { price, amount, image } = req.body;
     const updateProductQuery =
       "UPDATE `cart` SET `amount` = ?, `price` = ?, `image` = ? WHERE `product` = ? LIMIT 1";
-    const [results, fields] = await connection.promise().execute({
+    const [results, fields] = await poolPromise.query({
       sql: updateProductQuery,
       values: [amount, price, image, product],
     });
@@ -128,9 +131,10 @@ app.delete("/removeProduct/:productName", async (req, res) => {
   try {
     const { productName } = req.params;
     const deleteProductQuery = "DELETE FROM `cart` WHERE `product` = ? LIMIT 1";
-    const [results, fields] = await connection
-      .promise()
-      .execute({ sql: deleteProductQuery, values: [productName] });
+    const [results, fields] = await poolPromise.query({
+      sql: deleteProductQuery,
+      values: [productName],
+    });
 
     res.status(201).json({ success: true });
   } catch (error) {
@@ -144,9 +148,7 @@ app.delete("/removeProduct/:productName", async (req, res) => {
 app.delete("/removeAllProduct", async (req, res) => {
   try {
     const deleteProductQuery = "DELETE FROM cart";
-    const [results, fields] = await connection
-      .promise()
-      .execute(deleteProductQuery);
+    const [results, fields] = await poolPromise.query(deleteProductQuery);
 
     res.status(201).json({ success: true });
   } catch (error) {
@@ -158,8 +160,20 @@ app.delete("/removeAllProduct", async (req, res) => {
   }
 });
 // Express example
-app.get("/health-check", (req, res) => {
-  res.status(200).json({ message: "Backend is active" });
+app.get("/health-check", async (req, res) => {
+   try {
+    const cartQuery = "SELECT * FROM cart";
+    const [cartRows] = await poolPromise.query(cartQuery);
+
+    // res.json({ data: cartRows });
+    res.status(200).json({ message: "Backend is active" });
+  } catch (error) {
+    console.error(error);
+    if (!res.headersSent) {
+      // Only send the response if headers have not been sent yet
+      res.status(500).json({ error: "database error" });
+    }
+  }
 });
 
 app.listen(PORT, () => {
