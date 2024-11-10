@@ -14,7 +14,7 @@ const URL = "https://audiophile-backend.loca.lt";
 if (!("cart" in localStorage)) {
   try {
     
-    const cartResponse = await fetch(`${URL}/getData`, {headers: {"bypass-tunnel-reminder": true, "Access-Control-Allow-Origin": 'https://audiophile-e-commerce-website.onrender.com' }});
+    const cartResponse = await fetch(`${URL}/getData`, {headers: {"bypass-tunnel-reminder": true, "Access-Control-Allow-Origin": 'https://audiophile-e-commerce-website.onrender.com', method: "no-cors" }});
     const cartArray = await cartResponse.json();
     const cart = cartArray.data.reduce(
       (a, v) => ({
