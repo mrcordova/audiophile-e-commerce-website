@@ -9,7 +9,7 @@ const priceOptions = {
   maximumFractionDigits: 2,
 };
 // const URL = "https://audiophile-e-commerce-backend.onrender.com";
-const URL = "https://audiophile-backend.loca.lt";
+const URL = "https://audiophile.noahprojects.work";
 
 if (!("cart" in localStorage)) {
   try {
